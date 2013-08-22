@@ -11126,18 +11126,6 @@ Source: ON Semiconductor .. 4101.pdf</description>
 <wire x1="29.21" y1="180.34" x2="35.56" y2="180.34" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="R1" class="0">
-<segment>
-<pinref part="AVR" gate="G$1" pin="(PSCOUT00/XCK/SS_A)PD0"/>
-<wire x1="137.16" y1="160.02" x2="93.98" y2="160.02" width="0.1524" layer="91"/>
-<label x="106.68" y="160.02" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="IC2" gate="G$1" pin="EN/PWM"/>
-<wire x1="137.16" y1="185.42" x2="144.78" y2="185.42" width="0.1524" layer="91"/>
-<wire x1="144.78" y1="185.42" x2="147.32" y2="187.96" width="0.1524" layer="91"/>
-</segment>
-</net>
 <net name="N$4" class="0">
 <segment>
 <pinref part="AVR" gate="G$1" pin="(ADC1/RXD/DALI/ICP1A/SCK_A)PD4"/>
@@ -11165,22 +11153,10 @@ Source: ON Semiconductor .. 4101.pdf</description>
 <wire x1="45.72" y1="231.14" x2="99.06" y2="231.14" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="B1" class="0">
-<segment>
-<wire x1="137.16" y1="187.96" x2="93.98" y2="187.96" width="0.1524" layer="91"/>
-<label x="106.68" y="182.88" size="1.778" layer="95"/>
-<pinref part="AVR" gate="G$1" pin="(T0/PSCOUT22)PC2"/>
-</segment>
-<segment>
-<wire x1="137.16" y1="213.36" x2="144.78" y2="213.36" width="0.1524" layer="91"/>
-<pinref part="IC1" gate="G$1" pin="EN/PWM"/>
-<wire x1="144.78" y1="213.36" x2="147.32" y2="215.9" width="0.1524" layer="91"/>
-</segment>
-</net>
 <net name="G2" class="0">
 <segment>
 <wire x1="137.16" y1="182.88" x2="93.98" y2="182.88" width="0.1524" layer="91"/>
-<label x="106.68" y="187.96" size="1.778" layer="95"/>
+<label x="106.68" y="182.88" size="1.778" layer="95"/>
 <pinref part="AVR" gate="G$1" pin="(INT3/PSCOUT10)PC0"/>
 </segment>
 <segment>
@@ -11223,17 +11199,6 @@ Source: ON Semiconductor .. 4101.pdf</description>
 <pinref part="GREEN1" gate="G$1" pin="C"/>
 <pinref part="IC2" gate="G$1" pin="LED"/>
 <junction x="167.64" y="185.42"/>
-</segment>
-</net>
-<net name="G1" class="0">
-<segment>
-<pinref part="AVR" gate="G$1" pin="(ADC7/PSCOUT11/ICP1B)PB6"/>
-<wire x1="137.16" y1="220.98" x2="93.98" y2="220.98" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<wire x1="137.16" y1="157.48" x2="144.78" y2="157.48" width="0.1524" layer="91"/>
-<pinref part="IC3" gate="G$1" pin="EN/PWM"/>
-<wire x1="144.78" y1="157.48" x2="147.32" y2="160.02" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$7" class="0">
@@ -11280,6 +11245,7 @@ Source: ON Semiconductor .. 4101.pdf</description>
 <junction x="101.6" y="208.28"/>
 <wire x1="101.6" y1="210.82" x2="104.14" y2="210.82" width="0.1524" layer="91"/>
 <label x="104.14" y="210.82" size="0.8128" layer="95" xref="yes"/>
+<label x="106.68" y="208.28" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="U$7" gate="G$1" pin="MOSI"/>
@@ -11322,6 +11288,42 @@ Source: ON Semiconductor .. 4101.pdf</description>
 <pinref part="IC6" gate="G$1" pin="RSET"/>
 <pinref part="RSET5" gate="G$1" pin="1"/>
 <wire x1="144.78" y1="68.58" x2="147.32" y2="68.58" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="B1" class="0">
+<segment>
+<pinref part="AVR" gate="G$1" pin="(ADC7/PSCOUT11/ICP1B)PB6"/>
+<wire x1="137.16" y1="220.98" x2="93.98" y2="220.98" width="0.1524" layer="91"/>
+<label x="106.68" y="220.98" size="1.778" layer="95"/>
+</segment>
+<segment>
+<wire x1="137.16" y1="157.48" x2="144.78" y2="157.48" width="0.1524" layer="91"/>
+<pinref part="IC3" gate="G$1" pin="EN/PWM"/>
+<wire x1="144.78" y1="157.48" x2="147.32" y2="160.02" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="R1" class="0">
+<segment>
+<wire x1="137.16" y1="187.96" x2="93.98" y2="187.96" width="0.1524" layer="91"/>
+<label x="106.68" y="187.96" size="1.778" layer="95"/>
+<pinref part="AVR" gate="G$1" pin="(T0/PSCOUT22)PC2"/>
+</segment>
+<segment>
+<wire x1="137.16" y1="213.36" x2="144.78" y2="213.36" width="0.1524" layer="91"/>
+<pinref part="IC1" gate="G$1" pin="EN/PWM"/>
+<wire x1="144.78" y1="213.36" x2="147.32" y2="215.9" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="G1" class="0">
+<segment>
+<pinref part="AVR" gate="G$1" pin="(PSCOUT00/XCK/SS_A)PD0"/>
+<wire x1="137.16" y1="160.02" x2="93.98" y2="160.02" width="0.1524" layer="91"/>
+<label x="106.68" y="160.02" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="IC2" gate="G$1" pin="EN/PWM"/>
+<wire x1="137.16" y1="185.42" x2="144.78" y2="185.42" width="0.1524" layer="91"/>
+<wire x1="144.78" y1="185.42" x2="147.32" y2="187.96" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>

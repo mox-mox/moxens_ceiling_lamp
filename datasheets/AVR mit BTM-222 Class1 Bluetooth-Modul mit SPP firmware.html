@@ -1,0 +1,584 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="Description" content="AVR mit BTM-222 Class1 Bluetooth-Modul mit SPP firmware auch für serielle Displays wie eDIP-Displays ">
+<title>AVR mit BTM-222 Class1 Bluetooth-Modul mit SPP firmware</title>
+<style type="text/css">
+<!--
+#left {
+	position:absolute;
+	left:20px;
+	top:20px;
+	width:400px;
+	height:300px;
+	z-index:1;
+}
+#right {
+	position:absolute;
+	left:421px;
+	top:20px;
+	width:400px;
+	height:300px;
+	z-index:2;
+}
+-->
+</style>
+<link href="AVR%20mit%20BTM-222%20Class1%20Bluetooth-Modul%20mit%20SPP%20firmware_files/pp.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+<!--
+.Stil6 {
+	font-size: 16px;
+	font-weight: bold;
+}
+.Stil3 {font-size: 14px;
+	font-weight: bold;
+}
+.Stil1 {font-size: 12px}
+.Stil8 {font-size: 14; font-weight: bold; }
+.Stil20 {color: #000000; line-height: normal;}
+.Stil27 {	color: #0000FF;
+	font-weight: bold;
+}
+-->
+</style>
+<script type="text/javascript" id="sothink_dhtmlmenu"> <!--
+ st_siteroot="file:///E|/Internet/plischka.at";
+ st_jspath="/js/stmenu.js";
+ if(!window.location.href.indexOf("file:") && st_jspath.charAt(0)=="/")
+  document.write('<script type="text/javascript" src="'+st_siteroot+st_jspath+'"><\/script>');
+ else 
+  document.write('<script type="text/javascript" src="'+st_jspath+'"><\/script>');
+//--> </script>
+
+</head>
+
+<body class="Text">
+
+<div align="center">
+  <table border="0" cellpadding="0" cellspacing="0" width="1000">
+    <tbody><tr>
+      <td colspan="2">
+  <script type="text/javascript"> <!--
+ st_siteroot="file:///E|/Internet/plischka.at";
+ st_jspath="/menu.js";
+ if(!window.location.href.indexOf("file:") && st_jspath.charAt(0)=="/")
+  document.write('<script type="text/javascript" src="'+st_siteroot+st_jspath+'"><\/script>');
+ else 
+  document.write('<script type="text/javascript" src="'+st_jspath+'"><\/script>');
+//--> </script>
+        
+      &nbsp;<span class="Stil27">letztes Update: 03.05.2011</span></td>
+    </tr>
+    <tr>
+      <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+      <td colspan="2"><h1 align="center">BTM-222  Bluetooth-Funkmodul</h1></td>
+    </tr>
+    <tr>
+      <td colspan="2"><div align="center"><img src="AVR%20mit%20BTM-222%20Class1%20Bluetooth-Modul%20mit%20SPP%20firmware_files/Linie_rot.jpg" alt="Line" height="4" width="602"></div></td>
+    </tr>
+    <tr>
+      <td colspan="2"><div align="center"><br>
+        <a href="http://plischka.at/images/BTM-222_V2.6_4.jpg"><img src="AVR%20mit%20BTM-222%20Class1%20Bluetooth-Modul%20mit%20SPP%20firmware_files/BTM-222_V2_002.jpg" alt="BTM-222 Basis" height="187" width="300"></a><br>
+        <br>
+        <br>
+        <span class="Stil6">BTM-222 Class1 Bluetooth-Modul</span><br>
+        <br>
+      </div></td>
+    </tr>
+    <tr>
+      <td colspan="2"><div align="center"><img src="AVR%20mit%20BTM-222%20Class1%20Bluetooth-Modul%20mit%20SPP%20firmware_files/Linie_rot.jpg" alt="Line" height="4" width="602"></div></td>
+    </tr>
+    <tr>
+      <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+      <td width="404">&nbsp;</td>
+      <td width="525">&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a href="http://plischka.at/images/BTM-222_V2.6_4.jpg"><img src="AVR%20mit%20BTM-222%20Class1%20Bluetooth-Modul%20mit%20SPP%20firmware_files/BTM-222_V2_002.jpg" alt="BTM-222" height="187" width="300"></a></td>
+      <td>Das BTM-222 Modul auf der doppelseitigen Platine.<br>
+        <br>
+      <span class="Text">Die Baud Rate ist von 4800 Baud bis 460,8 !! Kbps einstellbar</span></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a href="http://plischka.at/images/BTM-222_12.jpg"><img src="AVR%20mit%20BTM-222%20Class1%20Bluetooth-Modul%20mit%20SPP%20firmware_files/BTM-222_12_m.jpg" height="239" width="400"></a></td>
+      <td>Die Bestückungsseite.</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a href="http://plischka.at/images/Basisboard%20BTM-222%20V2.6%20BRD.png"><img src="AVR%20mit%20BTM-222%20Class1%20Bluetooth-Modul%20mit%20SPP%20firmware_files/Basisboard%2520BTM-222%2520V2.png" alt="BTM-222" height="185" width="300"></a></td>
+      <td><a href="http://plischka.at/images/Basisboard%20BTM-222%20V2.6%20Sch.png"><img src="AVR%20mit%20BTM-222%20Class1%20Bluetooth-Modul%20mit%20SPP%20firmware_files/Basisboard%252520BTM-222%252520V2_002.png" alt="BTM-222" height="207" width="300"></a></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td colspan="2"><div align="center">Das Boardlayout und die Schaltung in der Version 2.6<br>
+        <br>
+        <br>
+        Die Ledvorwiderstände sind im Schaltplan mit 1k angegeben.<br>
+        <br>
+        Ich verwende 330 Ohm oder 390 Ohm, sonst sind die Leds zu dunkel.<br>
+        <br>
+      </div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a href="http://plischka.at/images/btm-222_v2.6_3_text.jpg"><img src="AVR%20mit%20BTM-222%20Class1%20Bluetooth-Modul%20mit%20SPP%20firmware_files/btm-222_v2.jpg" alt="BTM-222 Anschlußbelegung" height="225" width="300"></a></td>
+      <td>Die Anschlußbelegung der BTM-222 Basisplatine</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>      Das Verbindungskabel vom BTM-222 Modul zur Navi an SV1 sieht folgendermaßen aus:<br>
+        <br>
+        BTM-222 Modul Pin 1 nach Navi Pin 2 +5V<br>
+        BTM-222 Modul Pin 2 nach Navi Pin 7 GND<br>
+        BTM-222 Modul Pin 3 nach Navi Pin 1 Sendedaten zum Navi<br>
+        BTM-222 Modul Pin 4 nach Navi Pin 9 Empfangsdaten vom Navi</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><img src="AVR%20mit%20BTM-222%20Class1%20Bluetooth-Modul%20mit%20SPP%20firmware_files/USB-to-TTLRS232_1_m.jpg" alt="USB-to-TTL RS232 Converter" height="225" width="300"></td>
+      <td>Der Anschluß der BTM-222 Basisplatine an den PC erfolgt mit dem <a href="http://plischka.at/USB-to-TTLRS232.html">USB-to-TTL RS232 Converter-Modul</a>.<br>
+        <br>
+        Einfach das BT-Modul auf den Converter aufstecken. Die 
+Spannungsversorgung und die serielle Verbing zum PC wird damit 
+hergestellt.<br>
+        <br>
+        Auf dem MK muß natürlich auch eine BTM-222 Basisplatine eingebaut sein.<br>
+        <br>
+        Im Koptertool die entsprechende serielle Schnittstelle auswählen. Wieder fertig.<br>
+        <br>
+        Nun lassen sich im Koptertool die Parameter beobachten, die 
+Settings speichern und lesen und die MK Platinen auch flashen.<br>
+        <br>
+      (das Bild zeigt noch Stiftleisten, das Modul hat aber eine 4 pol. Buchsenleiste)</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a href="http://plischka.at/images/USB-to-TTL-RS232-Converter_V2.1_3.jpg"><img src="AVR%20mit%20BTM-222%20Class1%20Bluetooth-Modul%20mit%20SPP%20firmware_files/USB-to-TTL-RS232-Converter_V2.jpg" height="161" width="400"></a></td>
+      <td>Die BTM-222 Basisplatine mit dem <span class="Stil20"><a href="http://plischka.at/USB-to-TTLRS232.html">USB to TTL RS232 Modul</a></span> verbunden</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td colspan="2"><div align="center"><img src="AVR%20mit%20BTM-222%20Class1%20Bluetooth-Modul%20mit%20SPP%20firmware_files/Linie_rot.jpg" alt="Line" height="4" width="602"></div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a href="http://plischka.at/images/BTM-222_V2.8_1_text.jpg"><img src="AVR%20mit%20BTM-222%20Class1%20Bluetooth-Modul%20mit%20SPP%20firmware_files/BTM-222_V2.jpg" height="244" width="400"></a></td>
+      <td><span class="Stil8"><span class="Stil27">01.12.2009</span><br>
+        <br>
+        Rev. 3 </span><br>
+        <br>
+        Das bewährte BTM-222 Basis Modul gibt es jetzt in der Rev. 3
+        Version 2.8.<br>
+  <br>
+      Eigentlich ist alles beim alten geblieben, die Platine ist noch 
+etwas kleiner geworden und die Anordnung der Bauteile hat sich geändert.
+ Die grüne Led für die Anzeige der Versorgungsspannung gibt es nicht 
+mehr.</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a href="http://plischka.at/images/BTM-222_Basis_V2.8_BRD.png"><img src="AVR%20mit%20BTM-222%20Class1%20Bluetooth-Modul%20mit%20SPP%20firmware_files/BTM-222_Basis_V2.jpg" height="212" width="400"></a></td>
+      <td><a href="http://plischka.at/images/BTM-222_Basis_V2.9_SCH.png"><img src="AVR%20mit%20BTM-222%20Class1%20Bluetooth-Modul%20mit%20SPP%20firmware_files/BTM-222_Basis_V2_002.jpg" height="257" width="400"></a></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td colspan="2"><div align="center">Das Boardlayout und die Schaltung in der Version 2.8<br>
+      </div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td colspan="2"><span class="font-size_16">Hier einige technische Details:</span><br>
+        <br>
+  <br>
+        Das BTM-222 Bluetoothmodul der Firma Rayson ist ein <strong>Class1 Modul</strong> mit einer Leistung von +18dBm - mehr Leistung geht nicht. <br>
+        Es unterstützt die Bluetooth Ver. 2.0+EDR certification und kennt die Powermodes: Hold, Sniff, Park, Deep sleep mode.<br>
+        <br>
+        Das Modul braucht eine Versorgungsspannung von 3.0V bis 3,6V. 
+Keinesfalls darf das Modul an eine Spannung von 5V angeschlossen werden,
+ auch die RX und TX Leitungen dürfen nicht mehr als 3,6V haben. Das 
+Modul kann mit der vollen Bluetooth Data rate über UART und USB 
+betrieben werden. Als Interface stehen USB, UART&amp;PCM( for voice 
+codec) zur Verfügung. Die Maße betragen: 28.2 X 15.0 X 2.8 mm<br>
+        <br>
+        Aber der Leckerbissen ist: <strong>SPP firmware with AT commands</strong>
+ Genau das ist die interessanteste Betriebsart. Damit arbeiten zwei 
+BT-Module als RS-232 Kabelersatz. Überall wo ich eine serielle 
+Verbindung habe, kann ich diese durch eine Bluetoothverbindung ersetzen,
+ und Entfernungen von  mehreren 100m überbrücken.<br>
+        <br>
+        Der große Vorteil gegenüber einem Funkmodulen wie dem RFM12 ist,
+ man braucht sich nicht um irgendwelche Protokolle oder Handshake und 
+Checksummen zu kümmern. Das macht das Modul für sich, die 
+Datenübertragung klappt immer fehlerfrei und wenn nicht, ist die 
+Entfernung einfach zu groß.<br>
+        <br>
+        Die BTM-222 Trägerplatine wird mit handelsüblichen 5V versorgt, 
+die 5V einer USB-Verbindung eignen sich dafür hervorragend.<br>
+        Zum Schutz der Ein- und Ausgänge des wertvollen BT-Moduls ist 
+ein zweifach Inverter vorgeschaltet, der RX-Pin bekommt seine 3V über 
+Levelshifterwiderstände. <br>
+        <br>
+        Das Modul ist etwas kritisch zu löten, die Masseverbindungen 
+brauchen eine große Lötspitze, mit der SMD-Spitze heizt man das Modul 
+nur unnütz auf. Der Rest kann wieder mit der SMD-Spitze gelötet werden.<br>
+        <br>
+        LED1 gelb an PIO7 ist an bei bestehender Verbindung <br>
+        LED2 grün an PIO5 ist an wenn Daten übertragen werden<br>
+        LED3 rot an LM1117 leuchtet bei vorhandener Versorgungsspannung (optional)<br>
+        <br>
+        Die Anschlüsse der Platine sind: GND, +5V, RX, TX, mehr braucht man nicht.<br>
+        Ich benutze die BT-Module nur im SPP (Serial Port Profile) 
+Modus. Ein Modul wird als Master, das andere als Slave konfiguriert.<br>
+        Nach dem Einschalten der Module, finden und verbinden sich diese
+ und man kann sofort Daten übertragen. Einfacher gehts nicht mehr.<br>
+        <br>
+        Man kann auch das BTM-222 Modul über die SerCon (das ist ein 
+RS232/TTL-Wandler aus dem MikroKopterbereich) an den PC anschließen. Es 
+muß dann noch mit 5V Spannung versorgt werden. Bei Verwendung des MK-USB<span class="Text"> ist keine seperate Versorgungsspannung erforderlich, das MK-USB liefert die erforderlichen 5V.</span><span class="Stil8"><br>
+          <br>
+        </span><span class="Stil6">Achtung:</span><br>
+        <br>
+        <span class="Stil3">Keinesfalls darf man die Platine oder das 
+Modul direkt mit der seriellen Schnittstelle (Comport) des PCs 
+verbinden. Dort herscht echter RS-232 Pegel mit +- 12V. Eine sofortige 
+Zerstörung des Moduls wäre die Folge.<br>
+        </span><br>
+        Natürlich kann am als Gegenstelle jeden handelsüblichen PC USB 
+BT-Dongle verwenden oder eine Verbindung mit dem BT-Handy oder PDA 
+herstellen.<br>
+        <br>
+        In meinem <strong>MikroKopter</strong> habe ich ein  als Slave 
+konfiguriertes Modul eingesetzt. Bin ich in meiner Werkstatt verbindet 
+sich der MK sofort mit dem Mastermodul, welches am MikroKoptertool am PC
+ hängt. Auf dem Flugfeld benutze ich mein Nokia 6230i oder mein Sony 
+W910i mit dem Programm DUBWISE um den MK zu parametrieren  zu steuern 
+oder einen Motortest zu machen.<br>
+        <br>
+        <span class="Text Stil10"><strong>Sehr vorteilhaft ist die 
+Bluetoothverbindung wenn man im GPS Bereich etwas ausprobieren möchte. 
+Man stellt den MK einfach nach draußen und kann sich in der Werkstatt 
+mit dem Koptertool aufschalten und sich die entsprechenden Werte ansehen
+ sowie Konfigurationen laden und Parameter verändern.<br>
+          Natürlich geht auch ein Fimwareupdate des MKs perfekt und schnell über BT.</strong></span><br>
+        <br>
+        Alle Einstellungen werden über ein Terminalprogramm mit dem 
+Hayes Befehlssatz (AT Befehle) gemacht. Die Einstellungen bleiben 
+permanent, auch ohne Versorgungsspannung. Alle Befehle sind im 
+Datenblatt ausführlich dokumentiert.<br>
+        <br>
+        Die AT-Befehle um eine Verbindung vom MK zum Rechner herzustellen sind:<br>
+        <br>
+        <p class="Text Stil10"><em><strong>Für das MikroKopter-Modul:</strong></em><br>
+          ATE0 Echo Aus<br>
+          ATR1 Device ist Slave<br>
+          ATL4 57600 Baud<br>
+          ATQ1 Rückmeldungen ausschalten (Die FlightCtrl könnte durch 
+einen falsch interpretierten Befehl während des Fluges einen Reset 
+auslösen.)</p>
+        <p class="Text Stil10"><em><strong>Für das PC-Modul:</strong></em><br>
+          ATE0 Echo Aus<br>
+          ATR0 Device ist Master<br>
+          ATL4 57600 Baud<br>
+          <br>
+          Der PC connected automatisch wenn das MK-Modul eingeschaltet ist<br>
+        </p>
+        <p class="Text Stil10">ATZ0 setzt das Modul wieder in den Grundzustand und auf 19200 bps zurück.<br>
+          ATZ1 setzt das Modul wieder in den Grundzustand und auf 9600 bps zurück. <br>
+          <br>
+          Das BTM-222 im Einsatz auf meinem MikroKopter ist <a href="http://plischka.at/MK01.html#BTM222">hier (klick mich)</a> zu sehen.<br>
+        </p>
+        <p class="Text Stil10"> Das BTM-222 funktioniert mit der FlightCtrl alleine oder in Kombinatition mit dem MM3 oder der Navi-Ctrl und dem MK3Mag.<br>
+          Es läßt sich auch pinkompatible an den Debugport der Navi-Ctrl
+ anschließen. Dort stehen über das Koptertool recht interessante 
+Informationen zur Verfügung.<br>
+          <br>
+          <strong><em>Update:</em><br>
+            Ab der MikroKopterversion vom 18.12.2008 (NaviCtrl V0.12i
+            - FlightCtrl V0.71h
+            - MK3Mag V0.21b
+            - MikroKopter-Tool V1.58) 
+            ist der serielle Zugriff und Update auf FC, MK3Mag und GPS 
+durch die Debug-Schnittstelle des Naviboards möglich.(d.h. kein 
+Umstecken mehr notwendig)
+            Zwischen FC und NC kann man auch im Flug umschalten, um 
+Daten zu betrachen.</strong><br>
+          <br>
+          <strong>Das BTM-222 funktioniert auch mit dem ARM-o-Kopter 
+einwandfrei. Die Setupparameter können betrachtet und verändert werden, 
+Settings können geladen und gespeichert werden, ebenso läßt sich der 
+ARM7 flashen. Natürlich muß die Baudrate auf 38400 Baud eingestellt 
+sein.<br>
+          </strong><br>
+          Ansonsten läßt sich das Modul auch sehr gut für die 
+"Remote-Anbindung" eines seriellen Displays z.B. ein eDIP-Display 
+verwenden oder immer dort, wo ein serielles Kabel durch eine Funkstrecke
+ ersetzt werden soll.<br>
+        </p></td>
+    </tr>
+    <tr>
+      <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+      <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td colspan="2"><div align="center"><img src="AVR%20mit%20BTM-222%20Class1%20Bluetooth-Modul%20mit%20SPP%20firmware_files/Linie_rot.jpg" alt="Linie" height="4" width="602"></div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td colspan="2"><p class="Stil3">Hersteller:<br>
+        <br>
+        <a href="http://www.rayson.com/" target="_blank">Rayson</a><br>
+        <br>
+        <br>
+        Download der Datenblätter:<br>
+        <br> 
+        <a href="http://plischka.at/Files/btm222_datasheet.pdf" target="_blank">BTM-222 Datasheet</a></p>
+      <p class="Stil3">&nbsp;</p></td>
+    </tr>
+    <tr>
+      <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+      <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+      <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+      <td colspan="2"><div align="center"><img src="AVR%20mit%20BTM-222%20Class1%20Bluetooth-Modul%20mit%20SPP%20firmware_files/Linie_rot.jpg" alt="Linie" height="4" width="602"></div></td>
+    </tr>
+    <tr>
+      <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+      <td colspan="2">So fing es an: Eine einseitige selbstgefertigte Platine</td>
+    </tr>
+    <tr>
+      <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a href="http://plischka.at/images/BTM-222_V1.5_1.jpg"><img src="AVR%20mit%20BTM-222%20Class1%20Bluetooth-Modul%20mit%20SPP%20firmware_files/BTM-222_V1.jpg" alt="BTM-222 Bluetooth-Funkmodul" height="217" width="300"></a></td>
+      <td><a href="http://plischka.at/images/BTM-222_10.jpg"><img src="AVR%20mit%20BTM-222%20Class1%20Bluetooth-Modul%20mit%20SPP%20firmware_files/BTM-222_10_m.jpg" alt="BTM-222" height="225" width="300"></a></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a href="http://plischka.at/images/BTM-222%20V1.8%20unb-%20Platine.jpg"><img src="AVR%20mit%20BTM-222%20Class1%20Bluetooth-Modul%20mit%20SPP%20firmware_files/BTM-222%2520V1.jpg" alt="BTM-222 unb. Platine" height="225" width="300"></a></td>
+      <td>Oben: Die bestückte BT-Platine V1.8<br>
+        <br>
+        Links: Die unbestückte BT-Platine</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a href="http://plischka.at/images/BTM-222_10_Text.jpg"><img src="AVR%20mit%20BTM-222%20Class1%20Bluetooth-Modul%20mit%20SPP%20firmware_files/BTM-222_10_Text_m.jpg" alt="BTM-222 Anschlüsse" height="215" width="300"></a></td>
+      <td><p class="Stil1">Die Anschlußbelegung der Bluetooth-Platine<br>
+        Als Antenne dient ein 5,5 cm langer Draht<br>
+        Das Modul ist auf 57600 Baud eingestellt</p>
+        <p class="Stil1">Die Baud Rate ist von 4800 Baud bis 460,8 !! Kbps einstellbar</p></td>
+    </tr>
+    <tr>
+      <td><br></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><div align="center"><a href="http://plischka.at/images/BTM-222_Basis_V1.8%20Sch.png"><img src="AVR%20mit%20BTM-222%20Class1%20Bluetooth-Modul%20mit%20SPP%20firmware_files/BTM-222_Basis_V1.png" alt="BTM-222 Schaltung" height="438" width="300"></a></div></td>
+      <td>Die Schaltung der BTM-222 Platine</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a href="http://plischka.at/images/BTM-222_Basis_V1.8_BRD.png"><img src="AVR%20mit%20BTM-222%20Class1%20Bluetooth-Modul%20mit%20SPP%20firmware_files/BTM-222_Basis_V1_002.png" alt="BTM-222 Board" height="383" width="300"></a></td>
+      <td>Das Board</td>
+    </tr>
+    <tr>
+      <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+      <td><div align="center"><img src="AVR%20mit%20BTM-222%20Class1%20Bluetooth-Modul%20mit%20SPP%20firmware_files/BTM-222%2520offen.jpg" alt="BTM-222 offen" height="331" width="187"></div></td>
+      <td><img src="AVR%20mit%20BTM-222%20Class1%20Bluetooth-Modul%20mit%20SPP%20firmware_files/BTM-222%2520Modul.jpg" alt="BTM-222 Modul" height="300" width="400"></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><div align="center">Das BTM-222 von innen</div></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a name="btm222v18" id="btm222v18"></a></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a href="http://plischka.at/images/btm-222_v1.8.jpg"><img src="AVR%20mit%20BTM-222%20Class1%20Bluetooth-Modul%20mit%20SPP%20firmware_files/btm-222_v1.jpg" alt="BTM-222 v1.8" height="225" width="300"></a></td>
+      <td>Das BTM-222 Modul in der V1.9</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><a href="http://plischka.at/images/BTM-222-Wannenstecker_02.jpg"><img src="AVR%20mit%20BTM-222%20Class1%20Bluetooth-Modul%20mit%20SPP%20firmware_files/BTM-222-Wannenstecker_02_m.jpg" alt="BTM-222 mit Wannenstecker" height="250" width="300"></a></td>
+      <td><strong>Das BTM-222 Modul am MikroKopter angeschlossen:</strong><br>
+        <br>
+        Hier sieht man links oben den WSL 10SK Wannenstecker, 10-polig 
+(FA. Reichelt) in Schneidklemmtechnik. Er stellt den Erweiterungsport 
+SV1 der FlightCtrl zur weiteren Verwendung zur Verfügung.<br>
+        <br>
+        Dort wird die SerCon oder das Bluetoothmodul angeschlossen. Wenn
+ man auf die Stifte des Wannensteckers sieht, ist Pin1 oben rechts, Pin2
+ darunter.<br>
+        <br>
+        Die Verbindungen von SV1 (jetzt der Wannenstecker) zum BT-Modul:<br>
+        <br>
+        Pin 1 RXD von SV1 nach BTM-222 TxD<br>
+        Pin 9 TXD von SV1 nach BTM-222 RxD<br>
+        Pin 2 +5V von SV1 nach BTM-222 +5V<br>
+        Pin 7 GND von SV1 nach BTM-222 GND<br>
+        <br>
+        Ab der MK Version vom 18.12.2008 wird das BTM-222 Modul über die
+ Debugschnittstelle des Navi-Boards angeschlossen. Alle MK Platinen sind
+ über das Navi-Board erreichbar. (bis auf die Regler)</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td colspan="2"><div align="center"><br>
+        <!-- BEGIN ModellflugTipps.de TOPLINKS Code -->
+        
+        <a href="http://www.modellflugtipps.de/toplinks/toplinks.php?id=1698" target="_blank">
+          
+          <img src="AVR%20mit%20BTM-222%20Class1%20Bluetooth-Modul%20mit%20SPP%20firmware_files/image.jpe" border="0" hspace="0" vspace="0">
+          
+          </a>
+        
+        <!-- END ModellflugTipps.de TOPLINKS Code -->
+      &nbsp;</div></td>
+    </tr>
+  </tbody></table>
+</div>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp;</p>
+
+
+</body></html>
