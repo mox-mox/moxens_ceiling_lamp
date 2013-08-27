@@ -17551,8 +17551,8 @@ www.irf.com&lt;p&gt;
 <wire x1="-1.4224" y1="-0.6604" x2="-1.4224" y2="0.6604" width="0.1524" layer="51"/>
 <wire x1="-1.4224" y1="0.6604" x2="1.4224" y2="0.6604" width="0.1524" layer="51"/>
 <smd name="3" x="0" y="1.1" dx="1" dy="1.4" layer="1"/>
-<smd name="2" x="0.95" y="-1.1" dx="1" dy="1.4" layer="1"/>
-<smd name="1" x="-0.95" y="-1.1" dx="1" dy="1.4" layer="1"/>
+<smd name="2" x="0.95" y="-1.1" dx="0.8" dy="1.4" layer="1"/>
+<smd name="1" x="-0.95" y="-1.1" dx="0.8" dy="1.4" layer="1"/>
 <text x="-1.905" y="1.905" size="1.27" layer="25">&gt;NAME</text>
 <text x="-1.905" y="-3.175" size="1.27" layer="27">&gt;VALUE</text>
 <rectangle x1="-0.2286" y1="0.7112" x2="0.2286" y2="1.2954" layer="51"/>
@@ -18071,7 +18071,7 @@ www.irf.com&lt;p&gt;
 <part name="GND5" library="supply1" deviceset="GND" device=""/>
 <part name="P+8" library="supply1" deviceset="+5V" device=""/>
 <part name="GND11" library="supply1" deviceset="GND" device=""/>
-<part name="JP1" library="pinhead-1" deviceset="PINHD-1X3" device="_2.54-SMD-90°"/>
+<part name="SENSOR_CONNECT" library="pinhead-1" deviceset="PINHD-1X3" device="_2.54-SMD-90°"/>
 <part name="C" library="lampe" deviceset="SUPERCAP" device="PANASONIC_SG_TERMINAL_H" value="1F/5.5V"/>
 <part name="Q2" library="transistor-small-signal" deviceset="AP2305BGN-HF-3" device=""/>
 <part name="IC6" library="74xx-eu" deviceset="74*14" device="D" technology="HC"/>
@@ -18421,18 +18421,20 @@ www.irf.com&lt;p&gt;
 <instance part="P+8" gate="1" x="147.32" y="215.9" smashed="yes">
 <attribute name="VALUE" x="147.32" y="215.9" size="1.778" layer="96"/>
 </instance>
-<instance part="GND11" gate="1" x="147.32" y="195.58"/>
-<instance part="JP1" gate="A" x="157.48" y="200.66" smashed="yes">
-<attribute name="NAME" x="154.94" y="193.04" size="1.778" layer="95"/>
+<instance part="GND11" gate="1" x="147.32" y="195.58" smashed="yes">
+<attribute name="VALUE" x="139.7" y="196.342" size="1.778" layer="96"/>
+</instance>
+<instance part="SENSOR_CONNECT" gate="A" x="157.48" y="200.66" smashed="yes">
+<attribute name="NAME" x="139.7" y="193.04" size="1.778" layer="95"/>
 <attribute name="VALUE" x="151.13" y="193.04" size="1.778" layer="96"/>
 </instance>
 <instance part="C" gate="G$1" x="22.86" y="142.24" smashed="yes" rot="R270">
 <attribute name="NAME" x="2.54" y="142.24" size="1.778" layer="95"/>
 <attribute name="VALUE" x="10.16" y="142.24" size="1.778" layer="96"/>
 </instance>
-<instance part="Q2" gate="G$1" x="147.32" y="208.28" smashed="yes" rot="MR180">
-<attribute name="NAME" x="149.86" y="213.36" size="1.778" layer="95" rot="MR180"/>
-<attribute name="VALUE" x="149.86" y="210.82" size="1.778" layer="96" rot="MR180"/>
+<instance part="Q2" gate="G$1" x="147.32" y="208.28" smashed="yes">
+<attribute name="NAME" x="149.86" y="203.2" size="1.778" layer="95"/>
+<attribute name="VALUE" x="149.86" y="205.74" size="1.778" layer="96"/>
 </instance>
 <instance part="IC6" gate="A" x="55.88" y="233.68"/>
 <instance part="IC6" gate="B" x="83.82" y="233.68"/>
@@ -18454,7 +18456,7 @@ www.irf.com&lt;p&gt;
 <instance part="CS1" gate="G$1" x="154.94" y="233.68"/>
 <instance part="P+11" gate="1" x="55.88" y="215.9"/>
 <instance part="P+12" gate="1" x="167.64" y="195.58" smashed="yes">
-<attribute name="VALUE" x="162.56" y="193.04" size="1.778" layer="96"/>
+<attribute name="VALUE" x="170.18" y="193.04" size="1.778" layer="96"/>
 </instance>
 <instance part="P+13" gate="1" x="27.94" y="172.72" smashed="yes">
 <attribute name="VALUE" x="26.67" y="173.99" size="1.778" layer="96"/>
@@ -18620,7 +18622,7 @@ www.irf.com&lt;p&gt;
 <pinref part="P+1" gate="1" pin="+5V"/>
 </segment>
 <segment>
-<pinref part="Q2" gate="G$1" pin="D"/>
+<pinref part="Q2" gate="G$1" pin="S"/>
 <pinref part="P+8" gate="1" pin="+5V"/>
 </segment>
 </net>
@@ -18718,7 +18720,7 @@ www.irf.com&lt;p&gt;
 </segment>
 <segment>
 <pinref part="GND11" gate="1" pin="GND"/>
-<pinref part="JP1" gate="A" pin="3"/>
+<pinref part="SENSOR_CONNECT" gate="A" pin="3"/>
 <wire x1="147.32" y1="198.12" x2="154.94" y2="198.12" width="0.1524" layer="91"/>
 </segment>
 </net>
@@ -19278,7 +19280,7 @@ www.irf.com&lt;p&gt;
 </net>
 <net name="FREQ_IN" class="0">
 <segment>
-<pinref part="JP1" gate="A" pin="2"/>
+<pinref part="SENSOR_CONNECT" gate="A" pin="2"/>
 <wire x1="139.7" y1="200.66" x2="154.94" y2="200.66" width="0.1524" layer="91"/>
 <label x="133.096" y="200.66" size="0.8128" layer="95" xref="yes"/>
 </segment>
@@ -19286,13 +19288,6 @@ www.irf.com&lt;p&gt;
 <pinref part="AVR" gate="G$1" pin="(T1/PSCOUT23)PC3"/>
 <wire x1="93.98" y1="162.56" x2="96.52" y2="162.56" width="0.1524" layer="91"/>
 <label x="96.52" y="162.56" size="0.8128" layer="95" xref="yes"/>
-</segment>
-</net>
-<net name="N$32" class="0">
-<segment>
-<pinref part="Q2" gate="G$1" pin="S"/>
-<pinref part="JP1" gate="A" pin="1"/>
-<wire x1="147.32" y1="203.2" x2="154.94" y2="203.2" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="S_PWR" class="0">
@@ -19303,8 +19298,8 @@ www.irf.com&lt;p&gt;
 </segment>
 <segment>
 <pinref part="Q2" gate="G$1" pin="G"/>
-<wire x1="139.7" y1="205.74" x2="142.24" y2="205.74" width="0.1524" layer="91"/>
-<label x="139.7" y="205.74" size="0.8128" layer="95" rot="R180" xref="yes"/>
+<wire x1="139.7" y1="210.82" x2="142.24" y2="210.82" width="0.1524" layer="91"/>
+<label x="139.7" y="210.82" size="0.8128" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="N$33" class="0">
@@ -19437,6 +19432,13 @@ www.irf.com&lt;p&gt;
 <segment>
 <pinref part="IC7" gate="G$1" pin="ADJ"/>
 <pinref part="Q4" gate="G$1" pin="D"/>
+</segment>
+</net>
+<net name="N$31" class="0">
+<segment>
+<pinref part="SENSOR_CONNECT" gate="A" pin="1"/>
+<pinref part="Q2" gate="G$1" pin="D"/>
+<wire x1="154.94" y1="203.2" x2="147.32" y2="203.2" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
