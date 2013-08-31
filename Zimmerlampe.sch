@@ -18009,61 +18009,61 @@ www.irf.com&lt;p&gt;
 <part name="AGND15" library="supply1" deviceset="AGND" device=""/>
 <part name="IC7" library="Labor" deviceset="ZXLD1360" device="" value="ZXLD1360"/>
 <part name="D_OUT1" library="diode" deviceset="DIODE-" device="DO214AA" value="SK16"/>
-<part name="RS" library="rcl_no_thermals" deviceset="R-EU_" device="R0805" value="307m"/>
+<part name="RS" library="rcl_no_thermals" deviceset="R-EU_" device="R0805" value="286m"/>
 <part name="AGND16" library="supply1" deviceset="AGND" device=""/>
 <part name="CI" library="rcl_no_thermals" deviceset="C-EU" device="C1210" value="10µF/50V"/>
 <part name="C_LAMP" library="rcl_no_thermals" deviceset="C-EU" device="C0805" value="1µF"/>
-<part name="L1" library="lampe" deviceset="FERROCORE_POWER_INDUCTOR" device="DER0705" value="68µF"/>
+<part name="L1" library="lampe" deviceset="FERROCORE_POWER_INDUCTOR" device="DER0705" value="100µF"/>
 <part name="AGND1" library="supply1" deviceset="AGND" device=""/>
 <part name="GREEN1" library="led" deviceset="LED" device="5MM" value="350mA/18,0..21.6V"/>
 <part name="P+2" library="supply1" deviceset="+24V" device="" value="+24V"/>
 <part name="IC1" library="Labor" deviceset="ZXLD1360" device="" value="ZXLD1360"/>
 <part name="D_OUT2" library="diode" deviceset="DIODE-" device="DO214AA" value="SK16"/>
-<part name="RS1" library="rcl_no_thermals" deviceset="R-EU_" device="R0805" value="307m"/>
+<part name="RS1" library="rcl_no_thermals" deviceset="R-EU_" device="R0805" value="286m"/>
 <part name="AGND2" library="supply1" deviceset="AGND" device=""/>
 <part name="CI1" library="rcl_no_thermals" deviceset="C-EU" device="C1210" value="10µF/50V"/>
 <part name="C_LAMP1" library="rcl_no_thermals" deviceset="C-EU" device="C0805" value="1µF"/>
-<part name="L2" library="lampe" deviceset="FERROCORE_POWER_INDUCTOR" device="DER0705" value="68µF"/>
+<part name="L2" library="lampe" deviceset="FERROCORE_POWER_INDUCTOR" device="DER0705" value="100µF"/>
 <part name="AGND3" library="supply1" deviceset="AGND" device=""/>
 <part name="BLUE1" library="led" deviceset="LED" device="5MM" value="350mA/18,0..21.6V"/>
 <part name="P+4" library="supply1" deviceset="+24V" device="" value="+24V"/>
 <part name="IC2" library="Labor" deviceset="ZXLD1360" device="" value="ZXLD1360"/>
 <part name="D_OUT3" library="diode" deviceset="DIODE-" device="DO214AA" value="SK16"/>
-<part name="RS2" library="rcl_no_thermals" deviceset="R-EU_" device="R0805" value="307m"/>
+<part name="RS2" library="rcl_no_thermals" deviceset="R-EU_" device="R0805" value="286m"/>
 <part name="AGND4" library="supply1" deviceset="AGND" device=""/>
 <part name="CI2" library="rcl_no_thermals" deviceset="C-EU" device="C1210" value="10µF/50V"/>
 <part name="C_LAMP2" library="rcl_no_thermals" deviceset="C-EU" device="C0805" value="1µF"/>
-<part name="L3" library="lampe" deviceset="FERROCORE_POWER_INDUCTOR" device="DER0705" value="68µF"/>
+<part name="L3" library="lampe" deviceset="FERROCORE_POWER_INDUCTOR" device="DER0705" value="100µF"/>
 <part name="AGND5" library="supply1" deviceset="AGND" device=""/>
 <part name="RED2" library="led" deviceset="LED" device="5MM" value="350mA/12,0..15.6V"/>
 <part name="P+5" library="supply1" deviceset="+24V" device="" value="+24V"/>
 <part name="IC3" library="Labor" deviceset="ZXLD1360" device="" value="ZXLD1360"/>
 <part name="D_OUT4" library="diode" deviceset="DIODE-" device="DO214AA" value="SK16"/>
-<part name="RS3" library="rcl_no_thermals" deviceset="R-EU_" device="R0805" value="307m"/>
+<part name="RS3" library="rcl_no_thermals" deviceset="R-EU_" device="R0805" value="286m"/>
 <part name="AGND6" library="supply1" deviceset="AGND" device=""/>
 <part name="CI3" library="rcl_no_thermals" deviceset="C-EU" device="C1210" value="10µF/50V"/>
 <part name="C_LAMP3" library="rcl_no_thermals" deviceset="C-EU" device="C0805" value="1µF"/>
-<part name="L4" library="lampe" deviceset="FERROCORE_POWER_INDUCTOR" device="DER0705" value="68µF"/>
+<part name="L4" library="lampe" deviceset="FERROCORE_POWER_INDUCTOR" device="DER0705" value="100µF"/>
 <part name="AGND7" library="supply1" deviceset="AGND" device=""/>
 <part name="GREEN2" library="led" deviceset="LED" device="5MM" value="350mA/18,0..21.6V"/>
 <part name="P+6" library="supply1" deviceset="+24V" device="" value="+24V"/>
 <part name="IC4" library="Labor" deviceset="ZXLD1360" device="" value="ZXLD1360"/>
 <part name="D_OUT5" library="diode" deviceset="DIODE-" device="DO214AA" value="SK16"/>
-<part name="RS4" library="rcl_no_thermals" deviceset="R-EU_" device="R0805" value="307m"/>
+<part name="RS4" library="rcl_no_thermals" deviceset="R-EU_" device="R0805" value="286m"/>
 <part name="AGND8" library="supply1" deviceset="AGND" device=""/>
 <part name="CI4" library="rcl_no_thermals" deviceset="C-EU" device="C1210" value="10µF/50V"/>
 <part name="C_LAMP4" library="rcl_no_thermals" deviceset="C-EU" device="C0805" value="1µF"/>
-<part name="L5" library="lampe" deviceset="FERROCORE_POWER_INDUCTOR" device="DER0705" value="68µF"/>
+<part name="L5" library="lampe" deviceset="FERROCORE_POWER_INDUCTOR" device="DER0705" value="100µF"/>
 <part name="AGND10" library="supply1" deviceset="AGND" device=""/>
 <part name="BLUE2" library="led" deviceset="LED" device="5MM" value="350mA/18,0..21.6V"/>
 <part name="P+7" library="supply1" deviceset="+24V" device="" value="+24V"/>
 <part name="IC5" library="Labor" deviceset="ZXLD1360" device="" value="ZXLD1360"/>
 <part name="D_OUT6" library="diode" deviceset="DIODE-" device="DO214AA" value="SK16"/>
-<part name="RS5" library="rcl_no_thermals" deviceset="R-EU_" device="R0805" value="307m"/>
+<part name="RS5" library="rcl_no_thermals" deviceset="R-EU_" device="R0805" value="286m"/>
 <part name="AGND11" library="supply1" deviceset="AGND" device=""/>
 <part name="CI5" library="rcl_no_thermals" deviceset="C-EU" device="C1210" value="10µF/50V"/>
 <part name="C_LAMP5" library="rcl_no_thermals" deviceset="C-EU" device="C0805" value="1µF"/>
-<part name="L6" library="lampe" deviceset="FERROCORE_POWER_INDUCTOR" device="DER0705" value="68µF"/>
+<part name="L6" library="lampe" deviceset="FERROCORE_POWER_INDUCTOR" device="DER0705" value="100µF"/>
 <part name="AGND12" library="supply1" deviceset="AGND" device=""/>
 <part name="C1" library="rcl" deviceset="C-EU" device="C0805" value="30pF"/>
 <part name="C2" library="rcl" deviceset="C-EU" device="C0805" value="30pF"/>
@@ -18103,13 +18103,8 @@ www.irf.com&lt;p&gt;
 <wire x1="2.54" y1="220.98" x2="177.8" y2="220.98" width="1.016" layer="94"/>
 <rectangle x1="132.08" y1="254" x2="177.8" y2="261.62" layer="91"/>
 <rectangle x1="132.08" y1="241.3" x2="177.8" y2="248.92" layer="91"/>
-<text x="200.66" y="220.98" size="2.54" layer="94" rot="R180">Fehlt:
-R_VDH
-R_VDL
-R_PDH
-R_PDL</text>
-<text x="73.66" y="25.4" size="2.54" layer="94">307m Ohm =
-1/(1/0.560 Ohm+1/0.680 Ohm)</text>
+<text x="73.66" y="25.4" size="2.54" layer="94">0.28696 Ohm =
+1/(1/0.330 Ohm+1/2.2 Ohm)</text>
 </plain>
 <instances>
 <instance part="FRAME1" gate="/1" x="0" y="0"/>
