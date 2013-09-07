@@ -1815,6 +1815,8 @@ Funk_Bluetooth.html</text>
 <text x="-12.065" y="-4.445" size="1.27" layer="21">TXD</text>
 <text x="-12.065" y="-6.985" size="1.27" layer="21">RXD</text>
 <rectangle x1="6.35" y1="-3.81" x2="13.97" y2="3.81" layer="21"/>
+<rectangle x1="-15.875" y1="-8.89" x2="15.875" y2="8.89" layer="39"/>
+<rectangle x1="-24.765" y1="-7.1628" x2="-15.875" y2="3.175" layer="39"/>
 </package>
 <package name="FERROCORE_DER0705-">
 <circle x="0" y="0" radius="3.7" width="0.127" layer="21"/>
@@ -17974,9 +17976,9 @@ www.irf.com&lt;p&gt;
 <part name="AGND9" library="supply1" deviceset="AGND" device=""/>
 <part name="GND6" library="supply1" deviceset="GND" device=""/>
 <part name="D8" library="diode" deviceset="DIODE-" device="MINIMELF" value="BAS86-GS08"/>
-<part name="C13" library="rcl" deviceset="C-EU" device="C0805" value="100nF"/>
-<part name="C14" library="rcl" deviceset="C-EU" device="C0805" value="100nF"/>
-<part name="C15" library="rcl" deviceset="C-EU" device="C0805" value="100nF"/>
+<part name="CAVCC" library="rcl" deviceset="C-EU" device="C0805" value="100nF"/>
+<part name="CAREF" library="rcl" deviceset="C-EU" device="C0805" value="100nF"/>
+<part name="CVCC" library="rcl" deviceset="C-EU" device="C0805" value="100nF"/>
 <part name="R_PDH" library="rcl" deviceset="R-EU_" device="R0805" value="51k"/>
 <part name="R_PDL" library="rcl" deviceset="R-EU_" device="R0805" value="10k"/>
 <part name="R_VDH" library="rcl" deviceset="R-EU_" device="R0805" value="80k"/>
@@ -18069,7 +18071,6 @@ www.irf.com&lt;p&gt;
 <part name="C2" library="rcl" deviceset="C-EU" device="C0805" value="30pF"/>
 <part name="Q1" library="crystal" deviceset="CRYSTAL" device="HC49S" value="16MHz"/>
 <part name="GND5" library="supply1" deviceset="GND" device=""/>
-<part name="P+8" library="supply1" deviceset="+5V" device=""/>
 <part name="GND11" library="supply1" deviceset="GND" device=""/>
 <part name="SENSOR_CONNECT" library="pinhead-1" deviceset="PINHD-1X3" device="_2.54-SMD-90°"/>
 <part name="C" library="lampe" deviceset="SUPERCAP" device="PANASONIC_SG_TERMINAL_H" value="1F/5.5V"/>
@@ -18096,6 +18097,7 @@ www.irf.com&lt;p&gt;
 <part name="Q6" library="transistor-small-signal" deviceset="BSS123" device="" value="IRLML2502GPbF"/>
 <part name="Q7" library="transistor-small-signal" deviceset="BSS123" device="" value="IRLML2502GPbF"/>
 <part name="Q8" library="transistor-small-signal" deviceset="BSS123" device="" value="IRLML2502GPbF"/>
+<part name="P+8" library="supply1" deviceset="V+" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -18144,15 +18146,15 @@ www.irf.com&lt;p&gt;
 <attribute name="NAME" x="38.1" y="170.18" size="1.778" layer="95"/>
 <attribute name="VALUE" x="38.1" y="172.72" size="1.778" layer="96"/>
 </instance>
-<instance part="C13" gate="G$1" x="24.13" y="157.48" smashed="yes" rot="R90">
+<instance part="CAVCC" gate="G$1" x="24.13" y="157.48" smashed="yes" rot="R90">
 <attribute name="NAME" x="2.54" y="157.48" size="1.778" layer="95"/>
 <attribute name="VALUE" x="10.16" y="157.48" size="1.778" layer="96"/>
 </instance>
-<instance part="C14" gate="G$1" x="24.13" y="152.4" smashed="yes" rot="R90">
+<instance part="CAREF" gate="G$1" x="24.13" y="152.4" smashed="yes" rot="R90">
 <attribute name="NAME" x="2.54" y="152.4" size="1.778" layer="95"/>
 <attribute name="VALUE" x="10.16" y="152.4" size="1.778" layer="96"/>
 </instance>
-<instance part="C15" gate="G$1" x="20.32" y="137.16" smashed="yes" rot="R90">
+<instance part="CVCC" gate="G$1" x="20.32" y="137.16" smashed="yes" rot="R90">
 <attribute name="NAME" x="2.54" y="137.16" size="1.778" layer="95"/>
 <attribute name="VALUE" x="10.16" y="137.16" size="1.778" layer="96"/>
 </instance>
@@ -18429,30 +18431,32 @@ www.irf.com&lt;p&gt;
 <attribute name="VALUE" x="27.94" y="187.96" size="1.778" layer="96"/>
 </instance>
 <instance part="GND5" gate="1" x="12.7" y="177.8"/>
-<instance part="P+8" gate="1" x="147.32" y="215.9" smashed="yes">
-<attribute name="VALUE" x="147.32" y="215.9" size="1.778" layer="96"/>
+<instance part="GND11" gate="1" x="162.56" y="203.2" smashed="yes">
+<attribute name="VALUE" x="165.1" y="203.962" size="1.778" layer="96"/>
 </instance>
-<instance part="GND11" gate="1" x="147.32" y="195.58" smashed="yes">
-<attribute name="VALUE" x="139.7" y="196.342" size="1.778" layer="96"/>
-</instance>
-<instance part="SENSOR_CONNECT" gate="A" x="157.48" y="200.66" smashed="yes">
-<attribute name="NAME" x="139.7" y="193.04" size="1.778" layer="95"/>
-<attribute name="VALUE" x="151.13" y="193.04" size="1.778" layer="96"/>
+<instance part="SENSOR_CONNECT" gate="A" x="157.48" y="203.2" smashed="yes">
+<attribute name="NAME" x="139.7" y="195.58" size="1.778" layer="95"/>
+<attribute name="VALUE" x="151.13" y="195.58" size="1.778" layer="96"/>
 </instance>
 <instance part="C" gate="G$1" x="22.86" y="142.24" smashed="yes" rot="R270">
 <attribute name="NAME" x="2.54" y="142.24" size="1.778" layer="95"/>
 <attribute name="VALUE" x="10.16" y="142.24" size="1.778" layer="96"/>
 </instance>
 <instance part="Q2" gate="G$1" x="147.32" y="208.28" smashed="yes">
-<attribute name="NAME" x="149.86" y="203.2" size="1.778" layer="95"/>
-<attribute name="VALUE" x="149.86" y="205.74" size="1.778" layer="96"/>
+<attribute name="NAME" x="149.86" y="210.82" size="1.778" layer="95"/>
+<attribute name="VALUE" x="149.86" y="213.36" size="1.778" layer="96"/>
 </instance>
 <instance part="IC6" gate="A" x="55.88" y="233.68"/>
 <instance part="IC6" gate="B" x="83.82" y="233.68"/>
-<instance part="IC6" gate="C" x="111.76" y="233.68"/>
+<instance part="IC6" gate="C" x="111.76" y="233.68" smashed="yes">
+<attribute name="NAME" x="113.03" y="236.855" size="1.778" layer="95"/>
+<attribute name="VALUE" x="115.57" y="228.6" size="1.778" layer="96"/>
+</instance>
 <instance part="R2" gate="G$1" x="55.88" y="246.38" rot="R180"/>
 <instance part="R1" gate="G$1" x="132.08" y="233.68" rot="R180"/>
-<instance part="IC6" gate="P" x="111.76" y="233.68"/>
+<instance part="IC6" gate="P" x="111.76" y="233.68" smashed="yes">
+<attribute name="NAME" x="100.965" y="238.125" size="1.778" layer="95"/>
+</instance>
 <instance part="P+9" gate="VCC" x="111.76" y="243.84"/>
 <instance part="GND12" gate="1" x="111.76" y="223.52"/>
 <instance part="CS" gate="G$1" x="114.3" y="241.3" rot="R90"/>
@@ -18499,9 +18503,12 @@ www.irf.com&lt;p&gt;
 <attribute name="NAME" x="104.14" y="43.18" size="1.778" layer="95"/>
 <attribute name="VALUE" x="109.22" y="37.592" size="0.8128" layer="96"/>
 </instance>
+<instance part="P+8" gate="1" x="147.32" y="215.9" smashed="yes">
+<attribute name="VALUE" x="147.32" y="215.9" size="1.778" layer="96"/>
+</instance>
 </instances>
 <busses>
-<bus name="RGB1:R1,G1,B1,R2_MOSI,G2,B2_SCK">
+<bus name="RGB1:R1_MOSI,G1,B1_SCK,R2,G2,B2">
 <segment>
 <wire x1="137.16" y1="195.58" x2="137.16" y2="132.08" width="0.762" layer="92"/>
 <wire x1="137.16" y1="132.08" x2="129.54" y2="124.46" width="0.762" layer="92"/>
@@ -18632,10 +18639,6 @@ www.irf.com&lt;p&gt;
 <pinref part="U$1" gate="G$1" pin="+5V"/>
 <pinref part="P+1" gate="1" pin="+5V"/>
 </segment>
-<segment>
-<pinref part="Q2" gate="G$1" pin="S"/>
-<pinref part="P+8" gate="1" pin="+5V"/>
-</segment>
 </net>
 <net name="MISO" class="0">
 <segment>
@@ -18680,17 +18683,17 @@ www.irf.com&lt;p&gt;
 <wire x1="17.78" y1="137.16" x2="17.78" y2="132.08" width="0.1524" layer="91"/>
 <wire x1="35.56" y1="132.08" x2="17.78" y2="132.08" width="0.1524" layer="91"/>
 <junction x="17.78" y="132.08"/>
-<pinref part="C15" gate="G$1" pin="1"/>
+<pinref part="CVCC" gate="G$1" pin="1"/>
 <junction x="17.78" y="137.16"/>
 <wire x1="17.78" y1="137.16" x2="17.78" y2="142.24" width="0.1524" layer="91"/>
-<pinref part="C14" gate="G$1" pin="1"/>
+<pinref part="CAREF" gate="G$1" pin="1"/>
 <wire x1="17.78" y1="142.24" x2="17.78" y2="152.4" width="0.1524" layer="91"/>
 <wire x1="17.78" y1="152.4" x2="17.78" y2="157.48" width="0.1524" layer="91"/>
 <wire x1="21.59" y1="152.4" x2="17.78" y2="152.4" width="0.1524" layer="91"/>
 <junction x="17.78" y="152.4"/>
 <pinref part="C" gate="G$1" pin="-"/>
 <junction x="17.78" y="142.24"/>
-<pinref part="C13" gate="G$1" pin="1"/>
+<pinref part="CAVCC" gate="G$1" pin="1"/>
 <wire x1="21.59" y1="157.48" x2="17.78" y2="157.48" width="0.1524" layer="91"/>
 </segment>
 <segment>
@@ -18730,9 +18733,9 @@ www.irf.com&lt;p&gt;
 <wire x1="12.7" y1="180.34" x2="15.24" y2="180.34" width="0.1524" layer="91"/>
 </segment>
 <segment>
+<pinref part="SENSOR_CONNECT" gate="A" pin="1"/>
 <pinref part="GND11" gate="1" pin="GND"/>
-<pinref part="SENSOR_CONNECT" gate="A" pin="3"/>
-<wire x1="147.32" y1="198.12" x2="154.94" y2="198.12" width="0.1524" layer="91"/>
+<wire x1="154.94" y1="205.74" x2="162.56" y2="205.74" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="+24V" class="0">
@@ -18890,18 +18893,18 @@ www.irf.com&lt;p&gt;
 <pinref part="AVR" gate="G$1" pin="AVCC"/>
 <pinref part="L_AVCC" gate="G$1" pin="1"/>
 <junction x="35.56" y="157.48"/>
-<pinref part="C13" gate="G$1" pin="2"/>
+<pinref part="CAVCC" gate="G$1" pin="2"/>
 <wire x1="29.21" y1="157.48" x2="35.56" y2="157.48" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="AREF" class="0">
 <segment>
 <pinref part="AVR" gate="G$1" pin="AREF"/>
-<pinref part="C14" gate="G$1" pin="2"/>
+<pinref part="CAREF" gate="G$1" pin="2"/>
 <wire x1="29.21" y1="152.4" x2="35.56" y2="152.4" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$4" class="0">
+<net name="RXD" class="0">
 <segment>
 <pinref part="AVR" gate="G$1" pin="(ADC1/RXD/DALI/ICP1A/SCK_A)PD4"/>
 <pinref part="U$1" gate="G$1" pin="TXD"/>
@@ -18910,7 +18913,7 @@ www.irf.com&lt;p&gt;
 <wire x1="101.6" y1="139.7" x2="106.68" y2="139.7" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$5" class="0">
+<net name="TXD" class="0">
 <segment>
 <pinref part="AVR" gate="G$1" pin="(TXD/DALI/OC0A/SS/MOSI_A)PD3"/>
 <pinref part="U$1" gate="G$1" pin="RXD"/>
@@ -18938,23 +18941,6 @@ www.irf.com&lt;p&gt;
 <wire x1="104.14" y1="73.66" x2="109.22" y2="73.66" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="B2_SCK" class="0">
-<segment>
-<pinref part="AVR" gate="G$1" pin="(ADC4/PSCOUT01/SCK)PB7"/>
-<wire x1="137.16" y1="195.58" x2="93.98" y2="195.58" width="0.1524" layer="91"/>
-<label x="106.68" y="195.58" size="1.778" layer="95"/>
-</segment>
-<segment>
-<wire x1="78.74" y1="210.82" x2="83.82" y2="210.82" width="0.1524" layer="91"/>
-<pinref part="U$7" gate="G$1" pin="SCK"/>
-<label x="83.82" y="210.82" size="0.8128" layer="95" xref="yes"/>
-</segment>
-<segment>
-<pinref part="Q8" gate="G$1" pin="G"/>
-<wire x1="101.6" y1="48.26" x2="104.14" y2="45.72" width="0.1524" layer="91"/>
-<wire x1="104.14" y1="45.72" x2="109.22" y2="45.72" width="0.1524" layer="91"/>
-</segment>
-</net>
 <net name="POWER_DETECT_" class="0">
 <segment>
 <pinref part="L_AREF2" gate="G$1" pin="2"/>
@@ -18965,51 +18951,10 @@ www.irf.com&lt;p&gt;
 <label x="147.32" y="152.4" size="1.778" layer="95" rot="R90"/>
 </segment>
 </net>
-<net name="R2_MOSI" class="0">
-<segment>
-<pinref part="AVR" gate="G$1" pin="(MOSI/PSCOUT21)PB1"/>
-<wire x1="137.16" y1="180.34" x2="93.98" y2="180.34" width="0.1524" layer="91"/>
-<label x="106.68" y="180.34" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="U$7" gate="G$1" pin="MOSI"/>
-<wire x1="60.96" y1="210.82" x2="55.88" y2="210.82" width="0.1524" layer="91"/>
-<label x="55.88" y="210.82" size="0.8128" layer="95" rot="R180" xref="yes"/>
-</segment>
-<segment>
-<pinref part="Q6" gate="G$1" pin="G"/>
-<wire x1="101.6" y1="104.14" x2="104.14" y2="101.6" width="0.1524" layer="91"/>
-<wire x1="104.14" y1="101.6" x2="109.22" y2="101.6" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="B1" class="0">
-<segment>
-<pinref part="AVR" gate="G$1" pin="(ADC7/PSCOUT11/ICP1B)PB6"/>
-<wire x1="137.16" y1="193.04" x2="93.98" y2="193.04" width="0.1524" layer="91"/>
-<label x="106.68" y="193.04" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="Q5" gate="G$1" pin="G"/>
-<wire x1="7.62" y1="48.26" x2="10.16" y2="45.72" width="0.1524" layer="91"/>
-<wire x1="10.16" y1="45.72" x2="15.24" y2="45.72" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="R1" class="0">
-<segment>
-<wire x1="137.16" y1="160.02" x2="93.98" y2="160.02" width="0.1524" layer="91"/>
-<label x="106.68" y="160.02" size="1.778" layer="95"/>
-<pinref part="AVR" gate="G$1" pin="(T0/PSCOUT22)PC2"/>
-</segment>
-<segment>
-<wire x1="7.62" y1="104.14" x2="10.16" y2="101.6" width="0.1524" layer="91"/>
-<wire x1="10.16" y1="101.6" x2="15.24" y2="101.6" width="0.1524" layer="91"/>
-<pinref part="Q4" gate="G$1" pin="G"/>
-</segment>
-</net>
 <net name="G1" class="0">
 <segment>
-<pinref part="AVR" gate="G$1" pin="(PSCOUT00/XCK/SS_A)PD0"/>
 <wire x1="137.16" y1="132.08" x2="93.98" y2="132.08" width="0.1524" layer="91"/>
+<pinref part="AVR" gate="G$1" pin="(PSCOUT00/XCK/SS_A)PD0"/>
 <label x="106.68" y="132.08" size="1.778" layer="95"/>
 </segment>
 <segment>
@@ -19291,26 +19236,26 @@ www.irf.com&lt;p&gt;
 </net>
 <net name="FREQ_IN" class="0">
 <segment>
-<pinref part="SENSOR_CONNECT" gate="A" pin="2"/>
-<wire x1="139.7" y1="200.66" x2="154.94" y2="200.66" width="0.1524" layer="91"/>
-<label x="133.096" y="200.66" size="0.8128" layer="95" xref="yes"/>
+<wire x1="147.32" y1="200.66" x2="154.94" y2="200.66" width="0.1524" layer="91"/>
+<label x="140.716" y="200.66" size="0.8128" layer="95" xref="yes"/>
+<pinref part="SENSOR_CONNECT" gate="A" pin="3"/>
 </segment>
 <segment>
-<pinref part="AVR" gate="G$1" pin="(T1/PSCOUT23)PC3"/>
-<wire x1="93.98" y1="162.56" x2="96.52" y2="162.56" width="0.1524" layer="91"/>
-<label x="96.52" y="162.56" size="0.8128" layer="95" xref="yes"/>
+<label x="96.52" y="160.02" size="0.8128" layer="95" xref="yes"/>
+<pinref part="AVR" gate="G$1" pin="(T0/PSCOUT22)PC2"/>
+<wire x1="96.52" y1="160.02" x2="93.98" y2="160.02" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="S_PWR" class="0">
 <segment>
-<pinref part="AVR" gate="G$1" pin="(ADC2/ACMP2)PD5"/>
-<wire x1="93.98" y1="144.78" x2="96.52" y2="144.78" width="0.1524" layer="91"/>
-<label x="101.6" y="144.78" size="0.8128" layer="95" rot="R180" xref="yes"/>
-</segment>
-<segment>
 <pinref part="Q2" gate="G$1" pin="G"/>
 <wire x1="139.7" y1="210.82" x2="142.24" y2="210.82" width="0.1524" layer="91"/>
 <label x="139.7" y="210.82" size="0.8128" layer="95" rot="R180" xref="yes"/>
+</segment>
+<segment>
+<pinref part="AVR" gate="G$1" pin="(PSCIN0/CLKO)PD1"/>
+<wire x1="93.98" y1="134.62" x2="96.52" y2="134.62" width="0.1524" layer="91"/>
+<label x="101.6" y="134.62" size="0.8128" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="N$33" class="0">
@@ -19413,7 +19358,7 @@ www.irf.com&lt;p&gt;
 </segment>
 <segment>
 <pinref part="AVR" gate="G$1" pin="VCC"/>
-<pinref part="C15" gate="G$1" pin="2"/>
+<pinref part="CVCC" gate="G$1" pin="2"/>
 <wire x1="25.4" y1="137.16" x2="35.56" y2="137.16" width="0.1524" layer="91"/>
 <junction x="25.4" y="137.16"/>
 <pinref part="C" gate="G$1" pin="+"/>
@@ -19429,6 +19374,10 @@ www.irf.com&lt;p&gt;
 <wire x1="27.94" y1="167.64" x2="27.94" y2="170.18" width="0.1524" layer="91"/>
 <pinref part="P+13" gate="1" pin="V+"/>
 </segment>
+<segment>
+<pinref part="Q2" gate="G$1" pin="S"/>
+<pinref part="P+8" gate="1" pin="V+"/>
+</segment>
 </net>
 <net name="N$17" class="0">
 <segment>
@@ -19438,9 +19387,9 @@ www.irf.com&lt;p&gt;
 </net>
 <net name="N$31" class="0">
 <segment>
-<pinref part="SENSOR_CONNECT" gate="A" pin="1"/>
 <pinref part="Q2" gate="G$1" pin="D"/>
 <wire x1="154.94" y1="203.2" x2="147.32" y2="203.2" width="0.1524" layer="91"/>
+<pinref part="SENSOR_CONNECT" gate="A" pin="2"/>
 </segment>
 </net>
 <net name="SIG" class="0">
@@ -19449,6 +19398,64 @@ www.irf.com&lt;p&gt;
 <pinref part="R1" gate="G$1" pin="1"/>
 <wire x1="137.16" y1="233.68" x2="139.7" y2="231.14" width="0.1524" layer="91"/>
 <wire x1="139.7" y1="231.14" x2="147.32" y2="231.14" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="R1_MOSI" class="0">
+<segment>
+<wire x1="137.16" y1="180.34" x2="93.98" y2="180.34" width="0.1524" layer="91"/>
+<label x="106.68" y="180.34" size="1.778" layer="95"/>
+<pinref part="AVR" gate="G$1" pin="(MOSI/PSCOUT21)PB1"/>
+</segment>
+<segment>
+<pinref part="U$7" gate="G$1" pin="MOSI"/>
+<wire x1="60.96" y1="210.82" x2="55.88" y2="210.82" width="0.1524" layer="91"/>
+<label x="55.88" y="210.82" size="0.8128" layer="95" rot="R180" xref="yes"/>
+</segment>
+<segment>
+<wire x1="7.62" y1="104.14" x2="10.16" y2="101.6" width="0.1524" layer="91"/>
+<wire x1="10.16" y1="101.6" x2="15.24" y2="101.6" width="0.1524" layer="91"/>
+<pinref part="Q4" gate="G$1" pin="G"/>
+</segment>
+</net>
+<net name="R2" class="0">
+<segment>
+<wire x1="137.16" y1="162.56" x2="93.98" y2="162.56" width="0.1524" layer="91"/>
+<label x="106.68" y="162.56" size="1.778" layer="95"/>
+<pinref part="AVR" gate="G$1" pin="(T1/PSCOUT23)PC3"/>
+</segment>
+<segment>
+<pinref part="Q6" gate="G$1" pin="G"/>
+<wire x1="101.6" y1="104.14" x2="104.14" y2="101.6" width="0.1524" layer="91"/>
+<wire x1="104.14" y1="101.6" x2="109.22" y2="101.6" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="B1_SCK" class="0">
+<segment>
+<wire x1="137.16" y1="195.58" x2="93.98" y2="195.58" width="0.1524" layer="91"/>
+<label x="106.68" y="195.58" size="1.778" layer="95"/>
+<pinref part="AVR" gate="G$1" pin="(ADC4/PSCOUT01/SCK)PB7"/>
+</segment>
+<segment>
+<wire x1="78.74" y1="210.82" x2="83.82" y2="210.82" width="0.1524" layer="91"/>
+<pinref part="U$7" gate="G$1" pin="SCK"/>
+<label x="83.82" y="210.82" size="0.8128" layer="95" xref="yes"/>
+</segment>
+<segment>
+<pinref part="Q5" gate="G$1" pin="G"/>
+<wire x1="7.62" y1="48.26" x2="10.16" y2="45.72" width="0.1524" layer="91"/>
+<wire x1="10.16" y1="45.72" x2="15.24" y2="45.72" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="B2" class="0">
+<segment>
+<wire x1="137.16" y1="193.04" x2="93.98" y2="193.04" width="0.1524" layer="91"/>
+<label x="106.68" y="193.04" size="1.778" layer="95"/>
+<pinref part="AVR" gate="G$1" pin="(ADC7/PSCOUT11/ICP1B)PB6"/>
+</segment>
+<segment>
+<pinref part="Q8" gate="G$1" pin="G"/>
+<wire x1="101.6" y1="48.26" x2="104.14" y2="45.72" width="0.1524" layer="91"/>
+<wire x1="104.14" y1="45.72" x2="109.22" y2="45.72" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
