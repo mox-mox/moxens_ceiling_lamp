@@ -17963,7 +17963,7 @@ www.irf.com&lt;p&gt;
 </class>
 </classes>
 <parts>
-<part name="FRAME1" library="frames" deviceset="A4-SMALL-DOCFIELD" device=""/>
+<part name="FRAME1" library="frames" deviceset="A4-SMALL-DOCFIELD" device="" value=" "/>
 <part name="GND1" library="supply1" deviceset="GND" device=""/>
 <part name="P+14" library="supply1" deviceset="+5V" device=""/>
 <part name="V_REG" library="Labor" deviceset="LM2675" device="M"/>
@@ -18072,7 +18072,7 @@ www.irf.com&lt;p&gt;
 <part name="Q1" library="crystal" deviceset="CRYSTAL" device="HC49S" value="16MHz"/>
 <part name="GND5" library="supply1" deviceset="GND" device=""/>
 <part name="GND11" library="supply1" deviceset="GND" device=""/>
-<part name="SENSOR_CONNECT" library="pinhead-1" deviceset="PINHD-1X3" device="_2.54-SMD-90°"/>
+<part name="SENSOR_CONNECT" library="pinhead-1" deviceset="PINHD-1X3" device="_2.54-SMD-90°" value=" "/>
 <part name="C" library="lampe" deviceset="SUPERCAP" device="PANASONIC_SG_TERMINAL_H" value="1F/5.5V"/>
 <part name="Q2" library="transistor-small-signal" deviceset="AP2305BGN-HF-3" device=""/>
 <part name="IC6" library="74xx-eu" deviceset="74*14" device="D" technology="HC"/>
@@ -18083,7 +18083,7 @@ www.irf.com&lt;p&gt;
 <part name="CS" library="rcl_no_thermals" deviceset="C-EU" device="C1210" value="10µF/50V"/>
 <part name="GND13" library="supply1" deviceset="GNDA" device=""/>
 <part name="GND14" library="supply1" deviceset="GNDA" device=""/>
-<part name="JP2" library="pinhead-1" deviceset="PINHD-1X3" device="_2.54-SMD-90°"/>
+<part name="JP2" library="pinhead-1" deviceset="PINHD-1X3" device="_2.54-SMD-90°" value=" "/>
 <part name="GND16" library="supply1" deviceset="GNDA" device=""/>
 <part name="P+10" library="supply1" deviceset="VCC" device=""/>
 <part name="CS1" library="rcl_no_thermals" deviceset="C-EU" device="C0805" value="100nF/50V"/>
@@ -19471,6 +19471,12 @@ www.irf.com&lt;p&gt;
 <approved hash="102,1,116.84,104.14,GND,AGND,,,,"/>
 <approved hash="102,1,116.84,76.2,GND,AGND,,,,"/>
 <approved hash="102,1,116.84,48.26,GND,AGND,,,,"/>
+<approved hash="201,1,116.84,48.26,GND,GND\, AGND,,,,"/>
+<approved hash="201,1,116.84,76.2,GND,GND\, AGND,,,,"/>
+<approved hash="201,1,116.84,104.14,GND,GND\, AGND,,,,"/>
+<approved hash="201,1,22.86,48.26,GND,GND\, AGND,,,,"/>
+<approved hash="201,1,22.86,76.2,GND,GND\, AGND,,,,"/>
+<approved hash="201,1,22.86,104.14,GND,GND\, AGND,,,,"/>
 <approved hash="104,1,35.56,147.32,AVR,AGND,GND,,,"/>
 <approved hash="104,1,35.56,137.16,AVR,VCC,V+,,,"/>
 <approved hash="104,1,30.48,109.22,IC7,VIN,+24V,,,"/>
@@ -19480,8 +19486,6 @@ www.irf.com&lt;p&gt;
 <approved hash="104,1,124.46,81.28,IC4,VIN,+24V,,,"/>
 <approved hash="104,1,124.46,53.34,IC5,VIN,+24V,,,"/>
 <approved hash="104,1,111.76,226.06,IC6P,GND,GNDA,,,"/>
-<approved hash="115,1,90.066,131.976,FRAME1,,,,,"/>
-<approved hash="115,1,147.557,235.081,JP2,,,,,"/>
 </errors>
 </schematic>
 </drawing>
