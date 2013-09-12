@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.4">
+<eagle version="6.5.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -18107,10 +18107,12 @@ www.irf.com&lt;p&gt;
 <rectangle x1="132.08" y1="241.3" x2="177.8" y2="248.92" layer="91"/>
 <text x="73.66" y="25.4" size="2.54" layer="94">0.28696 Ohm =
 1/(1/0.330 Ohm+1/2.2 Ohm)</text>
+<text x="55.88" y="200.66" size="1.27" layer="94">!! Wird nicht eingelötet, sondern
+nur mit Pogopins verwendet !!</text>
 </plain>
 <instances>
 <instance part="FRAME1" gate="/1" x="0" y="0"/>
-<instance part="GND1" gate="1" x="55.88" y="205.74" rot="MR0"/>
+<instance part="GND1" gate="1" x="50.8" y="208.28" rot="MR0"/>
 <instance part="P+14" gate="1" x="35.56" y="175.26"/>
 <instance part="V_REG" gate="G$1" x="43.18" y="20.32" smashed="yes">
 <attribute name="NAME" x="30.48" y="29.21" size="1.27" layer="95"/>
@@ -18181,7 +18183,9 @@ www.irf.com&lt;p&gt;
 <attribute name="VALUE" x="160.02" y="162.56" size="1.778" layer="96"/>
 </instance>
 <instance part="L_AVCC" gate="G$1" x="35.56" y="162.56" rot="R180"/>
-<instance part="U$7" gate="G$1" x="71.12" y="210.82" rot="MR0"/>
+<instance part="U$7" gate="G$1" x="66.04" y="213.36" smashed="yes" rot="MR0">
+<attribute name="VALUE" x="70.104" y="205.74" size="1.778" layer="96" rot="MR0"/>
+</instance>
 <instance part="AVR" gate="G$1" x="63.5" y="162.56"/>
 <instance part="GND2" gate="1" x="35.56" y="144.78"/>
 <instance part="RED1" gate="G$1" x="63.5" y="111.76" smashed="yes">
@@ -18469,7 +18473,7 @@ www.irf.com&lt;p&gt;
 <instance part="GND16" gate="1" x="160.02" y="231.14"/>
 <instance part="P+10" gate="VCC" x="139.7" y="238.76"/>
 <instance part="CS1" gate="G$1" x="154.94" y="236.22" rot="R90"/>
-<instance part="P+11" gate="1" x="55.88" y="215.9"/>
+<instance part="P+11" gate="1" x="50.8" y="218.44"/>
 <instance part="P+12" gate="1" x="167.64" y="195.58" smashed="yes">
 <attribute name="VALUE" x="170.18" y="193.04" size="1.778" layer="96"/>
 </instance>
@@ -18643,8 +18647,8 @@ www.irf.com&lt;p&gt;
 <net name="MISO" class="0">
 <segment>
 <pinref part="U$7" gate="G$1" pin="MISO"/>
-<wire x1="83.82" y1="213.36" x2="78.74" y2="213.36" width="0.1524" layer="91"/>
-<label x="83.82" y="213.36" size="1.016" layer="95" xref="yes"/>
+<wire x1="78.74" y1="215.9" x2="73.66" y2="215.9" width="0.1524" layer="91"/>
+<label x="78.74" y="215.9" size="1.016" layer="95" xref="yes"/>
 </segment>
 <segment>
 <pinref part="AVR" gate="G$1" pin="(MISO/PSCOUT20)PB0"/>
@@ -18659,15 +18663,15 @@ www.irf.com&lt;p&gt;
 <label x="27.432" y="177.8" size="0.8128" layer="95" xref="yes"/>
 </segment>
 <segment>
-<wire x1="78.74" y1="208.28" x2="83.82" y2="208.28" width="0.1524" layer="91"/>
+<wire x1="73.66" y1="210.82" x2="78.74" y2="210.82" width="0.1524" layer="91"/>
 <pinref part="U$7" gate="G$1" pin="RESET"/>
-<label x="83.82" y="208.28" size="0.8128" layer="95" xref="yes"/>
+<label x="78.74" y="210.82" size="0.8128" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="GND" class="0">
 <segment>
 <pinref part="GND1" gate="1" pin="GND"/>
-<wire x1="60.96" y1="208.28" x2="55.88" y2="208.28" width="0.1524" layer="91"/>
+<wire x1="55.88" y1="210.82" x2="50.8" y2="210.82" width="0.1524" layer="91"/>
 <pinref part="U$7" gate="G$1" pin="GND"/>
 </segment>
 <segment>
@@ -19349,7 +19353,7 @@ www.irf.com&lt;p&gt;
 <net name="V+" class="0">
 <segment>
 <pinref part="U$7" gate="G$1" pin="+5"/>
-<wire x1="55.88" y1="213.36" x2="60.96" y2="213.36" width="0.1524" layer="91"/>
+<wire x1="50.8" y1="215.9" x2="55.88" y2="215.9" width="0.1524" layer="91"/>
 <pinref part="P+11" gate="1" pin="V+"/>
 </segment>
 <segment>
@@ -19408,8 +19412,8 @@ www.irf.com&lt;p&gt;
 </segment>
 <segment>
 <pinref part="U$7" gate="G$1" pin="MOSI"/>
-<wire x1="60.96" y1="210.82" x2="55.88" y2="210.82" width="0.1524" layer="91"/>
-<label x="55.88" y="210.82" size="0.8128" layer="95" rot="R180" xref="yes"/>
+<wire x1="55.88" y1="213.36" x2="50.8" y2="213.36" width="0.1524" layer="91"/>
+<label x="50.8" y="213.36" size="0.8128" layer="95" rot="R180" xref="yes"/>
 </segment>
 <segment>
 <wire x1="7.62" y1="104.14" x2="10.16" y2="101.6" width="0.1524" layer="91"/>
@@ -19436,9 +19440,9 @@ www.irf.com&lt;p&gt;
 <pinref part="AVR" gate="G$1" pin="(ADC4/PSCOUT01/SCK)PB7"/>
 </segment>
 <segment>
-<wire x1="78.74" y1="210.82" x2="83.82" y2="210.82" width="0.1524" layer="91"/>
+<wire x1="73.66" y1="213.36" x2="78.74" y2="213.36" width="0.1524" layer="91"/>
 <pinref part="U$7" gate="G$1" pin="SCK"/>
-<label x="83.82" y="210.82" size="0.8128" layer="95" xref="yes"/>
+<label x="78.74" y="213.36" size="0.8128" layer="95" xref="yes"/>
 </segment>
 <segment>
 <pinref part="Q5" gate="G$1" pin="G"/>
