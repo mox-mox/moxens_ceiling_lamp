@@ -2935,6 +2935,66 @@ www.irf.com&lt;p&gt;
 </package>
 </packages>
 </library>
+<library name="Platinensammler">
+<packages>
+<package name="LP_NUMBER_SILK_TOP">
+<description>Platzhalter für Layoutnummer im Bestückungsdruck der Oberseite</description>
+<rectangle x1="0.2" y1="0.2" x2="0.4" y2="0.4" layer="21" rot="R180"/>
+<rectangle x1="0.4" y1="0.2" x2="0.6" y2="0.4" layer="21" rot="R180"/>
+<rectangle x1="0.6" y1="0.2" x2="0.8" y2="0.4" layer="21" rot="R180"/>
+<rectangle x1="0.6" y1="0.4" x2="0.8" y2="0.6" layer="21" rot="R180"/>
+<rectangle x1="0.6" y1="0.6" x2="0.8" y2="0.8" layer="21" rot="R180"/>
+<rectangle x1="0.4" y1="0.6" x2="0.6" y2="0.8" layer="21" rot="R180"/>
+<rectangle x1="0.2" y1="0.6" x2="0.4" y2="0.8" layer="21" rot="R180"/>
+<rectangle x1="0.2" y1="0.4" x2="0.4" y2="0.6" layer="21" rot="R180"/>
+<rectangle x1="0.2" y1="0.8" x2="0.4" y2="1" layer="21" rot="R180"/>
+<rectangle x1="0.2" y1="1" x2="0.4" y2="1.2" layer="21" rot="R180"/>
+<rectangle x1="0.4" y1="1" x2="0.6" y2="1.2" layer="21" rot="R180"/>
+<rectangle x1="0.6" y1="1" x2="0.8" y2="1.2" layer="21" rot="R180"/>
+<rectangle x1="0.6" y1="0.8" x2="0.8" y2="1" layer="21" rot="R180"/>
+<rectangle x1="1" y1="0.2" x2="1.2" y2="0.4" layer="21"/>
+<rectangle x1="1.2" y1="0.2" x2="1.4" y2="0.4" layer="21"/>
+<rectangle x1="1.4" y1="0.2" x2="1.6" y2="0.4" layer="21"/>
+<rectangle x1="1.4" y1="0.4" x2="1.6" y2="0.6" layer="21"/>
+<rectangle x1="1.4" y1="0.6" x2="1.6" y2="0.8" layer="21" rot="R180"/>
+<rectangle x1="1.2" y1="0.6" x2="1.4" y2="0.8" layer="21" rot="R180"/>
+<rectangle x1="1" y1="0.6" x2="1.2" y2="0.8" layer="21" rot="R180"/>
+<rectangle x1="1" y1="0.4" x2="1.2" y2="0.6" layer="21"/>
+<rectangle x1="1" y1="0.8" x2="1.2" y2="1" layer="21" rot="R180"/>
+<rectangle x1="1" y1="1" x2="1.2" y2="1.2" layer="21" rot="R180"/>
+<rectangle x1="1.2" y1="1" x2="1.4" y2="1.2" layer="21" rot="R180"/>
+<rectangle x1="1.4" y1="1" x2="1.6" y2="1.2" layer="21" rot="R180"/>
+<rectangle x1="1.4" y1="0.8" x2="1.6" y2="1" layer="21" rot="R180"/>
+<rectangle x1="1.8" y1="0.2" x2="2" y2="0.4" layer="21"/>
+<rectangle x1="2" y1="0.2" x2="2.2" y2="0.4" layer="21"/>
+<rectangle x1="2.2" y1="0.2" x2="2.4" y2="0.4" layer="21"/>
+<rectangle x1="2.2" y1="0.4" x2="2.4" y2="0.6" layer="21"/>
+<rectangle x1="2.2" y1="0.6" x2="2.4" y2="0.8" layer="21"/>
+<rectangle x1="2" y1="0.6" x2="2.2" y2="0.8" layer="21"/>
+<rectangle x1="1.8" y1="0.6" x2="2" y2="0.8" layer="21"/>
+<rectangle x1="1.8" y1="0.4" x2="2" y2="0.6" layer="21"/>
+<rectangle x1="1.8" y1="0.8" x2="2" y2="1" layer="21"/>
+<rectangle x1="1.8" y1="1" x2="2" y2="1.2" layer="21"/>
+<rectangle x1="2" y1="1" x2="2.2" y2="1.2" layer="21"/>
+<rectangle x1="2.2" y1="1" x2="2.4" y2="1.2" layer="21"/>
+<rectangle x1="2.2" y1="0.8" x2="2.4" y2="1" layer="21"/>
+<rectangle x1="2.6" y1="0.2" x2="2.8" y2="0.4" layer="21"/>
+<rectangle x1="2.8" y1="0.2" x2="3" y2="0.4" layer="21"/>
+<rectangle x1="3" y1="0.2" x2="3.2" y2="0.4" layer="21"/>
+<rectangle x1="3" y1="0.4" x2="3.2" y2="0.6" layer="21"/>
+<rectangle x1="3" y1="0.6" x2="3.2" y2="0.8" layer="21"/>
+<rectangle x1="2.8" y1="0.6" x2="3" y2="0.8" layer="21"/>
+<rectangle x1="2.6" y1="0.6" x2="2.8" y2="0.8" layer="21"/>
+<rectangle x1="2.6" y1="0.4" x2="2.8" y2="0.6" layer="21"/>
+<rectangle x1="2.6" y1="0.8" x2="2.8" y2="1" layer="21"/>
+<rectangle x1="2.6" y1="1" x2="2.8" y2="1.2" layer="21"/>
+<rectangle x1="2.8" y1="1" x2="3" y2="1.2" layer="21"/>
+<rectangle x1="3" y1="1" x2="3.2" y2="1.2" layer="21"/>
+<rectangle x1="3" y1="0.8" x2="3.2" y2="1" layer="21"/>
+<rectangle x1="0" y1="0" x2="3.4" y2="1.4" layer="39" rot="R180"/>
+</package>
+</packages>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -3244,6 +3304,7 @@ design rules under a new name.</description>
 <element name="Q6" library="transistor-small-signal" package="SOT23" value="IRLML2502GPbF" x="81.026" y="24.892" rot="MR270"/>
 <element name="Q7" library="transistor-small-signal" package="SOT23" value="IRLML2502GPbF" x="61.976" y="18.796" rot="MR270"/>
 <element name="Q8" library="transistor-small-signal" package="SOT23" value="IRLML2502GPbF" x="42.926" y="24.892" rot="MR270"/>
+<element name="U$3" library="Platinensammler" package="LP_NUMBER_SILK_TOP" value="" x="75.057" y="36.8935" rot="R90"/>
 </elements>
 <signals>
 <signal name="AGND">
