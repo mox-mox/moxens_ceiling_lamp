@@ -3247,14 +3247,14 @@ design rules under a new name.</description>
 <element name="R_PDL" library="rcl" package="R0805" value="10k" x="92.964" y="38.608" rot="MR270"/>
 <element name="R_VDH" library="rcl" package="R0805" value="80k" x="86.106" y="42.672" rot="MR270"/>
 <element name="R_VDL" library="rcl" package="R0805" value="10k" x="86.106" y="38.608" rot="MR270"/>
-<element name="L_AVCC" library="lampe" package="L1210" value="10µH" x="83.566" y="44.45" rot="MR270"/>
+<element name="L_AVCC" library="lampe" package="L1210" value="1µH" x="83.566" y="44.45" rot="MR270"/>
 <element name="U$7" library="lampe" package="AVR-ISP-THT" value="AVR-ISPTHT" x="81.026" y="39.37" rot="MR0"/>
 <element name="AVR" library="AT90PWM3B" package="SO32W_NO_PIN_19" value="AT90PWM3B_NO_PIN_19NO_PIN_19" x="83.312" y="39.116"/>
 <element name="RED1" library="led" package="LED5MM" value="350mA/12,0..15.6V" x="75.184" y="24.13" rot="R270"/>
 <element name="U$1" library="lampe" package="BTM-222" value="BTM-222-BASIS" x="60.706" y="54.102" rot="R180"/>
 <element name="C_OUTX" library="rcl" package="C0805" value="100nF" x="55.118" y="38.1" rot="MR180"/>
-<element name="L_AREF2" library="lampe" package="L1210" value="10µH" x="92.202" y="42.926" rot="MR90"/>
-<element name="L_VOLTAGE_DETECT" library="lampe" package="L1210" value="10µH" x="89.154" y="42.926" rot="MR270"/>
+<element name="L_AREF2" library="lampe" package="L1210" value="1µH" x="92.202" y="42.926" rot="MR90"/>
+<element name="L_VOLTAGE_DETECT" library="lampe" package="L1210" value="1µH" x="89.154" y="42.926" rot="MR270"/>
 <element name="C4" library="rcl" package="C0805" value="100nF" x="90.678" y="38.608" rot="MR270"/>
 <element name="C5" library="rcl" package="C0805" value="100nF" x="88.392" y="38.608" rot="MR270"/>
 <element name="C_INX" library="rcl" package="C0805" value="100nF/50V" x="39.37" y="38.1" rot="MR270"/>
@@ -3299,7 +3299,7 @@ design rules under a new name.</description>
 <element name="BLUE2" library="led" package="LED5MM" value="350mA/18,0..21.6V" x="56.388" y="24.13" rot="R270"/>
 <element name="IC5" library="Labor" package="TSOT23-5" value="ZXLD1360" x="46.736" y="24.13" rot="MR90"/>
 <element name="D_OUT6" library="diode" package="DO214AA" value="SK16" x="46.99" y="20.828" rot="MR0"/>
-<element name="RS5" library="rcl_no_thermals" package="R0805" value="286m" x="49.53" y="24.13" rot="MR90"/>
+<element name="RS5" library="rcl_no_thermals" package="R0805" value="286m (verbaut: 330mOhm||2.2Ohm)" x="49.53" y="24.13" rot="MR90"/>
 <element name="CI5" library="rcl_no_thermals" package="C1210" value="10µF/50V" x="46.736" y="28.194" rot="MR0"/>
 <element name="C_LAMP5" library="rcl_no_thermals" package="C0805" value="1µF" x="51.816" y="24.13" rot="MR270"/>
 <element name="L6" library="lampe" package="FERROCORE_DER0705-" value="100µF" x="47.752" y="15.748" rot="MR0"/>

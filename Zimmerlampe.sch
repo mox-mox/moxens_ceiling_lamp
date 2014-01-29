@@ -17985,7 +17985,7 @@ www.irf.com&lt;p&gt;
 <part name="R_VDL" library="rcl" deviceset="R-EU_" device="R0805" value="10k"/>
 <part name="GND8" library="supply1" deviceset="GND" device=""/>
 <part name="P+18" library="supply1" deviceset="+24V" device="" value="+24V"/>
-<part name="L_AVCC" library="lampe" deviceset="L1210" device="" value="10µH"/>
+<part name="L_AVCC" library="lampe" deviceset="L1210" device="" value="1µH"/>
 <part name="U$7" library="lampe" deviceset="AVR-ISP" device="THT"/>
 <part name="AVR" library="AT90PWM3B" deviceset="AT90PWM3B_NO_PIN_19" device="NO_PIN_19"/>
 <part name="GND2" library="supply1" deviceset="GND" device=""/>
@@ -17996,8 +17996,8 @@ www.irf.com&lt;p&gt;
 <part name="GND3" library="supply1" deviceset="GND" device=""/>
 <part name="P+1" library="supply1" deviceset="+5V" device=""/>
 <part name="GND9" library="supply1" deviceset="GND" device=""/>
-<part name="L_AREF2" library="lampe" deviceset="L1210" device="" value="10µH"/>
-<part name="L_VOLTAGE_DETECT" library="lampe" deviceset="L1210" device="" value="10µH"/>
+<part name="L_AREF2" library="lampe" deviceset="L1210" device="" value="1µH"/>
+<part name="L_VOLTAGE_DETECT" library="lampe" deviceset="L1210" device="" value="1µH"/>
 <part name="C4" library="rcl" deviceset="C-EU" device="C0805" value="100nF"/>
 <part name="C5" library="rcl" deviceset="C-EU" device="C0805" value="100nF"/>
 <part name="GND10" library="supply1" deviceset="GND" device=""/>
@@ -18061,7 +18061,7 @@ www.irf.com&lt;p&gt;
 <part name="P+7" library="supply1" deviceset="+24V" device="" value="+24V"/>
 <part name="IC5" library="Labor" deviceset="ZXLD1360" device="" value="ZXLD1360"/>
 <part name="D_OUT6" library="diode" deviceset="DIODE-" device="DO214AA" value="SK16"/>
-<part name="RS5" library="rcl_no_thermals" deviceset="R-EU_" device="R0805" value="286m"/>
+<part name="RS5" library="rcl_no_thermals" deviceset="R-EU_" device="R0805" value="286m (verbaut: 330mOhm||2.2Ohm)"/>
 <part name="AGND11" library="supply1" deviceset="AGND" device=""/>
 <part name="CI5" library="rcl_no_thermals" deviceset="C-EU" device="C1210" value="10µF/50V"/>
 <part name="C_LAMP5" library="rcl_no_thermals" deviceset="C-EU" device="C0805" value="1µF"/>

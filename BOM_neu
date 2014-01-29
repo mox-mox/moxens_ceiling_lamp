@@ -1,4 +1,4 @@
-Stückliste exportiert aus /home/mox/.eagle/projects/Zimmerlampe/Zimmerlampe.sch am 29.01.14 01:37
+Stückliste exportiert aus /home/mox/.eagle/projects/Zimmerlampe/Zimmerlampe.sch am 29.01.14 04:40
 
 Part             Value                            Device                          Package                 Description                                       MF MPN OC_FARNELL OC_NEWARK
 AVR              AT90PWM3B_NO_PIN_19NO_PIN_19     AT90PWM3B_NO_PIN_19NO_PIN_19    SO32W_NO_PIN_19                                                                                      
@@ -56,10 +56,10 @@ L3               100µF                            FERROCORE_POWER_INDUCTORDER07
 L4               100µF                            FERROCORE_POWER_INDUCTORDER0705 FERROCORE_DER0705-                                                                                   
 L5               100µF                            FERROCORE_POWER_INDUCTORDER0705 FERROCORE_DER0705-                                                                                   
 L6               100µF                            FERROCORE_POWER_INDUCTORDER0705 FERROCORE_DER0705-                                                                                   
-L_AREF2          10µH                             L1210                           L1210                                                                                                
-L_AVCC           10µH                             L1210                           L1210                                                                                                
+L_AREF2          1µH                              L1210                           L1210                                                                                                
+L_AVCC           1µH                              L1210                           L1210                                                                                                
 L_OUT            470µH                            FERROCORE_POWER_INDUCTORDE1207- FERROCORE_DE1207-                                                                                    
-L_VOLTAGE_DETECT 10µH                             L1210                           L1210                                                                                                
+L_VOLTAGE_DETECT 1µH                              L1210                           L1210                                                                                                
 POWER            24V/2.5A                         AK500/2                         AK500/2                 CONNECTOR                                                unknown    unknown  
 Q1               16MHz                            CRYSTALHC49S                    HC49/S                  CRYSTAL                                                  1667008    unknown  
 Q2               AP2305BGN-HF-3                   AP2305BGN-HF-3                  SOT23                                                                                                
