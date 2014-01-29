@@ -18003,11 +18003,11 @@ www.irf.com&lt;p&gt;
 <part name="GND10" library="supply1" deviceset="GND" device=""/>
 <part name="C_INX" library="rcl" deviceset="C-EU" device="C0805" value="100nF/50V"/>
 <part name="C_IN" library="rcl" deviceset="C-EU" device="C0805" value="1µF/50V"/>
-<part name="C_OUT" library="rcl" deviceset="C-EU" device="C0805" value="10µF/25V"/>
+<part name="C_OUT" library="rcl" deviceset="C-EU" device="C0805" value="10µF/25V verbaut: 10µF/50V/C1210"/>
 <part name="L_OUT" library="lampe" deviceset="FERROCORE_POWER_INDUCTOR" device="DE1207-" value="470µH"/>
 <part name="AGND14" library="supply1" deviceset="AGND" device=""/>
 <part name="GND7" library="supply1" deviceset="GND" device=""/>
-<part name="GROUND_CONNECT" library="rcl" deviceset="R-EU_" device="R0805" value="0 Ohm"/>
+<part name="GROUND_CONNECT" library="rcl" deviceset="R-EU_" device="R0805" value="0 Ohm, verbaut: Bauteilbeinchen"/>
 <part name="AGND15" library="supply1" deviceset="AGND" device=""/>
 <part name="IC7" library="Labor" deviceset="ZXLD1360" device="" value="ZXLD1360"/>
 <part name="D_OUT1" library="diode" deviceset="DIODE-" device="DO214AA" value="SK16"/>
@@ -18015,7 +18015,7 @@ www.irf.com&lt;p&gt;
 <part name="AGND16" library="supply1" deviceset="AGND" device=""/>
 <part name="CI" library="rcl_no_thermals" deviceset="C-EU" device="C1210" value="10µF/50V"/>
 <part name="C_LAMP" library="rcl_no_thermals" deviceset="C-EU" device="C0805" value="1µF"/>
-<part name="L1" library="lampe" deviceset="FERROCORE_POWER_INDUCTOR" device="DER0705" value="100µF"/>
+<part name="L1" library="lampe" deviceset="FERROCORE_POWER_INDUCTOR" device="DER0705" value="100µH"/>
 <part name="AGND1" library="supply1" deviceset="AGND" device=""/>
 <part name="GREEN1" library="led" deviceset="LED" device="5MM" value="350mA/18,0..21.6V"/>
 <part name="P+2" library="supply1" deviceset="+24V" device="" value="+24V"/>
@@ -18076,7 +18076,7 @@ www.irf.com&lt;p&gt;
 <part name="C" library="lampe" deviceset="SUPERCAP" device="PANASONIC_SG_TERMINAL_H" value="1F/5.5V"/>
 <part name="Q2" library="transistor-small-signal" deviceset="AP2305BGN-HF-3" device=""/>
 <part name="IC6" library="74xx-eu" deviceset="74*14" device="D" technology="HC"/>
-<part name="R2" library="rcl" deviceset="R-EU_" device="R0603" value="ca 100k"/>
+<part name="R2" library="rcl" deviceset="R-EU_" device="R0603" value="ca 100k (bestückt 150k)"/>
 <part name="R1" library="rcl" deviceset="R-EU_" device="R0805" value="100"/>
 <part name="P+9" library="supply1" deviceset="VCC" device=""/>
 <part name="GND12" library="supply1" deviceset="GNDA" device=""/>
@@ -18109,6 +18109,9 @@ www.irf.com&lt;p&gt;
 1/(1/0.330 Ohm+1/2.2 Ohm)</text>
 <text x="55.88" y="200.66" size="1.27" layer="94">!! Wird nicht eingelötet, sondern
 nur mit Pogopins verwendet !!</text>
+<text x="91.44" y="71.12" size="1.778" layer="97" rot="R90">CI:
+X7R, X5R oder besser benutzen!
+KEIN Y5V</text>
 </plain>
 <instances>
 <instance part="FRAME1" gate="/1" x="0" y="0"/>

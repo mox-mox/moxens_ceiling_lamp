@@ -8,15 +8,15 @@
 </settings>
 <grid distance="0.005" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.0025" altunitdist="inch" altunit="inch"/>
 <layers>
-<layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
+<layer number="1" name="Top" color="4" fill="1" visible="no" active="yes"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
 <layer number="17" name="Pads" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="yes"/>
 <layer number="20" name="Dimension" color="15" fill="1" visible="yes" active="yes"/>
-<layer number="21" name="tPlace" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="21" name="tPlace" color="7" fill="1" visible="no" active="yes"/>
 <layer number="22" name="bPlace" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="yes"/>
+<layer number="23" name="tOrigins" color="15" fill="1" visible="no" active="yes"/>
 <layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="yes"/>
 <layer number="25" name="tNames" color="7" fill="1" visible="no" active="yes"/>
 <layer number="26" name="bNames" color="7" fill="1" visible="no" active="yes"/>
@@ -32,9 +32,9 @@
 <layer number="36" name="bGlue" color="7" fill="5" visible="no" active="yes"/>
 <layer number="37" name="tTest" color="7" fill="1" visible="no" active="yes"/>
 <layer number="38" name="bTest" color="7" fill="1" visible="no" active="yes"/>
-<layer number="39" name="tKeepout" color="4" fill="11" visible="yes" active="yes"/>
+<layer number="39" name="tKeepout" color="4" fill="11" visible="no" active="yes"/>
 <layer number="40" name="bKeepout" color="1" fill="11" visible="yes" active="yes"/>
-<layer number="41" name="tRestrict" color="4" fill="10" visible="yes" active="yes"/>
+<layer number="41" name="tRestrict" color="4" fill="10" visible="no" active="yes"/>
 <layer number="42" name="bRestrict" color="1" fill="10" visible="yes" active="yes"/>
 <layer number="43" name="vRestrict" color="2" fill="10" visible="yes" active="yes"/>
 <layer number="44" name="Drills" color="7" fill="1" visible="no" active="yes"/>
@@ -44,7 +44,7 @@
 <layer number="48" name="Document" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="49" name="Reference" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="50" name="dxf" color="7" fill="1" visible="no" active="no"/>
-<layer number="51" name="tDocu" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="51" name="tDocu" color="7" fill="1" visible="no" active="yes"/>
 <layer number="52" name="bDocu" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="53" name="tGND_GNDA" color="7" fill="9" visible="no" active="no"/>
 <layer number="54" name="bGND_GNDA" color="1" fill="9" visible="no" active="no"/>
@@ -3259,15 +3259,15 @@ design rules under a new name.</description>
 <element name="C5" library="rcl" package="C0805" value="100nF" x="88.392" y="38.608" rot="MR270"/>
 <element name="C_INX" library="rcl" package="C0805" value="100nF/50V" x="39.37" y="38.1" rot="MR270"/>
 <element name="C_IN" library="rcl" package="C0805" value="1µF/50V" x="37.084" y="38.1" rot="MR270"/>
-<element name="C_OUT" library="rcl" package="C0805" value="10µF/25V" x="55.118" y="36.068" rot="MR180"/>
+<element name="C_OUT" library="rcl" package="C0805" value="10µF/25V verbaut: 10µF/50V/C1210" x="55.118" y="36.068" rot="MR180"/>
 <element name="L_OUT" library="lampe" package="FERROCORE_DE1207-" value="470µH" x="48.26" y="38.1"/>
-<element name="GROUND_CONNECT" library="rcl" package="R0805" value="0 Ohm" x="55.118" y="34.036" rot="MR180"/>
+<element name="GROUND_CONNECT" library="rcl" package="R0805" value="0 Ohm, verbaut: Bauteilbeinchen" x="55.118" y="34.036" rot="MR180"/>
 <element name="IC7" library="Labor" package="TSOT23-5" value="ZXLD1360" x="84.836" y="24.13" rot="R90"/>
 <element name="D_OUT1" library="diode" package="DO214AA" value="SK16" x="84.582" y="20.828"/>
 <element name="RS" library="rcl_no_thermals" package="R0805" value="286m" x="82.042" y="24.13" rot="R90"/>
 <element name="CI" library="rcl_no_thermals" package="C1210" value="10µF/50V" x="84.836" y="27.813"/>
 <element name="C_LAMP" library="rcl_no_thermals" package="C0805" value="1µF" x="79.756" y="24.13" rot="R270"/>
-<element name="L1" library="lampe" package="FERROCORE_DER0705-" value="100µF" x="83.82" y="15.494"/>
+<element name="L1" library="lampe" package="FERROCORE_DER0705-" value="100µH" x="83.82" y="15.494"/>
 <element name="GREEN1" library="led" package="LED5MM" value="350mA/18,0..21.6V" x="56.134" y="17.78" rot="R270"/>
 <element name="IC1" library="Labor" package="TSOT23-5" value="ZXLD1360" x="65.786" y="17.78" rot="R90"/>
 <element name="D_OUT2" library="diode" package="DO214AA" value="SK16" x="65.532" y="14.478"/>
@@ -3315,7 +3315,7 @@ design rules under a new name.</description>
 <element name="C" library="lampe" package="PANASONIC_SG_TERMINAL_H" value="1F/5.5V" x="67.564" y="36.322" rot="MR315"/>
 <element name="Q2" library="transistor-small-signal" package="SOT23" value="AP2305BGN-HF-3" x="79.502" y="31.75" rot="R270"/>
 <element name="IC6" library="74xx-eu" package="SO14" value="74HC14D" x="6.858" y="4.318"/>
-<element name="R2" library="rcl" package="R0603" value="ca 100k" x="4.953" y="7.366" rot="MR0"/>
+<element name="R2" library="rcl" package="R0603" value="ca 100k (bestückt 150k)" x="4.953" y="7.366" rot="MR0"/>
 <element name="R1" library="rcl" package="R0805" value="100" x="7.874" y="6.604" rot="MR270"/>
 <element name="CS" library="rcl_no_thermals" package="C1210" value="10µF/50V" x="5.334" y="3.81" rot="MR90"/>
 <element name="JP2" library="pinhead-1" package="1X03SMD/90" value=" " x="14.986" y="3.048" rot="MR90"/>
