@@ -3274,35 +3274,35 @@ design rules under a new name.</description>
 <element name="RS1" library="rcl_no_thermals" package="R0805" value="286m" x="62.992" y="17.78" rot="R90"/>
 <element name="CI1" library="rcl_no_thermals" package="C1210" value="10µF/50V" x="65.786" y="21.844"/>
 <element name="C_LAMP1" library="rcl_no_thermals" package="C0805" value="1µF" x="60.706" y="17.78" rot="R270"/>
-<element name="L2" library="lampe" package="FERROCORE_DER0705-" value="100µF" x="64.77" y="9.144"/>
+<element name="L2" library="lampe" package="FERROCORE_DER0705-" value="100µH" x="64.77" y="9.144"/>
 <element name="BLUE1" library="led" package="LED5MM" value="350mA/18,0..21.6V" x="37.084" y="24.13" rot="R270"/>
 <element name="IC2" library="Labor" package="TSOT23-5" value="ZXLD1360" x="46.736" y="24.13" rot="R90"/>
 <element name="D_OUT3" library="diode" package="DO214AA" value="SK16" x="46.482" y="20.828"/>
 <element name="RS2" library="rcl_no_thermals" package="R0805" value="286m" x="43.942" y="24.13" rot="R90"/>
 <element name="CI2" library="rcl_no_thermals" package="C1210" value="10µF/50V" x="46.736" y="28.194"/>
 <element name="C_LAMP2" library="rcl_no_thermals" package="C0805" value="1µF" x="41.656" y="24.13" rot="R270"/>
-<element name="L3" library="lampe" package="FERROCORE_DER0705-" value="100µF" x="45.72" y="15.494"/>
+<element name="L3" library="lampe" package="FERROCORE_DER0705-" value="100µH" x="45.72" y="15.494"/>
 <element name="RED2" library="led" package="LED5MM" value="350mA/12,0..15.6V" x="94.488" y="24.13" rot="R270"/>
 <element name="IC3" library="Labor" package="TSOT23-5" value="ZXLD1360" x="84.836" y="24.13" rot="MR90"/>
 <element name="D_OUT4" library="diode" package="DO214AA" value="SK16" x="85.09" y="20.828" rot="MR0"/>
 <element name="RS3" library="rcl_no_thermals" package="R0805" value="286m" x="87.63" y="24.13" rot="MR90"/>
 <element name="CI3" library="rcl_no_thermals" package="C1210" value="10µF/50V" x="84.836" y="27.813" rot="MR0"/>
 <element name="C_LAMP3" library="rcl_no_thermals" package="C0805" value="1µF" x="89.916" y="24.13" rot="MR270"/>
-<element name="L4" library="lampe" package="FERROCORE_DER0705-" value="100µF" x="85.852" y="15.494" rot="MR0"/>
+<element name="L4" library="lampe" package="FERROCORE_DER0705-" value="100µH" x="85.852" y="15.494" rot="MR0"/>
 <element name="GREEN2" library="led" package="LED5MM" value="350mA/18,0..21.6V" x="75.438" y="17.78" rot="R270"/>
 <element name="IC4" library="Labor" package="TSOT23-5" value="ZXLD1360" x="65.786" y="17.78" rot="MR90"/>
 <element name="D_OUT5" library="diode" package="DO214AA" value="SK16" x="66.04" y="14.478" rot="MR0"/>
 <element name="RS4" library="rcl_no_thermals" package="R0805" value="286m" x="68.58" y="17.78" rot="MR90"/>
 <element name="CI4" library="rcl_no_thermals" package="C1210" value="10µF/50V" x="65.786" y="21.844" rot="MR0"/>
 <element name="C_LAMP4" library="rcl_no_thermals" package="C0805" value="1µF" x="70.866" y="17.78" rot="MR270"/>
-<element name="L5" library="lampe" package="FERROCORE_DER0705-" value="100µF" x="66.802" y="9.144" rot="MR0"/>
+<element name="L5" library="lampe" package="FERROCORE_DER0705-" value="100µH" x="66.802" y="9.144" rot="MR0"/>
 <element name="BLUE2" library="led" package="LED5MM" value="350mA/18,0..21.6V" x="56.388" y="24.13" rot="R270"/>
 <element name="IC5" library="Labor" package="TSOT23-5" value="ZXLD1360" x="46.736" y="24.13" rot="MR90"/>
 <element name="D_OUT6" library="diode" package="DO214AA" value="SK16" x="46.99" y="20.828" rot="MR0"/>
 <element name="RS5" library="rcl_no_thermals" package="R0805" value="286m (verbaut: 330mOhm||2.2Ohm)" x="49.53" y="24.13" rot="MR90"/>
 <element name="CI5" library="rcl_no_thermals" package="C1210" value="10µF/50V" x="46.736" y="28.194" rot="MR0"/>
 <element name="C_LAMP5" library="rcl_no_thermals" package="C0805" value="1µF" x="51.816" y="24.13" rot="MR270"/>
-<element name="L6" library="lampe" package="FERROCORE_DER0705-" value="100µF" x="47.752" y="15.748" rot="MR0"/>
+<element name="L6" library="lampe" package="FERROCORE_DER0705-" value="100µH" x="47.752" y="15.748" rot="MR0"/>
 <element name="C1" library="rcl" package="C0805" value="30pF" x="94.234" y="35.306" rot="MR180"/>
 <element name="C2" library="rcl" package="C0805" value="30pF" x="94.234" y="33.02" rot="MR180"/>
 <element name="Q1" library="crystal" package="HC49/S" value="16MHz" x="97.028" y="34.036" rot="R270">

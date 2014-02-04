@@ -18025,7 +18025,7 @@ www.irf.com&lt;p&gt;
 <part name="AGND2" library="supply1" deviceset="AGND" device=""/>
 <part name="CI1" library="rcl_no_thermals" deviceset="C-EU" device="C1210" value="10µF/50V"/>
 <part name="C_LAMP1" library="rcl_no_thermals" deviceset="C-EU" device="C0805" value="1µF"/>
-<part name="L2" library="lampe" deviceset="FERROCORE_POWER_INDUCTOR" device="DER0705" value="100µF"/>
+<part name="L2" library="lampe" deviceset="FERROCORE_POWER_INDUCTOR" device="DER0705" value="100µH"/>
 <part name="AGND3" library="supply1" deviceset="AGND" device=""/>
 <part name="BLUE1" library="led" deviceset="LED" device="5MM" value="350mA/18,0..21.6V"/>
 <part name="P+4" library="supply1" deviceset="+24V" device="" value="+24V"/>
@@ -18035,7 +18035,7 @@ www.irf.com&lt;p&gt;
 <part name="AGND4" library="supply1" deviceset="AGND" device=""/>
 <part name="CI2" library="rcl_no_thermals" deviceset="C-EU" device="C1210" value="10µF/50V"/>
 <part name="C_LAMP2" library="rcl_no_thermals" deviceset="C-EU" device="C0805" value="1µF"/>
-<part name="L3" library="lampe" deviceset="FERROCORE_POWER_INDUCTOR" device="DER0705" value="100µF"/>
+<part name="L3" library="lampe" deviceset="FERROCORE_POWER_INDUCTOR" device="DER0705" value="100µH"/>
 <part name="AGND5" library="supply1" deviceset="AGND" device=""/>
 <part name="RED2" library="led" deviceset="LED" device="5MM" value="350mA/12,0..15.6V"/>
 <part name="P+5" library="supply1" deviceset="+24V" device="" value="+24V"/>
@@ -18045,7 +18045,7 @@ www.irf.com&lt;p&gt;
 <part name="AGND6" library="supply1" deviceset="AGND" device=""/>
 <part name="CI3" library="rcl_no_thermals" deviceset="C-EU" device="C1210" value="10µF/50V"/>
 <part name="C_LAMP3" library="rcl_no_thermals" deviceset="C-EU" device="C0805" value="1µF"/>
-<part name="L4" library="lampe" deviceset="FERROCORE_POWER_INDUCTOR" device="DER0705" value="100µF"/>
+<part name="L4" library="lampe" deviceset="FERROCORE_POWER_INDUCTOR" device="DER0705" value="100µH"/>
 <part name="AGND7" library="supply1" deviceset="AGND" device=""/>
 <part name="GREEN2" library="led" deviceset="LED" device="5MM" value="350mA/18,0..21.6V"/>
 <part name="P+6" library="supply1" deviceset="+24V" device="" value="+24V"/>
@@ -18055,7 +18055,7 @@ www.irf.com&lt;p&gt;
 <part name="AGND8" library="supply1" deviceset="AGND" device=""/>
 <part name="CI4" library="rcl_no_thermals" deviceset="C-EU" device="C1210" value="10µF/50V"/>
 <part name="C_LAMP4" library="rcl_no_thermals" deviceset="C-EU" device="C0805" value="1µF"/>
-<part name="L5" library="lampe" deviceset="FERROCORE_POWER_INDUCTOR" device="DER0705" value="100µF"/>
+<part name="L5" library="lampe" deviceset="FERROCORE_POWER_INDUCTOR" device="DER0705" value="100µH"/>
 <part name="AGND10" library="supply1" deviceset="AGND" device=""/>
 <part name="BLUE2" library="led" deviceset="LED" device="5MM" value="350mA/18,0..21.6V"/>
 <part name="P+7" library="supply1" deviceset="+24V" device="" value="+24V"/>
@@ -18065,7 +18065,7 @@ www.irf.com&lt;p&gt;
 <part name="AGND11" library="supply1" deviceset="AGND" device=""/>
 <part name="CI5" library="rcl_no_thermals" deviceset="C-EU" device="C1210" value="10µF/50V"/>
 <part name="C_LAMP5" library="rcl_no_thermals" deviceset="C-EU" device="C0805" value="1µF"/>
-<part name="L6" library="lampe" deviceset="FERROCORE_POWER_INDUCTOR" device="DER0705" value="100µF"/>
+<part name="L6" library="lampe" deviceset="FERROCORE_POWER_INDUCTOR" device="DER0705" value="100µH"/>
 <part name="AGND12" library="supply1" deviceset="AGND" device=""/>
 <part name="C1" library="rcl" deviceset="C-EU" device="C0805" value="30pF"/>
 <part name="C2" library="rcl" deviceset="C-EU" device="C0805" value="30pF"/>
