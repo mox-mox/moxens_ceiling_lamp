@@ -19158,7 +19158,7 @@ www.irf.com&lt;p&gt;
 <wire x1="1.4224" y1="-0.6604" x2="-1.4224" y2="-0.6604" width="0.1524" layer="51"/>
 <wire x1="-1.4224" y1="-0.6604" x2="-1.4224" y2="0.6604" width="0.1524" layer="51"/>
 <wire x1="-1.4224" y1="0.6604" x2="1.4224" y2="0.6604" width="0.1524" layer="51"/>
-<smd name="3" x="0" y="1.1" dx="1" dy="1.4" layer="1"/>
+<smd name="3" x="0" y="1.1" dx="0.8" dy="1.4" layer="1"/>
 <smd name="2" x="0.95" y="-1.1" dx="0.8" dy="1.4" layer="1"/>
 <smd name="1" x="-0.95" y="-1.1" dx="0.8" dy="1.4" layer="1"/>
 <text x="-1.905" y="1.905" size="1.27" layer="25">&gt;NAME</text>
@@ -19289,56 +19289,6 @@ www.irf.com&lt;p&gt;
 </deviceset>
 </devicesets>
 </library>
-<library name="pinhead">
-<description>&lt;b&gt;Pin Header Connectors&lt;/b&gt;&lt;p&gt;
-&lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
-<packages>
-<package name="1X01">
-<description>&lt;b&gt;PIN HEADER&lt;/b&gt;</description>
-<wire x1="-0.635" y1="1.27" x2="0.635" y2="1.27" width="0.1524" layer="21"/>
-<wire x1="0.635" y1="1.27" x2="1.27" y2="0.635" width="0.1524" layer="21"/>
-<wire x1="1.27" y1="0.635" x2="1.27" y2="-0.635" width="0.1524" layer="21"/>
-<wire x1="1.27" y1="-0.635" x2="0.635" y2="-1.27" width="0.1524" layer="21"/>
-<wire x1="-1.27" y1="0.635" x2="-1.27" y2="-0.635" width="0.1524" layer="21"/>
-<wire x1="-0.635" y1="1.27" x2="-1.27" y2="0.635" width="0.1524" layer="21"/>
-<wire x1="-1.27" y1="-0.635" x2="-0.635" y2="-1.27" width="0.1524" layer="21"/>
-<wire x1="0.635" y1="-1.27" x2="-0.635" y2="-1.27" width="0.1524" layer="21"/>
-<pad name="1" x="0" y="0" drill="1.016" shape="octagon"/>
-<text x="-1.3462" y="1.8288" size="1.27" layer="25" ratio="10">&gt;NAME</text>
-<text x="-1.27" y="-3.175" size="1.27" layer="27">&gt;VALUE</text>
-<rectangle x1="-0.254" y1="-0.254" x2="0.254" y2="0.254" layer="51"/>
-</package>
-</packages>
-<symbols>
-<symbol name="PINHD1">
-<wire x1="-6.35" y1="-2.54" x2="1.27" y2="-2.54" width="0.4064" layer="94"/>
-<wire x1="1.27" y1="-2.54" x2="1.27" y2="2.54" width="0.4064" layer="94"/>
-<wire x1="1.27" y1="2.54" x2="-6.35" y2="2.54" width="0.4064" layer="94"/>
-<wire x1="-6.35" y1="2.54" x2="-6.35" y2="-2.54" width="0.4064" layer="94"/>
-<text x="-6.35" y="3.175" size="1.778" layer="95">&gt;NAME</text>
-<text x="-6.35" y="-5.08" size="1.778" layer="96">&gt;VALUE</text>
-<pin name="1" x="-2.54" y="0" visible="pad" length="short" direction="pas" function="dot"/>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="PINHD-1X1" prefix="JP" uservalue="yes">
-<description>&lt;b&gt;PIN HEADER&lt;/b&gt;</description>
-<gates>
-<gate name="G$1" symbol="PINHD1" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="1X01">
-<connects>
-<connect gate="G$1" pin="1" pad="1"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
 <library name="mox_IC">
 <packages>
 <package name="LED_CON">
@@ -19381,8 +19331,8 @@ www.irf.com&lt;p&gt;
 <wire x1="0.46309375" y1="-2.98200625" x2="0.566271875" y2="-3.158896875" width="0.127" layer="22"/>
 </package>
 <package name="STARPOINT">
-<smd name="P$1" x="0" y="0" dx="1.3716" dy="0.2032" layer="1" rot="R90"/>
-<smd name="P$2" x="0" y="0" dx="1.3716" dy="0.2032" layer="1" rot="R90"/>
+<smd name="P$1" x="0" y="0" dx="1.27" dy="0.0254" layer="1" rot="R90"/>
+<smd name="P$2" x="0" y="0" dx="1.27" dy="0.0254" layer="1" rot="R90"/>
 </package>
 </packages>
 <symbols>
@@ -19527,9 +19477,6 @@ www.irf.com&lt;p&gt;
 <part name="RRST" library="rcl" deviceset="R-EU_" device="R0805" value="10k"/>
 <part name="CRST" library="rcl" deviceset="C-EU" device="C0805" value="100nF"/>
 <part name="Q9" library="transistor-small-signal" deviceset="AP2305BGN-HF-3" device=""/>
-<part name="PSC20" library="pinhead" deviceset="PINHD-1X1" device=""/>
-<part name="PSC23" library="pinhead" deviceset="PINHD-1X1" device=""/>
-<part name="PSC21" library="pinhead" deviceset="PINHD-1X1" device=""/>
 <part name="LED1" library="led" deviceset="LED" device="SML0805"/>
 <part name="LED2" library="led" deviceset="LED" device="SML0805"/>
 <part name="LED3" library="led" deviceset="LED" device="SML0805"/>
@@ -19588,7 +19535,7 @@ www.irf.com&lt;p&gt;
 <part name="L6" library="lampe" deviceset="FERROCORE_POWER_INDUCTOR" device="DER0705" value="100µH"/>
 <part name="AGND12" library="supply1" deviceset="AGND" device=""/>
 <part name="Q8" library="transistor-small-signal" deviceset="BSS123" device="" value="IRLML2502"/>
-<part name="U$2" library="mox_IC" deviceset="STARPOINT" device=""/>
+<part name="U$3" library="mox_IC" deviceset="STARPOINT" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -19814,9 +19761,6 @@ KEIN Y5V</text>
 <attribute name="NAME" x="170.18" y="218.44" size="1.778" layer="95"/>
 <attribute name="VALUE" x="177.8" y="210.82" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="PSC20" gate="G$1" x="58.42" y="193.04"/>
-<instance part="PSC23" gate="G$1" x="55.88" y="185.42"/>
-<instance part="PSC21" gate="G$1" x="58.42" y="203.2"/>
 <instance part="LED1" gate="G$1" x="91.44" y="233.68"/>
 <instance part="LED2" gate="G$1" x="99.06" y="233.68"/>
 <instance part="LED3" gate="G$1" x="106.68" y="233.68"/>
@@ -19990,10 +19934,10 @@ KEIN Y5V</text>
 <attribute name="NAME" x="104.14" y="53.34" size="1.778" layer="95"/>
 <attribute name="VALUE" x="109.22" y="54.61" size="0.8128" layer="96"/>
 </instance>
-<instance part="U$2" gate="G$1" x="66.04" y="12.7"/>
+<instance part="U$3" gate="G$1" x="66.04" y="12.7"/>
 </instances>
 <busses>
-<bus name="RGB1:R1,G1,B1,R2,G2,B2,FOO">
+<bus name="RGB1:R1,G1,B1,R2,G2,B2,FOO,BAR">
 <segment>
 <wire x1="149.86" y1="213.36" x2="149.86" y2="149.86" width="0.762" layer="92"/>
 <wire x1="149.86" y1="149.86" x2="142.24" y2="142.24" width="0.762" layer="92"/>
@@ -20027,7 +19971,7 @@ KEIN Y5V</text>
 <junction x="45.72" y="12.7"/>
 <wire x1="22.86" y1="22.86" x2="22.86" y2="12.7" width="0.1524" layer="91"/>
 <junction x="22.86" y="12.7"/>
-<pinref part="U$2" gate="G$1" pin="P$1"/>
+<pinref part="U$3" gate="G$1" pin="P$1"/>
 <junction x="60.96" y="12.7"/>
 </segment>
 <segment>
@@ -20203,7 +20147,7 @@ KEIN Y5V</text>
 <wire x1="78.74" y1="12.7" x2="83.82" y2="12.7" width="0.1524" layer="91"/>
 <wire x1="73.66" y1="15.24" x2="73.66" y2="12.7" width="0.1524" layer="91"/>
 <junction x="73.66" y="12.7"/>
-<pinref part="U$2" gate="G$1" pin="P$2"/>
+<pinref part="U$3" gate="G$1" pin="P$2"/>
 </segment>
 <segment>
 <pinref part="SENSOR_CONNECT" gate="A" pin="1"/>
@@ -20411,17 +20355,9 @@ KEIN Y5V</text>
 <label x="19.558" y="251.46" size="0.8128" layer="95" xref="yes"/>
 </segment>
 </net>
-<net name="N$1" class="0">
-<segment>
-<pinref part="AVR" gate="G$1" pin="(ADC5/INT1)PB2"/>
-<pinref part="L_VD" gate="G$1" pin="1"/>
-<wire x1="152.4" y1="200.66" x2="93.98" y2="200.66" width="0.1524" layer="91"/>
-</segment>
-</net>
 <net name="ROTE" class="0">
 <segment>
 <wire x1="149.86" y1="172.72" x2="93.98" y2="172.72" width="0.1524" layer="91"/>
-<label x="106.68" y="172.72" size="1.778" layer="95"/>
 <pinref part="AVR" gate="G$1" pin="(INT3/PSCOUT10)PC0"/>
 </segment>
 <segment>
@@ -20432,11 +20368,10 @@ KEIN Y5V</text>
 <net name="POWER_DETECT_" class="0">
 <segment>
 <pinref part="L_PD" gate="G$1" pin="2"/>
-<pinref part="AVR" gate="G$1" pin="(ADC3/ACMPM/INT0)PD6"/>
-<wire x1="93.98" y1="165.1" x2="96.52" y2="165.1" width="0.1524" layer="91"/>
-<wire x1="96.52" y1="165.1" x2="96.52" y2="170.18" width="0.1524" layer="91"/>
-<wire x1="96.52" y1="170.18" x2="152.4" y2="170.18" width="0.1524" layer="91"/>
 <label x="124.46" y="167.64" size="1.778" layer="95"/>
+<pinref part="AVR" gate="G$1" pin="(ADC5/INT1)PB2"/>
+<wire x1="93.98" y1="200.66" x2="124.46" y2="182.88" width="0.1524" layer="91"/>
+<wire x1="152.4" y1="170.18" x2="124.46" y2="182.88" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="G1" class="0">
@@ -20511,6 +20446,14 @@ KEIN Y5V</text>
 <label x="110.236" y="17.78" size="0.8128" layer="95" xref="yes"/>
 <pinref part="SENSOR_CONNECT" gate="A" pin="3"/>
 </segment>
+<segment>
+<pinref part="AVR" gate="G$1" pin="(T0/PSCOUT22)PC2"/>
+<pinref part="AVR" gate="G$1" pin="(T1/PSCOUT23)PC3"/>
+<wire x1="93.98" y1="177.8" x2="93.98" y2="180.34" width="0.1524" layer="91"/>
+<wire x1="93.98" y1="180.34" x2="104.14" y2="180.34" width="0.1524" layer="91"/>
+<junction x="93.98" y="180.34"/>
+<label x="104.14" y="180.34" size="0.8128" layer="95" xref="yes"/>
+</segment>
 </net>
 <net name="S_PWR" class="0">
 <segment>
@@ -20519,9 +20462,9 @@ KEIN Y5V</text>
 <label x="109.22" y="27.94" size="0.8128" layer="95" rot="R180" xref="yes"/>
 </segment>
 <segment>
-<pinref part="AVR" gate="G$1" pin="(PSCIN0/CLKO)PD1"/>
-<wire x1="93.98" y1="152.4" x2="96.52" y2="152.4" width="0.1524" layer="91"/>
-<label x="102.362" y="152.4" size="0.8128" layer="95" rot="R180" xref="yes"/>
+<label x="102.362" y="190.5" size="0.8128" layer="95" rot="R180" xref="yes"/>
+<pinref part="AVR" gate="G$1" pin="(D2A)PC7"/>
+<wire x1="96.52" y1="190.5" x2="93.98" y2="190.5" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="V+" class="0">
@@ -20574,17 +20517,6 @@ KEIN Y5V</text>
 <pinref part="SENSOR_CONNECT" gate="A" pin="2"/>
 </segment>
 </net>
-<net name="R2" class="0">
-<segment>
-<wire x1="149.86" y1="180.34" x2="93.98" y2="180.34" width="0.1524" layer="91"/>
-<label x="106.68" y="180.34" size="1.778" layer="95"/>
-<pinref part="AVR" gate="G$1" pin="(T1/PSCOUT23)PC3"/>
-</segment>
-<segment>
-<pinref part="Q5" gate="G$1" pin="G"/>
-<wire x1="7.62" y1="48.26" x2="10.16" y2="45.72" width="0.1524" layer="91"/>
-</segment>
-</net>
 <net name="B2" class="0">
 <segment>
 <wire x1="149.86" y1="210.82" x2="93.98" y2="210.82" width="0.1524" layer="91"/>
@@ -20592,24 +20524,15 @@ KEIN Y5V</text>
 <pinref part="AVR" gate="G$1" pin="(ADC7/PSCOUT11/ICP1B)PB6"/>
 </segment>
 <segment>
-<pinref part="Q7" gate="G$1" pin="G"/>
-<wire x1="101.6" y1="78.74" x2="104.14" y2="76.2" width="0.1524" layer="91"/>
+<pinref part="Q6" gate="G$1" pin="G"/>
+<wire x1="101.6" y1="109.22" x2="104.14" y2="109.22" width="0.1524" layer="91"/>
+<wire x1="104.14" y1="109.22" x2="104.14" y2="106.68" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$4" class="0">
 <segment>
 <pinref part="R_VDH" gate="G$1" pin="1"/>
 <pinref part="Q9" gate="G$1" pin="D"/>
-</segment>
-</net>
-<net name="R1" class="0">
-<segment>
-<wire x1="149.86" y1="198.12" x2="93.98" y2="198.12" width="0.1524" layer="91"/>
-<label x="106.68" y="198.12" size="1.778" layer="95"/>
-<pinref part="AVR" gate="G$1" pin="(MOSI/PSCOUT21)PB1"/>
-<pinref part="PSC21" gate="G$1" pin="1"/>
-<wire x1="93.98" y1="198.12" x2="55.88" y2="203.2" width="0.1524" layer="91"/>
-<junction x="93.98" y="198.12"/>
 </segment>
 </net>
 <net name="B1" class="0">
@@ -20619,8 +20542,9 @@ KEIN Y5V</text>
 <pinref part="AVR" gate="G$1" pin="(ADC4/PSCOUT01/SCK)PB7"/>
 </segment>
 <segment>
-<pinref part="Q6" gate="G$1" pin="G"/>
-<wire x1="101.6" y1="109.22" x2="104.14" y2="106.68" width="0.1524" layer="91"/>
+<pinref part="Q7" gate="G$1" pin="G"/>
+<wire x1="101.6" y1="78.74" x2="104.14" y2="78.74" width="0.1524" layer="91"/>
+<wire x1="104.14" y1="78.74" x2="104.14" y2="76.2" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="MISOA" class="0">
@@ -20635,21 +20559,24 @@ KEIN Y5V</text>
 <label x="55.88" y="254" size="0.8128" layer="95" xref="yes"/>
 </segment>
 </net>
-<net name="N$5" class="0">
+<net name="BAR" class="0">
 <segment>
-<pinref part="AVR" gate="G$1" pin="(MISO/PSCOUT20)PB0"/>
-<pinref part="PSC20" gate="G$1" pin="1"/>
-<wire x1="93.98" y1="195.58" x2="55.88" y2="193.04" width="0.1524" layer="91"/>
+<pinref part="Q5" gate="G$1" pin="G"/>
+<wire x1="7.62" y1="48.26" x2="10.16" y2="45.72" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="AVR" gate="G$1" pin="(MOSI/PSCOUT21)PB1"/>
+<wire x1="149.86" y1="198.12" x2="93.98" y2="198.12" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="FOO" class="0">
 <segment>
-<pinref part="AVR" gate="G$1" pin="(T0/PSCOUT22)PC2"/>
-<wire x1="93.98" y1="177.8" x2="99.06" y2="177.8" width="0.1524" layer="91"/>
-</segment>
-<segment>
 <pinref part="Q3" gate="G$1" pin="G"/>
 <wire x1="7.62" y1="78.74" x2="10.16" y2="76.2" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="AVR" gate="G$1" pin="(MISO/PSCOUT20)PB0"/>
+<wire x1="149.86" y1="195.58" x2="93.98" y2="195.58" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="FREEWHEEL1" class="0">
@@ -20862,6 +20789,20 @@ KEIN Y5V</text>
 <wire x1="109.22" y1="53.34" x2="116.84" y2="53.34" width="0.1524" layer="91"/>
 </segment>
 </net>
+<net name="VOLTAGE_DETECT_" class="0">
+<segment>
+<pinref part="L_VD" gate="G$1" pin="1"/>
+<pinref part="AVR" gate="G$1" pin="(ADC6/INT2)PB5"/>
+<wire x1="152.4" y1="200.66" x2="93.98" y2="208.28" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$1" class="0">
+<segment>
+<pinref part="AVR" gate="G$1" pin="(ADC8(AMP1-)PC4"/>
+<pinref part="Q9" gate="G$1" pin="G"/>
+<wire x1="93.98" y1="182.88" x2="162.56" y2="218.44" width="0.1524" layer="91"/>
+</segment>
+</net>
 </nets>
 </sheet>
 </sheets>
@@ -20892,14 +20833,6 @@ KEIN Y5V</text>
 <approved hash="104,1,124.46,127,IC3,VIN,+24V,,,"/>
 <approved hash="104,1,124.46,96.52,IC4,VIN,+24V,,,"/>
 <approved hash="104,1,124.46,66.04,IC5,VIN,+24V,,,"/>
-<approved hash="113,1,64.0012,219.841,PSCO1,,,,,"/>
-<approved hash="113,1,61.1971,209.681,PSC11,,,,,"/>
-<approved hash="113,1,56.1171,171.581,PSC10,,,,,"/>
-<approved hash="113,1,56.1171,194.441,PSC20,,,,,"/>
-<approved hash="113,1,53.5771,186.821,PSC23,,,,,"/>
-<approved hash="113,1,56.1171,204.601,PSC21,,,,,"/>
-<approved hash="113,1,51.0371,179.201,PSC22,,,,,"/>
-<approved hash="113,1,51.0371,153.801,PSC00,,,,,"/>
 <approved hash="113,1,91.7617,232.41,LED1,,,,,"/>
 <approved hash="113,1,99.3817,232.41,LED2,,,,,"/>
 <approved hash="113,1,107.002,232.41,LED3,,,,,"/>
