@@ -19749,7 +19749,7 @@ www.irf.com&lt;p&gt;
 <part name="L2" library="lampe" deviceset="FERROCORE_POWER_INDUCTOR" device="DER0705" value="100µH"/>
 <part name="AGND3" library="supply1" deviceset="AGND" device=""/>
 <part name="Q3" library="transistor-small-signal" deviceset="BSS123" device="" value="IRLML2502"/>
-<part name="RED3" library="mox_IC" deviceset="LED_CON" device="TYPE_A" value="350mA/12,0..15.6V"/>
+<part name="RED3" library="mox_IC" deviceset="LED_CON" device="TYPE_B" value="350mA/12,0..15.6V"/>
 <part name="P+4" library="supply1" deviceset="+24V" device="" value="+24V"/>
 <part name="IC2" library="Labor" deviceset="ZXLD1360" device="" value="ZXLD1360"/>
 <part name="D_OUT3" library="diode" deviceset="DIODE-" device="DO214AA" value="SK16"/>
@@ -19760,7 +19760,7 @@ www.irf.com&lt;p&gt;
 <part name="L3" library="lampe" deviceset="FERROCORE_POWER_INDUCTOR" device="DER0705" value="100µH"/>
 <part name="AGND5" library="supply1" deviceset="AGND" device=""/>
 <part name="Q5" library="transistor-small-signal" deviceset="BSS123" device="" value="IRLML2502"/>
-<part name="RED4" library="mox_IC" deviceset="LED_CON" device="TYPE_A" value="350mA/12,0..15.6V"/>
+<part name="RED4" library="mox_IC" deviceset="LED_CON" device="TYPE_B" value="350mA/12,0..15.6V"/>
 <part name="P+5" library="supply1" deviceset="+24V" device="" value="+24V"/>
 <part name="IC3" library="Labor" deviceset="ZXLD1360" device="" value="ZXLD1360"/>
 <part name="D_OUT4" library="diode" deviceset="DIODE-" device="DO214AA" value="SK16"/>
