@@ -32,9 +32,9 @@
 <layer number="36" name="bGlue" color="7" fill="5" visible="no" active="yes"/>
 <layer number="37" name="tTest" color="7" fill="1" visible="no" active="yes"/>
 <layer number="38" name="bTest" color="7" fill="1" visible="no" active="yes"/>
-<layer number="39" name="tKeepout" color="4" fill="11" visible="yes" active="yes"/>
+<layer number="39" name="tKeepout" color="4" fill="11" visible="no" active="yes"/>
 <layer number="40" name="bKeepout" color="1" fill="11" visible="yes" active="yes"/>
-<layer number="41" name="tRestrict" color="4" fill="10" visible="yes" active="yes"/>
+<layer number="41" name="tRestrict" color="4" fill="10" visible="no" active="yes"/>
 <layer number="42" name="bRestrict" color="1" fill="10" visible="yes" active="yes"/>
 <layer number="43" name="vRestrict" color="2" fill="10" visible="yes" active="yes"/>
 <layer number="44" name="Drills" color="7" fill="1" visible="no" active="yes"/>
@@ -3008,6 +3008,30 @@ www.irf.com&lt;p&gt;
 </package>
 </packages>
 </library>
+<library name="led">
+<description>&lt;b&gt;LEDs&lt;/b&gt;&lt;p&gt;
+&lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;&lt;br&gt;
+Extended by Federico Battaglin &lt;author&gt;&amp;lt;federico.rd@fdpinternational.com&amp;gt;&lt;/author&gt; with DUOLED</description>
+<packages>
+<package name="SML0805">
+<description>&lt;b&gt;SML0805-2CW-TR (0805 PROFILE)&lt;/b&gt; COOL WHITE&lt;p&gt;
+Source: http://www.ledtronics.com/ds/smd-0603/Dstr0093.pdf</description>
+<wire x1="-0.95" y1="-0.55" x2="0.95" y2="-0.55" width="0.1016" layer="51"/>
+<wire x1="0.95" y1="-0.55" x2="0.95" y2="0.55" width="0.1016" layer="51"/>
+<wire x1="0.95" y1="0.55" x2="-0.95" y2="0.55" width="0.1016" layer="51"/>
+<wire x1="-0.95" y1="0.55" x2="-0.95" y2="-0.55" width="0.1016" layer="51"/>
+<wire x1="-0.175" y1="-0.025" x2="0" y2="0.15" width="0.0634" layer="21"/>
+<wire x1="0" y1="0.15" x2="0.15" y2="0" width="0.0634" layer="21"/>
+<wire x1="0.15" y1="0" x2="-0.025" y2="-0.175" width="0.0634" layer="21"/>
+<wire x1="-0.025" y1="-0.175" x2="-0.175" y2="-0.025" width="0.0634" layer="21"/>
+<circle x="-0.275" y="0.4" radius="0.125" width="0" layer="21"/>
+<smd name="C" x="-1.05" y="0" dx="1.2" dy="1.2" layer="1"/>
+<smd name="A" x="1.05" y="0" dx="1.2" dy="1.2" layer="1"/>
+<text x="-1.5" y="1" size="1.27" layer="25">&gt;NAME</text>
+<text x="-1.5" y="-2" size="1.27" layer="27">&gt;VALUE</text>
+</package>
+</packages>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -3423,6 +3447,8 @@ design rules under a new name.</description>
 <attribute name="VALUE" x="24.547578125" y="0.810578125" size="0.6096" layer="27" ratio="15" rot="R270"/>
 </element>
 <element name="BLUE" library="pinhead-1" package="1X04SMD/INLINE" value="" x="19.939" y="23.241" rot="MR0"/>
+<element name="LED1" library="led" package="SML0805" value="" x="18.796" y="34.29" rot="MR0"/>
+<element name="R1" library="rcl" package="R0805" value="" x="16.637" y="36.068" rot="MR180"/>
 </elements>
 <signals>
 <signal name="AGND">
@@ -3718,6 +3744,9 @@ design rules under a new name.</description>
 <contactref element="BLUE" pad="3"/>
 <wire x1="18.474" y1="21.468" x2="18.474" y2="23.046" width="0.6096" layer="16"/>
 <wire x1="18.474" y1="23.046" x2="18.669" y2="23.241" width="0.6096" layer="16"/>
+<contactref element="LED1" pad="C"/>
+<wire x1="19.846" y1="34.29" x2="19.846" y2="31.984" width="0.6096" layer="16"/>
+<wire x1="19.846" y1="31.984" x2="17.712" y2="29.85" width="0.6096" layer="16"/>
 </signal>
 <signal name="+24V">
 <contactref element="V_REG" pad="7"/>
@@ -4250,6 +4279,7 @@ design rules under a new name.</description>
 <vertex x="14.664" y="24.262"/>
 <vertex x="17.204" y="21.722"/>
 </polygon>
+<contactref element="R1" pad="2"/>
 </signal>
 <signal name="ADJUST">
 <contactref element="IC7" pad="3"/>
@@ -4768,6 +4798,14 @@ design rules under a new name.</description>
 <signal name="N$3">
 <via x="1.5" y="38.5" extent="1-16" drill="1.2"/>
 </signal>
+<signal name="N$5">
+<contactref element="LED1" pad="A"/>
+<contactref element="R1" pad="1"/>
+<wire x1="17.746" y1="34.29" x2="17.018" y2="34.29" width="0.6096" layer="16"/>
+<wire x1="17.018" y1="34.29" x2="15.748" y2="35.56" width="0.6096" layer="16"/>
+<wire x1="15.748" y1="35.56" x2="15.748" y2="36.007" width="0.6096" layer="16"/>
+<wire x1="15.748" y1="36.007" x2="15.687" y2="36.068" width="0.6096" layer="16"/>
+</signal>
 </signals>
 <errors>
 <approved hash="19,1,7106c3fcd5429a39"/>
@@ -4870,8 +4908,8 @@ design rules under a new name.</description>
 <approved hash="3,16,b2b37e13be6972c9"/>
 <approved hash="19,16,7b5594535829b72f"/>
 <approved hash="19,16,7b5594535829b72f"/>
-<approved hash="19,16,7b5594535829b72f"/>
 <approved hash="19,16,3f0256f4516e3898"/>
+<approved hash="19,16,7b5594535829b72f"/>
 </errors>
 </board>
 </drawing>
