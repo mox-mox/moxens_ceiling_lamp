@@ -19837,11 +19837,11 @@ Source: www.kingbright.com</description>
 <part name="L6" library="lampe" deviceset="FERROCORE_POWER_INDUCTOR" device="DER0705" value="100µH"/>
 <part name="AGND12" library="supply1" deviceset="AGND" device=""/>
 <part name="Q8" library="transistor-small-signal" deviceset="BSS123" device="" value="IRLML2502"/>
-<part name="BLUE" library="pinhead-1" deviceset="PINHD-1X4" device="_2.54-SMD-INLINE"/>
 <part name="LED1" library="led" deviceset="LED" device="SML0805"/>
 <part name="R1" library="rcl" deviceset="R-EU_" device="R0805"/>
-<part name="P+9" library="supply1" deviceset="V+" device=""/>
 <part name="GND3" library="supply1" deviceset="GND" device=""/>
+<part name="BLUE" library="pinhead-1" deviceset="PINHD-1X4" device="_2.54-SMD-INLINE"/>
+<part name="P+9" library="supply1" deviceset="+5V" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -19948,11 +19948,11 @@ KEIN Y5V</text>
 <attribute name="NAME" x="86.36" y="20.32" size="1.778" layer="95"/>
 <attribute name="VALUE" x="99.06" y="20.32" size="1.778" layer="96"/>
 </instance>
-<instance part="P+1" gate="1" x="142.24" y="248.92" smashed="yes">
-<attribute name="VALUE" x="142.24" y="246.38" size="1.778" layer="96"/>
+<instance part="P+1" gate="1" x="157.48" y="248.92" smashed="yes">
+<attribute name="VALUE" x="157.48" y="246.38" size="1.778" layer="96"/>
 </instance>
-<instance part="GND9" gate="1" x="127" y="246.38" smashed="yes" rot="MR0">
-<attribute name="VALUE" x="124.46" y="246.38" size="1.778" layer="96" rot="MR0"/>
+<instance part="GND9" gate="1" x="142.24" y="246.38" smashed="yes" rot="MR0">
+<attribute name="VALUE" x="139.7" y="246.38" size="1.778" layer="96" rot="MR0"/>
 </instance>
 <instance part="L_PD" gate="G$1" x="144.78" y="185.42" smashed="yes" rot="R270">
 <attribute name="NAME" x="140.97" y="186.9186" size="1.778" layer="95"/>
@@ -20237,13 +20237,11 @@ KEIN Y5V</text>
 <attribute name="NAME" x="104.14" y="53.34" size="1.778" layer="95"/>
 <attribute name="VALUE" x="109.22" y="54.61" size="0.8128" layer="96"/>
 </instance>
-<instance part="BLUE" gate="A" x="137.16" y="248.92"/>
 <instance part="LED1" gate="G$1" x="93.98" y="241.3"/>
 <instance part="R1" gate="G$1" x="93.98" y="248.92" rot="R90"/>
-<instance part="P+9" gate="1" x="93.98" y="256.54" smashed="yes">
-<attribute name="VALUE" x="88.9" y="254" size="1.778" layer="96"/>
-</instance>
 <instance part="GND3" gate="1" x="93.98" y="233.68"/>
+<instance part="BLUE" gate="A" x="152.4" y="248.92"/>
+<instance part="P+9" gate="1" x="93.98" y="256.54"/>
 </instances>
 <busses>
 <bus name="RGB1:R1,G1,B1,R2,G2,B2,FOO,BAR">
@@ -20368,7 +20366,11 @@ KEIN Y5V</text>
 <segment>
 <pinref part="P+1" gate="1" pin="+5V"/>
 <pinref part="BLUE" gate="A" pin="4"/>
-<wire x1="142.24" y1="246.38" x2="134.62" y2="246.38" width="0.1524" layer="91"/>
+<wire x1="157.48" y1="246.38" x2="149.86" y2="246.38" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="R1" gate="G$1" pin="2"/>
+<pinref part="P+9" gate="1" pin="+5V"/>
 </segment>
 </net>
 <net name="RESET" class="0">
@@ -20460,8 +20462,8 @@ KEIN Y5V</text>
 </segment>
 <segment>
 <pinref part="GND9" gate="1" pin="GND"/>
-<wire x1="134.62" y1="248.92" x2="127" y2="248.92" width="0.1524" layer="91"/>
 <pinref part="BLUE" gate="A" pin="3"/>
+<wire x1="142.24" y1="248.92" x2="149.86" y2="248.92" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="GND11" gate="1" pin="GND"/>
@@ -20641,9 +20643,9 @@ KEIN Y5V</text>
 </net>
 <net name="RXD_SCKA" class="0">
 <segment>
-<label x="129.54" y="251.46" size="0.8128" layer="95" rot="R180" xref="yes"/>
-<pinref part="BLUE" gate="A" pin="2"/>
-<wire x1="129.54" y1="251.46" x2="134.62" y2="251.46" width="0.1524" layer="91"/>
+<label x="142.24" y="254" size="0.8128" layer="95" rot="R180" xref="yes"/>
+<wire x1="142.24" y1="254" x2="149.86" y2="254" width="0.1524" layer="91"/>
+<pinref part="BLUE" gate="A" pin="1"/>
 </segment>
 <segment>
 <pinref part="AVR" gate="G$1" pin="(ADC1/RXD/DALI/ICP1A/SCK_A)PD4"/>
@@ -20658,9 +20660,9 @@ KEIN Y5V</text>
 </net>
 <net name="TXD_MOSIA" class="0">
 <segment>
-<label x="129.54" y="254" size="0.8128" layer="95" rot="R180" xref="yes"/>
-<pinref part="BLUE" gate="A" pin="1"/>
-<wire x1="129.54" y1="254" x2="134.62" y2="254" width="0.1524" layer="91"/>
+<label x="142.24" y="251.46" size="0.8128" layer="95" rot="R180" xref="yes"/>
+<wire x1="142.24" y1="251.46" x2="149.86" y2="251.46" width="0.1524" layer="91"/>
+<pinref part="BLUE" gate="A" pin="2"/>
 </segment>
 <segment>
 <pinref part="AVR" gate="G$1" pin="(TXD/DALI/OC0A/SS/MOSI_A)PD3"/>
@@ -20687,9 +20689,9 @@ KEIN Y5V</text>
 <segment>
 <pinref part="L_PD" gate="G$1" pin="2"/>
 <label x="124.46" y="167.64" size="1.778" layer="95"/>
-<pinref part="AVR" gate="G$1" pin="(ADC5/INT1)PB2"/>
 <wire x1="139.7" y1="185.42" x2="139.7" y2="200.66" width="0.1524" layer="91"/>
-<wire x1="139.7" y1="200.66" x2="93.98" y2="200.66" width="0.1524" layer="91"/>
+<pinref part="AVR" gate="G$1" pin="(ADC6/INT2)PB5"/>
+<wire x1="139.7" y1="200.66" x2="93.98" y2="208.28" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="G2" class="0">
@@ -20820,10 +20822,6 @@ KEIN Y5V</text>
 <pinref part="Q2" gate="G$1" pin="S"/>
 <pinref part="P+8" gate="1" pin="V+"/>
 </segment>
-<segment>
-<pinref part="R1" gate="G$1" pin="2"/>
-<pinref part="P+9" gate="1" pin="V+"/>
-</segment>
 </net>
 <net name="ADJUST" class="0">
 <segment>
@@ -20895,9 +20893,9 @@ KEIN Y5V</text>
 <net name="VOLTAGE_DETECT_" class="0">
 <segment>
 <pinref part="L_VD" gate="G$1" pin="1"/>
-<pinref part="AVR" gate="G$1" pin="(ADC6/INT2)PB5"/>
 <wire x1="139.7" y1="218.44" x2="139.7" y2="208.28" width="0.1524" layer="91"/>
-<wire x1="139.7" y1="208.28" x2="93.98" y2="208.28" width="0.1524" layer="91"/>
+<pinref part="AVR" gate="G$1" pin="(ADC5/INT1)PB2"/>
+<wire x1="139.7" y1="208.28" x2="93.98" y2="200.66" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="VD_PWR" class="0">
@@ -20907,9 +20905,9 @@ KEIN Y5V</text>
 <label x="147.32" y="236.22" size="0.8128" layer="95" rot="R180" xref="yes"/>
 </segment>
 <segment>
-<label x="103.124" y="190.5" size="0.8128" layer="95" rot="R180" xref="yes"/>
-<pinref part="AVR" gate="G$1" pin="(D2A)PC7"/>
-<wire x1="96.52" y1="190.5" x2="93.98" y2="190.5" width="0.1524" layer="91"/>
+<label x="103.124" y="182.88" size="0.8128" layer="95" rot="R180" xref="yes"/>
+<pinref part="AVR" gate="G$1" pin="(ADC8(AMP1-)PC4"/>
+<wire x1="96.52" y1="182.88" x2="93.98" y2="182.88" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="FREEWHEEL1" class="0">
