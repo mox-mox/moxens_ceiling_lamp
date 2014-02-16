@@ -3,13 +3,12 @@
 ###############################################################################
 # Source
 # Name your Project
-PROJECT = lampe
+PROJECT = lamp
 
 # Sourcefiles
-SOURCE =main.c
-# Files from basis
-#SOURCE += adc.c timer.c pwm.c uart.c suart.c servo.c
-#SOURCE += dynaservo.c uart.c suart.c gaits.c mc_pc_comm.c timer.c terminal.c snake.c
+SOURCE = main.c
+SOURCE += communication.c uart0.c
+SOURCE += pwm.c
 # Libraries
 LIBS = -lm
 
@@ -18,7 +17,7 @@ LIBS = -lm
 # O1 and 02 - optimize for speed
 # O3 - faster but not always correct
 # Os - optimize for programmsize (default)
-OPT=Os
+OPT=O1
 
 #keep the next line
 all:
@@ -39,7 +38,6 @@ prog: prog-diamexusb
 # Hardware
 #MCU   = atmega168
 MCU   = at90pwm3b
-#MCU   = atmega128
 F_OSC = 4000000L
 
 # How to use this Makefile:

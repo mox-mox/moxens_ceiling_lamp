@@ -20679,6 +20679,7 @@ KEIN Y5V</text>
 <segment>
 <wire x1="114.3" y1="172.72" x2="93.98" y2="172.72" width="0.1524" layer="91"/>
 <pinref part="AVR" gate="G$1" pin="(INT3/PSCOUT10)PC0"/>
+<label x="114.3" y="172.72" size="0.8128" layer="95" xref="yes"/>
 </segment>
 <segment>
 <wire x1="101.6" y1="48.26" x2="104.14" y2="45.72" width="0.1524" layer="91"/>
@@ -20688,7 +20689,7 @@ KEIN Y5V</text>
 <net name="POWER_DETECT_" class="0">
 <segment>
 <pinref part="L_PD" gate="G$1" pin="2"/>
-<label x="124.46" y="167.64" size="1.778" layer="95"/>
+<label x="119.38" y="208.28" size="1.778" layer="95"/>
 <wire x1="144.78" y1="218.44" x2="144.78" y2="208.28" width="0.1524" layer="91"/>
 <pinref part="AVR" gate="G$1" pin="(ADC6/INT2)PB5"/>
 <wire x1="144.78" y1="208.28" x2="93.98" y2="208.28" width="0.1524" layer="91"/>
@@ -20698,7 +20699,7 @@ KEIN Y5V</text>
 <segment>
 <wire x1="114.3" y1="149.86" x2="93.98" y2="149.86" width="0.1524" layer="91"/>
 <pinref part="AVR" gate="G$1" pin="(PSCOUT00/XCK/SS_A)PD0"/>
-<label x="106.68" y="149.86" size="1.778" layer="95"/>
+<label x="114.3" y="149.86" size="0.8128" layer="95" xref="yes"/>
 </segment>
 <segment>
 <pinref part="Q7" gate="G$1" pin="G"/>
@@ -20833,8 +20834,8 @@ KEIN Y5V</text>
 <net name="R2" class="0">
 <segment>
 <wire x1="114.3" y1="210.82" x2="93.98" y2="210.82" width="0.1524" layer="91"/>
-<label x="106.68" y="210.82" size="1.778" layer="95"/>
 <pinref part="AVR" gate="G$1" pin="(ADC7/PSCOUT11/ICP1B)PB6"/>
+<label x="114.3" y="210.82" size="0.8128" layer="95" xref="yes"/>
 </segment>
 <segment>
 <pinref part="Q4" gate="G$1" pin="G"/>
@@ -20849,9 +20850,9 @@ KEIN Y5V</text>
 </net>
 <net name="R1" class="0">
 <segment>
-<label x="106.68" y="213.36" size="1.778" layer="95"/>
 <pinref part="AVR" gate="G$1" pin="(ADC4/PSCOUT01/SCK)PB7"/>
 <wire x1="114.3" y1="213.36" x2="93.98" y2="213.36" width="0.1524" layer="91"/>
+<label x="114.3" y="213.36" size="0.8128" layer="95" xref="yes"/>
 </segment>
 <segment>
 <pinref part="Q3" gate="G$1" pin="G"/>
@@ -20874,6 +20875,7 @@ KEIN Y5V</text>
 <segment>
 <pinref part="AVR" gate="G$1" pin="(MOSI/PSCOUT21)PB1"/>
 <wire x1="114.3" y1="198.12" x2="93.98" y2="198.12" width="0.1524" layer="91"/>
+<label x="114.3" y="198.12" size="0.8128" layer="95" xref="yes"/>
 </segment>
 <segment>
 <pinref part="Q5" gate="G$1" pin="G"/>
@@ -20884,6 +20886,7 @@ KEIN Y5V</text>
 <segment>
 <pinref part="AVR" gate="G$1" pin="(MISO/PSCOUT20)PB0"/>
 <wire x1="114.3" y1="195.58" x2="93.98" y2="195.58" width="0.1524" layer="91"/>
+<label x="114.3" y="195.58" size="0.8128" layer="95" xref="yes"/>
 </segment>
 <segment>
 <pinref part="Q6" gate="G$1" pin="G"/>
@@ -20896,6 +20899,7 @@ KEIN Y5V</text>
 <wire x1="144.78" y1="170.18" x2="144.78" y2="200.66" width="0.1524" layer="91"/>
 <pinref part="AVR" gate="G$1" pin="(ADC5/INT1)PB2"/>
 <wire x1="144.78" y1="200.66" x2="93.98" y2="200.66" width="0.1524" layer="91"/>
+<label x="119.38" y="200.66" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="VD_PWR" class="0">

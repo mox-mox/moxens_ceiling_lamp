@@ -1,0 +1,18 @@
+Signal		Pin			Funktion
+================================
+
+R1			PB7			PSCOUT01
+G1			PC0			PSCOUT10
+B1			PB0			PSCOUT20
+
+R2			PB6			PSCOUT11
+G2			PD0			PSCOUT00
+B2			PB1			PSCOUT21
+
+S_PWR		PD5
+FREQ_IN		PC2|PC3		T0|T1
+
+VD_PWR		PC4
+V_Detect	PB2			ADC5|INT1
+
+Pwr_Detect	PB5			ADC6|INT2
