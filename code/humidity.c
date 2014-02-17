@@ -31,4 +31,13 @@ void disable_humidity_sensor()
 }
 
 
+// Frequenzmessung:
+// - Signal liegt an T0 an. Signal taktet Timer/Counter0
+// - Messung starten: 
+//		* Timer/Counter0 wird auf 0 gesetzt und gehalten
+//		* Timer/Counter1 wird auf 0 gesetzt.
+//		* Timer/Counter1 wird gestartet
+//		* Timer/Counter0 wird freigegeben
+//		* Wenn Timer/Counter0 bei 255=TOP=MAX angekommen ist, wird der Stand von Timer/Counter1 gemessen.
+//		-> Wert von Timer/Counter1 ist Reziprok zur Frequenz
 void measure_humidity();

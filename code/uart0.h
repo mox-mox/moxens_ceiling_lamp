@@ -8,6 +8,8 @@
 #ifndef _uart0_h_
 #define _uart0_h_
 
+#include <avr/io.h>
+
 #define BAUD		9600
 
 					// size must be in range 2 .. 256
@@ -56,9 +58,14 @@ void init_uart0( u16 bauddivider );
 #ifndef	UCSR0C
 #define	UCSR0C	UCSRC
 #endif
-#ifndef	UDR0
-#define	UDR0	UDR
+
+#if (!defined UDR0 | UDR0 == 0)
+//#ifndef	UDR0
+#define	UDR0_	UDR
+#else
+#define UDR0_ UDR0
 #endif
+
 #ifndef	UBRR0L
 #define	UBRR0L	UBRRL
 #endif

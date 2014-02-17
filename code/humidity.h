@@ -1,13 +1,12 @@
 #ifndef HUMIDITY_H
 #define HUMIDITY_H
 
-//void init();
+#define S_PWR PD5
+#define FREQ_IN PC2 // Using T0
+//#define FREQ_IN PC3 // Using T1
 
-void measure_frequency();
 void get_humidity();
-
-void enable_frequency_sensor();
-void disable_frequency_sensor();
+void init_humidity();
 
 
 

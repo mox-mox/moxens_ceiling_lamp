@@ -5,7 +5,8 @@ obj/main.o: main.c main.h /usr/avr/include/avr/interrupt.h \
  /usr/avr/include/avr/portpins.h /usr/avr/include/avr/common.h \
  /usr/avr/include/avr/version.h /usr/avr/include/avr/fuse.h \
  /usr/avr/include/avr/lock.h /usr/avr/include/util/delay.h \
- /usr/avr/include/util/delay_basic.h /usr/avr/include/math.h uart0.h
+ /usr/avr/include/util/delay_basic.h /usr/avr/include/math.h \
+ communicate.h uart0.h humidity.h
 
 main.h:
 
@@ -39,4 +40,8 @@ main.h:
 
 /usr/avr/include/math.h:
 
+communicate.h:
+
 uart0.h:
+
+humidity.h:

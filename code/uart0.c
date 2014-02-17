@@ -64,7 +64,7 @@ ISR( USART0_RX_vect )
     URX0_IEN = 0;			// disable RX interrupt
     return;
   }
-  rx_buff[rx_in] = UDR0;
+  rx_buff[rx_in] = UDR0_;
   rx_in = i;
 }
 
@@ -75,7 +75,7 @@ ISR( USART0_UDRE_vect )
     UTX0_IEN = 0;			// disable TX interrupt
     return;
   }
-  UDR0 = tx_buff[tx_out];
+  UDR0_ = tx_buff[tx_out];
   ROLLOVER( tx_out, TX0_SIZE );
 }
 

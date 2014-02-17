@@ -6,8 +6,8 @@
 /*                                                                      */
 /************************************************************************/
 #include "main.h"
-//#include "communicate.h"
-#include "uart0.h"
+#include "communicate.h"
+#include "humidity.h"
 
 //{{{
 
@@ -55,10 +55,6 @@
 
 
 
-
-#include "main.h"
-
-
 void init();
 
 
@@ -91,6 +87,7 @@ void init()
 	PORTD=0x00;
 	PORTE=0x00;
 
+	//init_humidity();
 
 
 }

@@ -7,10 +7,12 @@ PROJECT = lamp
 
 # Sourcefiles
 SOURCE = main.c
-SOURCE += communication.c uart0.c
+SOURCE += communicate.c uart0.c
 SOURCE += pwm.c
 # Libraries
 LIBS = -lm
+
+#INCLUDES = -I"../include"
 
 # Optimization
 # O0 - no optimization
@@ -19,8 +21,17 @@ LIBS = -lm
 # Os - optimize for programmsize (default)
 OPT=O1
 
+
+
+
+
 #keep the next line
 all:
+
+
+.PHONY: tags
+tags:
+	ctags -R --exclude=/usr/avr/include/avr ${SOURCE} $(CURDIR) /usr/avr/include
 
 # Programmer
 DIAMEXPORT = /dev/ttyUSB0 #crispavr usb
@@ -70,7 +81,8 @@ COMMON = -mmcu=$(MCU) -DF_CPU=$(F_OSC)
 ## Compile options common for all C compilation units.
 CFLAGS = $(COMMON) $(INC)
 CFLAGS += -std=c99
-CFLAGS += -Wall -Wunused -Wextra -$(OPT) -fsigned-char -Wno-pragmas -Wpedantic
+#CFLAGS += -Wall -Wunused -Wextra -$(OPT) -fsigned-char -Wno-pragmas -Wpedantic
+CFLAGS += -Wall -Wunused -Wextra -Wpedantic -$(OPT) -fsigned-char
 CFLAGS += -MD -MP -MT $@ -MF dep/$(@F).d
 CFLAGS += -DMC_SIDE
 CFLAGS += -I../
