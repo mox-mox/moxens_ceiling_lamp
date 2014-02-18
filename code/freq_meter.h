@@ -1,3 +1,4 @@
+//{{{
 /* This file has been prepared for Doxygen automatic documentation generation.*/
 /*! \file ********************************************************************
 *
@@ -84,6 +85,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE
  * http://www.atmel.com/dyn/products/app_notes.asp?family_id=607 \n
  * Support mail: avr@atmel.com
  */
+//}}}
 
 
 //! Prototypes
@@ -142,64 +144,25 @@ void ovf_test_and_return_result(void);
 
 #ifndef F_CPU
 /*! \brief Define default CPU frequency, if this is not already defined. */
-#define F_CPU 8000000UL
+// mox: Dont´t do this. If F_CPU was not set, it should not be set quietly but result in a warning, so the user knows what is going on.
+//#define F_CPU 8000000UL // this breaks the fail fast paradigm
+#error "Freq_meter needs to know the CPU frequency, so please define F_CPU"
 #endif
 
 
 
-#if defined(__AVR_ATtiny261__) | defined(__AVR_ATtiny461__) | defined(__AVR_ATtiny861__)  // this works with GCC
-
-// The following uses Timer0 as a 16 bit counter, and TImer1 as the Gate timer, set to run for 100 msec
-#define FREQ_CNTR_CTRLA			TCCR0A
-#define FREQ_CNTR_CTRLB      	TCCR0B
-#define GATE_CNTR_CTRLB         TCCR1B
-#define TC_COUNTMODE			TCW0
-#define PIN_CHG_MASK			PCMSK1
-#define PIN_CHG_INT				PCINT14
-#define GEN_INT_MASK			GIMSK
-#define PIN_CHG_INT_ENAB		PCIE1
-#define PIN						PINB
-#define PIN_NO					PB6
-#define	FREQ_CNTR_COUNT_LOW		TCNT0L
-#define FREQ_CNTR_COUNT_HIGH	TCNT0H
-#define FREQ_CNTR_INT_FLAG_REG	TIFR	// there are no seperate TIFR0 and TIFR1
-#define GATE_CNTR_INT_FLAG_REG	TIFR
-#define	FREQ_CNTR_OVF_FLAG		TOV0
-#define GATE_CNTR_OVF_FLAG		TOV1
-#define	GATE_CNTR_COUNT			TCNT1
-#define	GATE_CNTR_COUNT_HI		TC1H	// Tinyx61 only
-#define	GATE_CNTR_PRELOAD		255-(unsigned int)(F_CPU/(4096L*10L))//255
-#define GATE_CNTR_INT_MASK_REG	TIMSK
-#define GATE_CNTR_OVF_INT_ENAB	TOIE1
-#define CLOCK_SEL_00			CS00
-#define CLOCK_SEL_1				CS01
-#define CLOCK_SEL_2				CS02
-#define CLOCK_SEL_10			CS10
-#define CLOCK_SEL_12			CS12	
-#define CLOCK_SEL_13			CS13
-#define GEN_INT_FLG_REG			GIFR
-#define PIN_CHG_INT_FLAG		PCIF
-#define GATE_CNTR_OVF_vect		TIMER1_OVF_vect
-#define PIN_CHG_vect			PCINT_vect
-#endif
-
-#if defined(__AVR_ATmega48__) | defined(__AVR_ATmega88__) | defined(__AVR_ATmega168__)  
+//{{{
+#if defined(__AVR_ATmega48__) | defined(__AVR_ATmega88__) | defined(__AVR_ATmega168__)
 
 // The following uses Timer1 as a 16 bit counter, and Timer0 as the Gate timer, set to measure 100 msec
 #define FREQ_CNTR_CTRLA			TCCR1A
 #define FREQ_CNTR_CTRLB      	TCCR1B
 #define GATE_CNTR_CTRLB         TCCR0B
-#define TC_COUNTMODE			TCW0
-#define PIN_CHG_MASK			PCMSK2
-#define PIN_CHG_INT				PCINT21
-#define GEN_INT_MASK			PCICR
-#define PIN_CHG_INT_ENAB		PCIE2
-#define PIN						PIND
-#define PIN_NO					PD5
 #define FREQ_CNTR_INT_FLAG_REG	TIFR1
 #define	FREQ_CNTR_OVF_FLAG		TOV1
 #define GATE_CNTR_INT_FLAG_REG	TIFR0
 #define	GATE_CNTR_OVF_FLAG		TOV0
+#define GATE_CNTR_OVF_vect		TIMER0_OVF_vect
 #define	FREQ_CNTR_COUNT_LOW		TCNT1L
 #define	FREQ_CNTR_COUNT_HIGH	TCNT1H
 #define	GATE_CNTR_COUNT			TCNT0
@@ -211,10 +174,23 @@ void ovf_test_and_return_result(void);
 #define CLOCK_SEL_1				CS11
 #define CLOCK_SEL_2				CS12
 #define CLOCK_SEL_10			CS10
-#define CLOCK_SEL_12			CS12	
+#define CLOCK_SEL_12			CS12
+
+
+
+#define PIN						PIND
+#define PIN_NO					PD5
+
+
+
+#define GEN_INT_MASK			PCICR
+#define PIN_CHG_INT_ENAB		PCIE2
+#define TC_COUNTMODE			TCW0
+#define PIN_CHG_MASK			PCMSK2
+#define PIN_CHG_INT				PCINT21
 #define CLOCK_SEL_13			CS13
 #define GEN_INT_FLG_REG			GIFR
 #define PIN_CHG_INT_FLAG		PCIF
-#define GATE_CNTR_OVF_vect		TIMER0_OVF_vect
 #define PIN_CHG_vect			PCINT2_vect
 #endif
+//}}}
