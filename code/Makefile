@@ -19,7 +19,7 @@ LIBS = -lm
 # O1 and 02 - optimize for speed
 # O3 - faster but not always correct
 # Os - optimize for programmsize (default)
-OPT=O1
+OPT=Os
 
 
 

@@ -5,12 +5,44 @@
 // This function will be called when the measurement is completed
 // It could for example set a flag or send the results to another device
 // Argument: The measured frequency divided by 10 (because the full value would not fit into an unit16_t :) )
-callback_function complete_action=NULL;
+callback_function measurement_complete_action=NULL;
 
-void set_complete_action(callback_function callback)
+void set_measurement_complete_action(callback_function callback)
 {
-	complete_action=callback;
+	measurement_complete_action=callback;
 }
+
+volatile uint8_t remaining_gate_timer_cycles;
+ISR(TIMER0_OVF_vect)
+{
+	// The timer cycle takes only a fraction of the time the measurement takes so to get a longer intervall it has to run multiple times.
+	// See: required_gate_timer_cycles
+	// Remaining_gate_timer_cycles is set at the start of measurement. When it reaches 0 the measurement is finished.
+	if(!--remaining_gate_timer_cycles) // Fold decrement and check. When finished, stop the timers and start the callback function.
+	{
+		// stop the frequency counter
+		TCCR1B = (0<<ICNC1) | (0<<ICES1) | (0<<WGM13) | (0<<WGM12) | (0<<CS12) | (0<<CS11) | (0<<CS10);
+		// and stop the gate_timer
+		TCCR0B = (0<<FOC0A) | (0<<FOC0B) | (0<<WGM02) | (1<<CS02) | (0<<CS01) | (1<<CS00);
+
+		// check for overflow of the frequency counter
+		if(TIFR1 & (1<<TOV1)) // if an overflow occured
+		{
+			sei();
+			measurement_complete_action(0x0000);	// signal error by sending a zero
+		}
+		else // no overflow occured
+		{
+			uint16_t freq = TCNT1;					// from now on, it is ok if TCNT1 is clobbered because the value is saved
+			sei();									// No need to block interrupts while proccessing the result
+			measurement_complete_action(freq);		// return the measured frequency
+		}
+	}
+}
+
+
+
+
 
 
 void init_freq_counter()// counter1
@@ -22,10 +54,10 @@ void init_freq_counter()// counter1
 	// no force output compare
 	TCCR1C = (0<<FOC1A) | (0<<FOC1B);
 
+	// no interrupts should start now
+	TIFR1 = 0xff;
 	// only allow timer overflow interrupt
 	TIMSK1 = (0<<ICIE1) | (0<<OCIE1B) | (0<<OCIE1A) | (1<<TOIE1);
-	// no interrupts should start now
-	TIFR1 = 0;
 }
 
 // if counter1 overflows, we know the frequency was to high for the time slot so the result is not valid
@@ -34,22 +66,32 @@ void init_freq_counter()// counter1
 
 
 // some compile time constants...
-const int clock_divider = 256;
+const int clock_divider = 1024;
 const int counter_max_steps = 256;
 // how many times the timer overflows during the measurement
-const int extender = F_CPU/(counter_max_steps*clock_divider*(1/FREQ_METER_TIMER_WINDOW)) + 1;
+const int required_gate_timer_cycles = F_CPU/(counter_max_steps*clock_divider*(1/FREQ_METER_TIMER_WINDOW)) + 1;
 // running the timer extend*256 steps would give a window that is slightly to long, so the timer gets a preload for the first run
-const int counter_steps = FREQ_TIMER_WINDOW*F_CPU/(double) divider - 256d*(double) extender + counter_max_steps + 0.5d;
+const int counter_steps = FREQ_TIMER_WINDOW*F_CPU/(double) divider - 256d*(double) required_gate_timer_cycles + counter_max_steps + 0.5d;
 const int runtime_delay_correction = 2
 const int counter_preload = counter_max_steps - (counter_steps + runtime_delay_correction);
 
-void init_gate_counter()							// counter0
+void init_gate_timer()							// timer0
 {
+	// running in normal mode, the pins are disconnected
+	TCCR0A = (0<<COM0A1)| (0<<COM0A0)| (0<<COM0B1)| (0<<COM0B0)| (0<<WGM01)| (0<<WGM00);
+	// no force output compare, clock from F_CPU/1024
+	TCCR0B = (0<<FOC0A) | (0<<FOC0B) | (0<<WGM02) | (1<<CS02) | (0<<CS01) | (1<<CS00);
+	TCNT0 = counter_preload;
+	// no interrupts pending yet
+	TIFR0 = 0xff;
+	// only allow overflow interrupt
+	TIMSK0 = (0<<OCIE0B) | (0<<OCIE0A) | (1<<TOIE0);
+
+
 
 
 
 }
-
 
 
 
