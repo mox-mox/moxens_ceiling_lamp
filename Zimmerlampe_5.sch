@@ -20871,7 +20871,7 @@ KEIN Y5V</text>
 <label x="55.88" y="254" size="0.8128" layer="95" xref="yes"/>
 </segment>
 </net>
-<net name="B2" class="0">
+<net name="B1" class="0">
 <segment>
 <pinref part="AVR" gate="G$1" pin="(MOSI/PSCOUT21)PB1"/>
 <label x="114.3" y="198.12" size="0.8128" layer="95" xref="yes"/>
@@ -20882,7 +20882,7 @@ KEIN Y5V</text>
 <wire x1="7.62" y1="78.74" x2="10.16" y2="76.2" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="B1" class="0">
+<net name="B2" class="0">
 <segment>
 <pinref part="AVR" gate="G$1" pin="(MISO/PSCOUT20)PB0"/>
 <label x="114.3" y="195.58" size="0.8128" layer="95" xref="yes"/>
