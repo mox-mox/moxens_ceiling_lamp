@@ -35,7 +35,7 @@ ISR(TIMER0_OVF_vect)
 		{
 			uint16_t freq = TCNT1;					// from now on, it is ok if TCNT1 is clobbered because the value is saved
 			sei();									// No need to block interrupts while proccessing the result
-			measurement_complete_action(freq);		// return the measured frequency
+			measurement_complete_action(&freq);		// return the measured frequency
 		}
 	}
 }
