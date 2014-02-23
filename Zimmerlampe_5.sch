@@ -21161,6 +21161,9 @@ KEIN Y5V</text>
 <approved hash="104,1,124.46,127,IC3,VIN,+24V,,,"/>
 <approved hash="104,1,124.46,96.52,IC4,VIN,+24V,,,"/>
 <approved hash="104,1,124.46,66.04,IC5,VIN,+24V,,,"/>
+<approved hash="113,1,94.3017,240.03,LED1,,,,,"/>
+<approved hash="113,1,92.9852,248.92,R1,,,,,"/>
+<approved hash="113,1,126.763,243.709,BLUE,,,,,"/>
 </errors>
 </schematic>
 </drawing>
