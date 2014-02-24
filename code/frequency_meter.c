@@ -25,20 +25,44 @@ ISR(TIMER0_OVF_vect)
 		// and stop the gate_timer
 		TCCR0B = (0<<FOC0A) | (0<<FOC0B) | (0<<WGM02) | (1<<CS02) | (0<<CS01) | (1<<CS00);
 
-		// check for overflow of the frequency counter
-		if(TIFR1 & (1<<TOV1)) // if an overflow occured
+		// save the results to a variable so other uses of the timer won't corrupt the data
+		uint16_t freq = TCNT1;
+		uint8_t is_overflowed = SBIT( TIFR1, TOV1);
+		// Disable overflow interrupt. This also means that a new conversion can be started
+		TIMSK0 &= ~(1<<TOIE0);
+		sei(); // Any futher processing is nonblocking
+		// Start the callback. If an overflow occured 0x0000 signals the error
+		measurement_complete_action( is_overflowed ? 0x0000 : &freq );	// signal error by sending a zero
+
+		// If another measurement is requested, start it
+		if(measurement_requested)
 		{
-			sei();
-			measurement_complete_action(0x0000);	// signal error by sending a zero
-		}
-		else // no overflow occured
-		{
-			uint16_t freq = TCNT1;					// from now on, it is ok if TCNT1 is clobbered because the value is saved
-			sei();									// No need to block interrupts while proccessing the result
-			measurement_complete_action(&freq);		// return the measured frequency
+			measurement_requested=0;
+			start_measurement();
 		}
 	}
 }
+
+
+volatile uint8_t measurement_requested;
+void request_measurement()
+{
+	uint8_t sreg = SREG;
+	cli();
+	if(	SBIT( TIMSK0, TOIE0 ) )	// Timer0 overflow interrupt enable bit is only set during measurement
+	{
+		measurement_requested = 1; // It does not matter how many requests were made, just do it once
+		SREG = sreg;
+	}
+	else
+	{
+		SREG = sreg;
+		start_measurement();
+	}
+}
+
+
+
 
 
 
@@ -54,10 +78,10 @@ void init_freq_counter()// counter1
 	// no force output compare
 	TCCR1C = (0<<FOC1A) | (0<<FOC1B);
 
-	// no interrupts should start now
-	TIFR1 = 0xff;
-	// only allow timer overflow interrupt
-	TIMSK1 = (0<<ICIE1) | (0<<OCIE1B) | (0<<OCIE1A) | (1<<TOIE1);
+	//// no interrupts should start now
+	//TIFR1 = 0xff;
+	//// no interrupts allowed
+	//TIMSK1 = (0<<ICIE1) | (0<<OCIE1B) | (0<<OCIE1A) | (0<<TOIE1);
 }
 
 // if counter1 overflows, we know the frequency was to high for the time slot so the result is not valid
@@ -69,7 +93,7 @@ void init_freq_counter()// counter1
 const int clock_divider = 1024;
 const int counter_max_steps = 256;
 // how many times the timer overflows during the measurement
-const int required_gate_timer_cycles = F_CPU/(counter_max_steps*clock_divider*(1/FREQ_METER_TIMER_WINDOW)) + 1;
+const int required_gate_timer_cycles = F_CPU/(counter_max_steps*clock_divider*(1/FREQ_METER_GATE_OPEN_TIME)) + 1;
 // running the timer extend*256 steps would give a window that is slightly to long, so the timer gets a preload for the first run
 const int counter_steps = FREQ_TIMER_WINDOW*F_CPU/(double) divider - 256d*(double) required_gate_timer_cycles + counter_max_steps + 0.5d;
 const int runtime_delay_correction = 2
@@ -86,11 +110,6 @@ void init_gate_timer()							// timer0
 	TIFR0 = 0xff;
 	// only allow overflow interrupt
 	TIMSK0 = (0<<OCIE0B) | (0<<OCIE0A) | (1<<TOIE0);
-
-
-
-
-
 }
 
 
