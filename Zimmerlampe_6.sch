@@ -20022,8 +20022,8 @@ KEIN Y5V</text>
 <attribute name="NAME" x="33.02" y="213.36" size="1.778" layer="95"/>
 <attribute name="VALUE" x="33.02" y="210.82" size="1.778" layer="96"/>
 </instance>
-<instance part="GND11" gate="1" x="132.08" y="17.78" smashed="yes">
-<attribute name="VALUE" x="134.62" y="18.542" size="1.778" layer="96"/>
+<instance part="GND11" gate="1" x="132.08" y="20.32" smashed="yes">
+<attribute name="VALUE" x="134.62" y="21.082" size="1.778" layer="96"/>
 </instance>
 <instance part="SENSOR_CONNECT" gate="A" x="127" y="20.32" smashed="yes">
 <attribute name="NAME" x="116.84" y="12.7" size="1.778" layer="95"/>
@@ -20365,8 +20365,8 @@ KEIN Y5V</text>
 </segment>
 <segment>
 <pinref part="P+1" gate="1" pin="+5V"/>
-<pinref part="BLUE" gate="A" pin="4"/>
-<wire x1="116.84" y1="248.92" x2="127" y2="248.92" width="0.1524" layer="91"/>
+<pinref part="BLUE" gate="A" pin="3"/>
+<wire x1="116.84" y1="248.92" x2="127" y2="246.38" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="RESET" class="0">
@@ -20457,14 +20457,14 @@ KEIN Y5V</text>
 <pinref part="U$3" gate="G$1" pin="P$2"/>
 </segment>
 <segment>
-<pinref part="GND9" gate="1" pin="GND"/>
-<pinref part="BLUE" gate="A" pin="3"/>
-<wire x1="116.84" y1="246.38" x2="127" y2="246.38" width="0.1524" layer="91"/>
+<pinref part="GND11" gate="1" pin="GND"/>
+<pinref part="SENSOR_CONNECT" gate="A" pin="1"/>
+<wire x1="132.08" y1="22.86" x2="124.46" y2="22.86" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="GND11" gate="1" pin="GND"/>
-<pinref part="SENSOR_CONNECT" gate="A" pin="2"/>
-<wire x1="132.08" y1="20.32" x2="124.46" y2="20.32" width="0.1524" layer="91"/>
+<pinref part="GND9" gate="1" pin="GND"/>
+<pinref part="BLUE" gate="A" pin="4"/>
+<wire x1="116.84" y1="246.38" x2="127" y2="248.92" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="+24V" class="0">
@@ -20755,9 +20755,9 @@ KEIN Y5V</text>
 </net>
 <net name="FREQ_IN" class="0">
 <segment>
-<wire x1="116.84" y1="17.78" x2="124.46" y2="17.78" width="0.1524" layer="91"/>
 <label x="110.236" y="17.78" size="0.8128" layer="95" xref="yes"/>
 <pinref part="SENSOR_CONNECT" gate="A" pin="3"/>
+<wire x1="116.84" y1="17.78" x2="124.46" y2="17.78" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="AVR" gate="G$1" pin="(T0/PSCOUT22)PC2"/>
@@ -20775,9 +20775,9 @@ KEIN Y5V</text>
 <label x="109.22" y="30.48" size="0.8128" layer="95" rot="R180" xref="yes"/>
 </segment>
 <segment>
-<label x="102.362" y="162.56" size="0.8128" layer="95" rot="R180" xref="yes"/>
-<pinref part="AVR" gate="G$1" pin="(ADC2/ACMP2)PD5"/>
-<wire x1="96.52" y1="162.56" x2="93.98" y2="162.56" width="0.1524" layer="91"/>
+<label x="102.362" y="187.96" size="0.8128" layer="95" rot="R180" xref="yes"/>
+<pinref part="AVR" gate="G$1" pin="(ADC10/ACMP1)PC6"/>
+<wire x1="96.52" y1="187.96" x2="93.98" y2="187.96" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="V+" class="0">
@@ -21119,8 +21119,9 @@ KEIN Y5V</text>
 <net name="SENSOR_POWER" class="0">
 <segment>
 <pinref part="Q2" gate="G$1" pin="D"/>
-<pinref part="SENSOR_CONNECT" gate="A" pin="1"/>
-<wire x1="116.84" y1="22.86" x2="124.46" y2="22.86" width="0.1524" layer="91"/>
+<wire x1="116.84" y1="22.86" x2="116.84" y2="20.32" width="0.1524" layer="91"/>
+<pinref part="SENSOR_CONNECT" gate="A" pin="2"/>
+<wire x1="116.84" y1="20.32" x2="124.46" y2="20.32" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
@@ -21148,7 +21149,6 @@ KEIN Y5V</text>
 <approved hash="104,1,124.46,96.52,IC4,VIN,+24V,,,"/>
 <approved hash="104,1,124.46,66.04,IC5,VIN,+24V,,,"/>
 <approved hash="113,1,94.3017,240.03,LED1,,,,,"/>
-<approved hash="113,1,92.9852,248.92,R1,,,,,"/>
 <approved hash="113,1,126.763,243.709,BLUE,,,,,"/>
 </errors>
 </schematic>
