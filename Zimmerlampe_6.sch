@@ -19842,6 +19842,7 @@ Source: www.kingbright.com</description>
 <part name="GND3" library="supply1" deviceset="GND" device=""/>
 <part name="BLUE" library="pinhead-1" deviceset="PINHD-1X4" device="_2.54-SMD-INLINE"/>
 <part name="P+9" library="supply1" deviceset="+5V" device=""/>
+<part name="Q10" library="transistor-small-signal" deviceset="AP2305BGN-HF-3" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -20242,6 +20243,10 @@ KEIN Y5V</text>
 <instance part="GND3" gate="1" x="93.98" y="231.14"/>
 <instance part="BLUE" gate="A" x="124.46" y="246.38" rot="R180"/>
 <instance part="P+9" gate="1" x="93.98" y="259.08"/>
+<instance part="Q10" gate="G$1" x="137.16" y="182.88" smashed="yes">
+<attribute name="NAME" x="139.7" y="185.42" size="1.778" layer="95"/>
+<attribute name="VALUE" x="147.32" y="177.8" size="1.778" layer="96" rot="R90"/>
+</instance>
 </instances>
 <busses>
 <bus name="RGB1:R1,G1,B1,R2,G2,B2,FOO,BAR">
