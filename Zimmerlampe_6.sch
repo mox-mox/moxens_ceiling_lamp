@@ -8,20 +8,20 @@
 </settings>
 <grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
-<layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
-<layer number="16" name="Bottom" color="1" fill="1" visible="no" active="no"/>
-<layer number="17" name="Pads" color="2" fill="1" visible="no" active="no"/>
-<layer number="18" name="Vias" color="2" fill="1" visible="no" active="no"/>
-<layer number="19" name="Unrouted" color="6" fill="1" visible="no" active="no"/>
-<layer number="20" name="Dimension" color="15" fill="1" visible="no" active="no"/>
-<layer number="21" name="tPlace" color="7" fill="1" visible="no" active="no"/>
-<layer number="22" name="bPlace" color="7" fill="1" visible="no" active="no"/>
-<layer number="23" name="tOrigins" color="15" fill="1" visible="no" active="no"/>
-<layer number="24" name="bOrigins" color="15" fill="1" visible="no" active="no"/>
-<layer number="25" name="tNames" color="7" fill="1" visible="no" active="no"/>
-<layer number="26" name="bNames" color="7" fill="1" visible="no" active="no"/>
-<layer number="27" name="tValues" color="7" fill="1" visible="no" active="no"/>
-<layer number="28" name="bValues" color="7" fill="1" visible="no" active="no"/>
+<layer number="1" name="Top" color="4" fill="1" visible="yes" active="no"/>
+<layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="no"/>
+<layer number="17" name="Pads" color="2" fill="1" visible="yes" active="no"/>
+<layer number="18" name="Vias" color="2" fill="1" visible="yes" active="no"/>
+<layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="no"/>
+<layer number="20" name="Dimension" color="15" fill="1" visible="yes" active="no"/>
+<layer number="21" name="tPlace" color="7" fill="1" visible="yes" active="no"/>
+<layer number="22" name="bPlace" color="7" fill="1" visible="yes" active="no"/>
+<layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="no"/>
+<layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="no"/>
+<layer number="25" name="tNames" color="7" fill="1" visible="yes" active="no"/>
+<layer number="26" name="bNames" color="7" fill="1" visible="yes" active="no"/>
+<layer number="27" name="tValues" color="7" fill="1" visible="yes" active="no"/>
+<layer number="28" name="bValues" color="7" fill="1" visible="yes" active="no"/>
 <layer number="29" name="tStop" color="7" fill="3" visible="no" active="no"/>
 <layer number="30" name="bStop" color="7" fill="6" visible="no" active="no"/>
 <layer number="31" name="tCream" color="7" fill="4" visible="no" active="no"/>
@@ -30,8 +30,8 @@
 <layer number="34" name="bFinish" color="6" fill="6" visible="no" active="no"/>
 <layer number="35" name="tGlue" color="7" fill="4" visible="no" active="no"/>
 <layer number="36" name="bGlue" color="7" fill="5" visible="no" active="no"/>
-<layer number="37" name="tTest" color="7" fill="1" visible="no" active="no"/>
-<layer number="38" name="bTest" color="7" fill="1" visible="no" active="no"/>
+<layer number="37" name="tTest" color="7" fill="1" visible="yes" active="no"/>
+<layer number="38" name="bTest" color="7" fill="1" visible="yes" active="no"/>
 <layer number="39" name="tKeepout" color="4" fill="11" visible="no" active="no"/>
 <layer number="40" name="bKeepout" color="1" fill="11" visible="no" active="no"/>
 <layer number="41" name="tRestrict" color="4" fill="10" visible="no" active="no"/>
@@ -39,17 +39,17 @@
 <layer number="43" name="vRestrict" color="2" fill="10" visible="no" active="no"/>
 <layer number="44" name="Drills" color="7" fill="1" visible="no" active="no"/>
 <layer number="45" name="Holes" color="7" fill="1" visible="no" active="no"/>
-<layer number="46" name="Milling" color="3" fill="1" visible="no" active="no"/>
-<layer number="47" name="Measures" color="7" fill="1" visible="no" active="no"/>
-<layer number="48" name="Document" color="7" fill="1" visible="no" active="no"/>
-<layer number="49" name="Reference" color="7" fill="1" visible="no" active="no"/>
-<layer number="50" name="dxf" color="7" fill="1" visible="no" active="no"/>
-<layer number="51" name="tDocu" color="7" fill="1" visible="no" active="no"/>
-<layer number="52" name="bDocu" color="7" fill="1" visible="no" active="no"/>
-<layer number="53" name="tGND_GNDA" color="7" fill="9" visible="no" active="no"/>
-<layer number="54" name="bGND_GNDA" color="1" fill="9" visible="no" active="no"/>
-<layer number="56" name="wert" color="7" fill="1" visible="no" active="no"/>
-<layer number="60" name="Board" color="7" fill="1" visible="no" active="no"/>
+<layer number="46" name="Milling" color="3" fill="1" visible="yes" active="no"/>
+<layer number="47" name="Measures" color="7" fill="1" visible="yes" active="no"/>
+<layer number="48" name="Document" color="7" fill="1" visible="yes" active="no"/>
+<layer number="49" name="Reference" color="7" fill="1" visible="yes" active="no"/>
+<layer number="50" name="dxf" color="7" fill="1" visible="yes" active="no"/>
+<layer number="51" name="tDocu" color="7" fill="1" visible="yes" active="no"/>
+<layer number="52" name="bDocu" color="7" fill="1" visible="yes" active="no"/>
+<layer number="53" name="tGND_GNDA" color="7" fill="9" visible="yes" active="no"/>
+<layer number="54" name="bGND_GNDA" color="1" fill="9" visible="yes" active="no"/>
+<layer number="56" name="wert" color="7" fill="1" visible="yes" active="no"/>
+<layer number="60" name="Board" color="7" fill="1" visible="yes" active="no"/>
 <layer number="91" name="Nets" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="92" name="Busses" color="1" fill="1" visible="yes" active="yes"/>
 <layer number="93" name="Pins" color="2" fill="1" visible="no" active="yes"/>
@@ -10208,12 +10208,9 @@ wide body 7.5 mm/JEDEC MO-119AB</description>
 <wire x1="10.895" y1="-5.9" x2="-10.895" y2="-5.9" width="0.1998" layer="39"/>
 <wire x1="-10.895" y1="-5.9" x2="-10.895" y2="5.9" width="0.1998" layer="39"/>
 <wire x1="10.32" y1="-3.7" x2="-10.32" y2="-3.7" width="0.2032" layer="51"/>
-<wire x1="-10.32" y1="-3.7" x2="-10.32" y2="-3.2" width="0.2032" layer="51"/>
-<wire x1="-10.32" y1="-3.2" x2="-10.32" y2="3.7" width="0.2032" layer="51"/>
+<wire x1="-10.32" y1="-3.7" x2="-10.32" y2="3.7" width="0.2032" layer="51"/>
 <wire x1="-10.32" y1="3.7" x2="10.32" y2="3.7" width="0.2032" layer="51"/>
-<wire x1="10.32" y1="-3.2" x2="-10.32" y2="-3.2" width="0.2032" layer="51"/>
-<wire x1="10.32" y1="3.7" x2="10.32" y2="-3.2" width="0.2032" layer="51"/>
-<wire x1="10.32" y1="-3.2" x2="10.32" y2="-3.7" width="0.2032" layer="51"/>
+<wire x1="10.32" y1="3.7" x2="10.32" y2="-3.7" width="0.2032" layer="51"/>
 <wire x1="10.895" y1="5.9" x2="10.895" y2="-5.9" width="0.1998" layer="39"/>
 <smd name="2" x="-8.255" y="-4.6" dx="0.6" dy="2.2" layer="1"/>
 <smd name="13" x="5.715" y="-4.6" dx="0.6" dy="2.2" layer="1"/>
@@ -10248,7 +10245,7 @@ wide body 7.5 mm/JEDEC MO-119AB</description>
 <smd name="31" x="-8.255" y="4.6" dx="0.6" dy="2.2" layer="1"/>
 <smd name="32" x="-9.525" y="4.6" dx="0.6" dy="2.2" layer="1"/>
 <text x="-9.525" y="1.27" size="1.27" layer="25">&gt;NAME</text>
-<text x="-9.525" y="-2.54" size="1.27" layer="27">&gt;VALUE</text>
+<text x="-8.763" y="-2.54" size="1.27" layer="27">&gt;VALUE</text>
 <rectangle x1="-9.7701" y1="-5.32" x2="-9.2799" y2="-3.8001" layer="51"/>
 <rectangle x1="-8.5001" y1="-5.32" x2="-8.0099" y2="-3.8001" layer="51"/>
 <rectangle x1="-7.2301" y1="-5.32" x2="-6.7399" y2="-3.8001" layer="51"/>
@@ -10281,6 +10278,7 @@ wide body 7.5 mm/JEDEC MO-119AB</description>
 <rectangle x1="-7.2301" y1="3.8001" x2="-6.7399" y2="5.32" layer="51"/>
 <rectangle x1="-8.5001" y1="3.8001" x2="-8.0099" y2="5.32" layer="51"/>
 <rectangle x1="-9.7701" y1="3.8001" x2="-9.2799" y2="5.32" layer="51"/>
+<circle x="-9.525" y="-2.794" radius="0.508" width="0" layer="51"/>
 </package>
 </packages>
 <symbols>
@@ -17994,6 +17992,12 @@ www.irf.com&lt;p&gt;
 <wire x1="0.36149375" y1="3.157984375" x2="0.46309375" y2="2.98200625" width="0.127" layer="21"/>
 <wire x1="0.46309375" y1="2.98200625" x2="0.566271875" y2="3.158896875" width="0.127" layer="21"/>
 </package>
+<package name="POWER_VIA_LONG">
+<pad name="P$1" x="0" y="0" drill="1.2" shape="long"/>
+</package>
+<package name="POWER_VIA_OCTA">
+<pad name="P$1" x="0" y="0" drill="1.2" diameter="2.1844" shape="octagon"/>
+</package>
 </packages>
 <symbols>
 <symbol name="LED">
@@ -18022,9 +18026,15 @@ www.irf.com&lt;p&gt;
 </polygon>
 </symbol>
 <symbol name="STARPOINT">
-<pin name="P$1" x="-5.08" y="0" length="middle"/>
-<pin name="P$2" x="5.08" y="0" length="middle" rot="R180"/>
+<pin name="P$1" x="-5.08" y="0" visible="off" length="middle"/>
+<pin name="P$2" x="5.08" y="0" visible="off" length="middle" rot="R180"/>
 <wire x1="-2.54" y1="0" x2="2.54" y2="0" width="1.016" layer="94"/>
+</symbol>
+<symbol name="POWER_VIA">
+<circle x="-1.27" y="0" radius="1.27" width="0.254" layer="94"/>
+<text x="-3.81" y="0.889" size="1.778" layer="95" rot="R180">&gt;NAME</text>
+<text x="-6.35" y="-3.683" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="KL" x="2.54" y="0" visible="off" length="short" direction="pas" rot="R180"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -18069,6 +18079,29 @@ www.irf.com&lt;p&gt;
 </device>
 </devices>
 </deviceset>
+<deviceset name="POWER_VIA">
+<gates>
+<gate name="G$1" symbol="POWER_VIA" x="0" y="0"/>
+</gates>
+<devices>
+<device name="LONG" package="POWER_VIA_LONG">
+<connects>
+<connect gate="G$1" pin="KL" pad="P$1"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="OCTA" package="POWER_VIA_OCTA">
+<connects>
+<connect gate="G$1" pin="KL" pad="P$1"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
 </devicesets>
 </library>
 </libraries>
@@ -18106,7 +18139,7 @@ www.irf.com&lt;p&gt;
 <part name="U$7" library="lampe" deviceset="AVR-ISP" device="THT"/>
 <part name="AVR" library="AT90PWM3B" deviceset="AT90PWM3B" device="NORMAL"/>
 <part name="GND2" library="supply1" deviceset="GND" device=""/>
-<part name="LED1" library="mox_IC" deviceset="LED_CON" device="TYPE_A" value="350mA/12,0..15.6V"/>
+<part name="LED1" library="mox_IC" deviceset="LED_CON" device="TYPE_B" value="350mA/12,0..15.6V"/>
 <part name="P+3" library="supply1" deviceset="+24V" device="" value="+24V"/>
 <part name="C_OUTX" library="rcl" deviceset="C-EU" device="C0805" value="100nF"/>
 <part name="P+1" library="supply1" deviceset="+5V" device=""/>
@@ -18146,7 +18179,7 @@ www.irf.com&lt;p&gt;
 <part name="Q_VD" library="transistor-small-signal" deviceset="AP2305BGN-HF-3" device=""/>
 <part name="U$3" library="mox_IC" deviceset="STARPOINT" device=""/>
 <part name="BLUE" library="pinhead-1" deviceset="PINHD-1X4" device="_2.54-SMD-INLINE"/>
-<part name="LED2" library="mox_IC" deviceset="LED_CON" device="TYPE_A" value="350mA/12,0..15.6V"/>
+<part name="LED2" library="mox_IC" deviceset="LED_CON" device="TYPE_B" value="350mA/12,0..15.6V"/>
 <part name="P+2" library="supply1" deviceset="+24V" device="" value="+24V"/>
 <part name="IC2" library="Labor" deviceset="ZXLD1360" device="" value="ZXLD1360"/>
 <part name="D2" library="diode" deviceset="DIODE-" device="DO214AA" value="SK16"/>
@@ -18157,7 +18190,7 @@ www.irf.com&lt;p&gt;
 <part name="L2" library="lampe" deviceset="FERROCORE_POWER_INDUCTOR" device="DER0705" value="100µH"/>
 <part name="AGND3" library="supply1" deviceset="AGND" device=""/>
 <part name="Q2" library="transistor-small-signal" deviceset="BSS123" device="" value="IRLML2502"/>
-<part name="LED3" library="mox_IC" deviceset="LED_CON" device="TYPE_A" value="350mA/12,0..15.6V"/>
+<part name="LED3" library="mox_IC" deviceset="LED_CON" device="TYPE_B" value="350mA/12,0..15.6V"/>
 <part name="P+4" library="supply1" deviceset="+24V" device="" value="+24V"/>
 <part name="IC3" library="Labor" deviceset="ZXLD1360" device="" value="ZXLD1360"/>
 <part name="D3" library="diode" deviceset="DIODE-" device="DO214AA" value="SK16"/>
@@ -18168,7 +18201,7 @@ www.irf.com&lt;p&gt;
 <part name="L3" library="lampe" deviceset="FERROCORE_POWER_INDUCTOR" device="DER0705" value="100µH"/>
 <part name="AGND5" library="supply1" deviceset="AGND" device=""/>
 <part name="Q3" library="transistor-small-signal" deviceset="BSS123" device="" value="IRLML2502"/>
-<part name="LED4" library="mox_IC" deviceset="LED_CON" device="TYPE_A" value="350mA/12,0..15.6V"/>
+<part name="LED4" library="mox_IC" deviceset="LED_CON" device="TYPE_B" value="350mA/12,0..15.6V"/>
 <part name="P+5" library="supply1" deviceset="+24V" device="" value="+24V"/>
 <part name="IC4" library="Labor" deviceset="ZXLD1360" device="" value="ZXLD1360"/>
 <part name="D4" library="diode" deviceset="DIODE-" device="DO214AA" value="SK16"/>
@@ -18179,7 +18212,7 @@ www.irf.com&lt;p&gt;
 <part name="L4" library="lampe" deviceset="FERROCORE_POWER_INDUCTOR" device="DER0705" value="100µH"/>
 <part name="AGND7" library="supply1" deviceset="AGND" device=""/>
 <part name="Q4" library="transistor-small-signal" deviceset="BSS123" device="" value="IRLML2502"/>
-<part name="LED5" library="mox_IC" deviceset="LED_CON" device="TYPE_A" value="350mA/12,0..15.6V"/>
+<part name="LED5" library="mox_IC" deviceset="LED_CON" device="TYPE_B" value="350mA/12,0..15.6V"/>
 <part name="P+6" library="supply1" deviceset="+24V" device="" value="+24V"/>
 <part name="IC5" library="Labor" deviceset="ZXLD1360" device="" value="ZXLD1360"/>
 <part name="D5" library="diode" deviceset="DIODE-" device="DO214AA" value="SK16"/>
@@ -18190,7 +18223,7 @@ www.irf.com&lt;p&gt;
 <part name="L5" library="lampe" deviceset="FERROCORE_POWER_INDUCTOR" device="DER0705" value="100µH"/>
 <part name="AGND10" library="supply1" deviceset="AGND" device=""/>
 <part name="Q5" library="transistor-small-signal" deviceset="BSS123" device="" value="IRLML2502"/>
-<part name="LED6" library="mox_IC" deviceset="LED_CON" device="TYPE_A" value="350mA/12,0..15.6V"/>
+<part name="LED6" library="mox_IC" deviceset="LED_CON" device="TYPE_B" value="350mA/12,0..15.6V"/>
 <part name="P+7" library="supply1" deviceset="+24V" device="" value="+24V"/>
 <part name="IC6" library="Labor" deviceset="ZXLD1360" device="" value="ZXLD1360"/>
 <part name="D6" library="diode" deviceset="DIODE-" device="DO214AA" value="SK16"/>
@@ -18201,7 +18234,8 @@ www.irf.com&lt;p&gt;
 <part name="L6" library="lampe" deviceset="FERROCORE_POWER_INDUCTOR" device="DER0705" value="100µH"/>
 <part name="AGND12" library="supply1" deviceset="AGND" device=""/>
 <part name="Q6" library="transistor-small-signal" deviceset="BSS123" device="" value="IRLML2502"/>
-<part name="D7" library="diode" deviceset="DIODE-" device="DO214AA" value="SK16"/>
+<part name="P+" library="mox_IC" deviceset="POWER_VIA" device="OCTA"/>
+<part name="P-" library="mox_IC" deviceset="POWER_VIA" device="OCTA"/>
 </parts>
 <sheets>
 <sheet>
@@ -18330,7 +18364,7 @@ KEIN Y5V</text>
 </instance>
 <instance part="C_IN" gate="G$1" x="15.24" y="27.94" smashed="yes">
 <attribute name="NAME" x="10.16" y="20.32" size="1.778" layer="95" rot="R90"/>
-<attribute name="VALUE" x="12.7" y="17.78" size="1.778" layer="96" rot="R90"/>
+<attribute name="VALUE" x="12.7" y="15.24" size="1.778" layer="96" rot="R90"/>
 </instance>
 <instance part="C_OUT" gate="G$1" x="73.66" y="20.32" smashed="yes">
 <attribute name="NAME" x="70.739" y="14.224" size="1.778" layer="95" rot="R90"/>
@@ -18484,7 +18518,9 @@ KEIN Y5V</text>
 <attribute name="NAME" x="67.31" y="55.88" size="1.778" layer="95" rot="R90"/>
 <attribute name="VALUE" x="69.596" y="55.88" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="AGND5" gate="VR1" x="15.24" y="40.64"/>
+<instance part="AGND5" gate="VR1" x="15.24" y="40.64" smashed="yes">
+<attribute name="VALUE" x="15.748" y="41.148" size="1.778" layer="96"/>
+</instance>
 <instance part="Q3" gate="G$1" x="15.24" y="48.26" smashed="yes">
 <attribute name="NAME" x="10.16" y="53.34" size="1.778" layer="95"/>
 <attribute name="VALUE" x="15.24" y="54.61" size="0.8128" layer="96"/>
@@ -18591,9 +18627,11 @@ KEIN Y5V</text>
 <attribute name="NAME" x="104.14" y="53.34" size="1.778" layer="95"/>
 <attribute name="VALUE" x="109.22" y="54.61" size="0.8128" layer="96"/>
 </instance>
-<instance part="D7" gate="G$1" x="12.7" y="30.48" smashed="yes">
-<attribute name="NAME" x="7.62" y="27.94" size="1.778" layer="95" rot="R180"/>
-<attribute name="VALUE" x="7.62" y="30.48" size="1.778" layer="96" rot="R180"/>
+<instance part="P+" gate="G$1" x="7.62" y="30.48" smashed="yes">
+<attribute name="NAME" x="3.81" y="31.369" size="1.778" layer="95" rot="R180"/>
+</instance>
+<instance part="P-" gate="G$1" x="7.62" y="12.7" smashed="yes">
+<attribute name="NAME" x="3.81" y="13.589" size="1.778" layer="95" rot="R180"/>
 </instance>
 </instances>
 <busses>
@@ -18633,6 +18671,9 @@ KEIN Y5V</text>
 <junction x="22.86" y="12.7"/>
 <pinref part="U$3" gate="G$1" pin="P$1"/>
 <junction x="60.96" y="12.7"/>
+<pinref part="P-" gate="G$1" pin="KL"/>
+<wire x1="15.24" y1="12.7" x2="10.16" y2="12.7" width="0.1524" layer="91"/>
+<junction x="15.24" y="12.7"/>
 </segment>
 <segment>
 <pinref part="IC1" gate="G$1" pin="GND"/>
@@ -18828,7 +18869,8 @@ KEIN Y5V</text>
 <wire x1="22.86" y1="30.48" x2="25.4" y2="30.48" width="0.1524" layer="91"/>
 <junction x="22.86" y="30.48"/>
 <pinref part="C_IN" gate="G$1" pin="1"/>
-<pinref part="D7" gate="G$1" pin="C"/>
+<pinref part="P+" gate="G$1" pin="KL"/>
+<wire x1="15.24" y1="30.48" x2="10.16" y2="30.48" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="R_PDH" gate="G$1" pin="1"/>
@@ -19491,6 +19533,12 @@ KEIN Y5V</text>
 <approved hash="201,1,22.86,121.92,GND,GND\, AGND,,,,"/>
 <approved hash="104,1,35.56,165.1,AVR,AGND,GND,,,"/>
 <approved hash="104,1,35.56,154.94,AVR,VCC,V+,,,"/>
+<approved hash="104,1,30.48,127,IC1,VIN,+24V,,,"/>
+<approved hash="104,1,30.48,96.52,IC2,VIN,+24V,,,"/>
+<approved hash="104,1,30.48,66.04,IC3,VIN,+24V,,,"/>
+<approved hash="104,1,124.46,127,IC4,VIN,+24V,,,"/>
+<approved hash="104,1,124.46,96.52,IC5,VIN,+24V,,,"/>
+<approved hash="104,1,124.46,66.04,IC6,VIN,+24V,,,"/>
 <approved hash="113,1,126.763,243.709,BLUE,,,,,"/>
 </errors>
 </schematic>
