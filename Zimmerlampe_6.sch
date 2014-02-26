@@ -10199,137 +10199,6 @@ Typical 4% output current accuracy</description>
 </deviceset>
 </devicesets>
 </library>
-<library name="con-ptr500">
-<description>&lt;b&gt;PTR Connectors&lt;/b&gt;&lt;p&gt;
-Aug. 2004 / PTR Meßtechnik:&lt;br&gt;
-Die Bezeichnung der Serie AK505 wurde geändert.&lt;br&gt;
-Es handelt sich hierbei um AK500 in horizontaler Ausführung.&lt;p&gt;
-&lt;TABLE BORDER=0 CELLSPACING=1 CELLPADDING=2&gt;
-  &lt;TR&gt;
-    &lt;TD ALIGN=LEFT&gt;
-      &lt;FONT SIZE=4 FACE=ARIAL&gt;&lt;B&gt;Alte Bezeichnung&lt;/B&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-    &lt;TD ALIGN=LEFT&gt;
-      &lt;FONT SIZE=4 FACE=ARIAL&gt;&lt;B&gt;Neue Bezeichnung&lt;/B&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-  &lt;/TR&gt;
-  &lt;TR&gt;
-    &lt;TD ALIGN=LEFT&gt;
-      &lt;B&gt;
-      &lt;FONT SIZE=3 FACE=ARIAL color="#FF0000"&gt;AK505/2,grau&lt;/FONT&gt;
-      &lt;/B&gt;
-    &lt;/TD&gt;
-    &lt;TD ALIGN=LEFT&gt;
-      &lt;B&gt;
-      &lt;FONT SIZE=3 FACE=ARIAL color="#0000FF"&gt;AK500/2-5.0-H-GRAU&lt;/FONT&gt;
-      &lt;/B&gt;
-    &lt;/TD&gt;
-  &lt;/TR&gt;
-  &lt;TR&gt;
-    &lt;TD ALIGN=LEFT&gt;
-      &lt;B&gt;
-      &lt;FONT SIZE=3 FACE=ARIAL color="#FF0000"&gt;AK505/2DS,grau&lt;/FONT&gt;
-      &lt;/B&gt;
-    &lt;/TD&gt;
-    &lt;TD ALIGN=LEFT&gt;
-      &lt;B&gt;
-      &lt;FONT SIZE=3 FACE=ARIAL color="#0000FF"&gt;AK500/2DS-5.0-H-GRAU&lt;/FONT&gt;
-      &lt;/B&gt;
-    &lt;/TD&gt;
-  &lt;/TR&gt;
-  &lt;TR&gt;
-    &lt;TD ALIGN=LEFT&gt;
-      &lt;B&gt;
-      &lt;FONT SIZE=3 FACE=ARIAL color="#FF0000"&gt;AKZ505/2,grau&lt;/FONT&gt;
-      &lt;/B&gt;
-    &lt;/TD&gt;
-    &lt;TD ALIGN=LEFT&gt;
-      &lt;B&gt;
-      &lt;FONT SIZE=3 FACE=ARIAL color="#0000FF"&gt;AKZ500/2-5.08-H-GRAU&lt;/FONT&gt;
-      &lt;/B&gt;
-    &lt;/TD&gt;
-  &lt;/TABLE&gt;
-
-&lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
-<packages>
-<package name="AK500/2">
-<description>&lt;b&gt;CONNECTOR&lt;/b&gt;</description>
-<wire x1="-5.08" y1="-3.556" x2="-5.08" y2="-2.159" width="0.1524" layer="21"/>
-<wire x1="5.08" y1="3.937" x2="-5.08" y2="3.937" width="0.1524" layer="21"/>
-<wire x1="5.08" y1="3.937" x2="5.08" y2="2.159" width="0.1524" layer="21"/>
-<wire x1="-5.08" y1="-3.556" x2="5.08" y2="-3.556" width="0.1524" layer="21"/>
-<wire x1="-5.08" y1="3.048" x2="-5.588" y2="3.175" width="0.1524" layer="21"/>
-<wire x1="-5.08" y1="3.048" x2="-5.08" y2="3.937" width="0.1524" layer="21"/>
-<wire x1="-5.588" y1="3.175" x2="-5.588" y2="2.032" width="0.1524" layer="21"/>
-<wire x1="-5.588" y1="2.032" x2="-5.08" y2="2.159" width="0.1524" layer="21"/>
-<wire x1="-5.08" y1="2.159" x2="-5.08" y2="3.048" width="0.1524" layer="21"/>
-<wire x1="-5.08" y1="2.159" x2="5.08" y2="2.159" width="0.1524" layer="21"/>
-<wire x1="5.08" y1="2.159" x2="5.08" y2="-2.159" width="0.1524" layer="21"/>
-<wire x1="-5.08" y1="-2.159" x2="5.08" y2="-2.159" width="0.1524" layer="21"/>
-<wire x1="-5.08" y1="-2.159" x2="-5.08" y2="2.159" width="0.1524" layer="21"/>
-<wire x1="5.08" y1="-2.159" x2="5.08" y2="-3.556" width="0.1524" layer="21"/>
-<wire x1="1.4986" y1="-1.397" x2="3.9116" y2="1.016" width="0.1524" layer="51"/>
-<wire x1="1.1176" y1="-1.016" x2="3.5306" y2="1.397" width="0.1524" layer="51"/>
-<wire x1="-3.9116" y1="-1.016" x2="-1.4986" y2="1.397" width="0.1524" layer="51"/>
-<wire x1="-3.5306" y1="-1.397" x2="-1.1176" y2="1.016" width="0.1524" layer="51"/>
-<wire x1="1.4986" y1="-1.016" x2="3.5306" y2="1.016" width="0.6096" layer="51"/>
-<wire x1="-3.5306" y1="-1.016" x2="-1.4986" y2="1.016" width="0.6096" layer="51"/>
-<wire x1="1.1176" y1="-1.016" x2="1.4986" y2="-1.397" width="0.1524" layer="51"/>
-<wire x1="3.5306" y1="1.397" x2="3.9116" y2="1.016" width="0.1524" layer="51"/>
-<wire x1="-3.9116" y1="-1.016" x2="-3.5306" y2="-1.397" width="0.1524" layer="51"/>
-<wire x1="-1.4986" y1="1.397" x2="-1.1176" y2="1.016" width="0.1524" layer="51"/>
-<circle x="2.5146" y="3.048" radius="0.508" width="0.1524" layer="21"/>
-<circle x="-2.5146" y="3.048" radius="0.508" width="0.1524" layer="21"/>
-<circle x="2.5146" y="0" radius="1.778" width="0.1524" layer="51"/>
-<circle x="-2.5146" y="0" radius="1.778" width="0.1524" layer="51"/>
-<pad name="1" x="-2.5146" y="0" drill="1.3208" shape="long" rot="R90"/>
-<pad name="2" x="2.5146" y="0" drill="1.3208" shape="long" rot="R90"/>
-<text x="-5.08" y="4.445" size="1.778" layer="25" ratio="10">&gt;NAME</text>
-<text x="-5.08" y="-5.715" size="1.778" layer="27" ratio="10">&gt;VALUE</text>
-<text x="-4.445" y="2.54" size="0.9906" layer="21" ratio="12">1</text>
-<text x="0.635" y="2.54" size="0.9906" layer="21" ratio="12">2</text>
-<rectangle x1="-0.381" y1="-1.905" x2="0.381" y2="1.905" layer="21"/>
-</package>
-</packages>
-<symbols>
-<symbol name="KL">
-<circle x="1.27" y="0" radius="1.27" width="0.254" layer="94"/>
-<text x="-1.27" y="0.889" size="1.778" layer="95" rot="R180">&gt;NAME</text>
-<pin name="KL" x="5.08" y="0" visible="off" length="short" direction="pas" rot="R180"/>
-</symbol>
-<symbol name="KLV">
-<circle x="1.27" y="0" radius="1.27" width="0.254" layer="94"/>
-<text x="-1.27" y="0.889" size="1.778" layer="95" rot="R180">&gt;NAME</text>
-<text x="-3.81" y="-3.683" size="1.778" layer="96">&gt;VALUE</text>
-<pin name="KL" x="5.08" y="0" visible="off" length="short" direction="pas" rot="R180"/>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="AK500/2" prefix="X" uservalue="yes">
-<description>&lt;b&gt;CONNECTOR&lt;/b&gt;</description>
-<gates>
-<gate name="-1" symbol="KL" x="0" y="5.08" addlevel="always"/>
-<gate name="-2" symbol="KLV" x="0" y="0" addlevel="always"/>
-</gates>
-<devices>
-<device name="" package="AK500/2">
-<connects>
-<connect gate="-1" pin="KL" pad="1"/>
-<connect gate="-2" pin="KL" pad="2"/>
-</connects>
-<technologies>
-<technology name="">
-<attribute name="MF" value="" constant="no"/>
-<attribute name="MPN" value="" constant="no"/>
-<attribute name="OC_FARNELL" value="unknown" constant="no"/>
-<attribute name="OC_NEWARK" value="unknown" constant="no"/>
-</technology>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
 <library name="AT90PWM3B">
 <packages>
 <package name="SO32W">
@@ -18221,7 +18090,6 @@ www.irf.com&lt;p&gt;
 <part name="P+16" library="supply1" deviceset="+24V" device="" value="+24V"/>
 <part name="GND4" library="supply1" deviceset="GND" device=""/>
 <part name="P+17" library="supply1" deviceset="+5V" device=""/>
-<part name="POWER" library="con-ptr500" deviceset="AK500/2" device="" value="24V/2.5A"/>
 <part name="AGND9" library="supply1" deviceset="AGND" device=""/>
 <part name="GND6" library="supply1" deviceset="GND" device=""/>
 <part name="D_OUT" library="diode" deviceset="DIODE-" device="MINIMELF" value="BAS86-GS08"/>
@@ -18333,6 +18201,7 @@ www.irf.com&lt;p&gt;
 <part name="L6" library="lampe" deviceset="FERROCORE_POWER_INDUCTOR" device="DER0705" value="100µH"/>
 <part name="AGND12" library="supply1" deviceset="AGND" device=""/>
 <part name="Q6" library="transistor-small-signal" deviceset="BSS123" device="" value="IRLML2502"/>
+<part name="D7" library="diode" deviceset="DIODE-" device="DO214AA" value="SK16"/>
 </parts>
 <sheets>
 <sheet>
@@ -18369,13 +18238,6 @@ KEIN Y5V</text>
 <instance part="GND4" gate="1" x="78.74" y="10.16"/>
 <instance part="P+17" gate="1" x="83.82" y="25.4" smashed="yes">
 <attribute name="VALUE" x="83.82" y="25.4" size="1.778" layer="96"/>
-</instance>
-<instance part="POWER" gate="-1" x="10.16" y="30.48" smashed="yes">
-<attribute name="NAME" x="13.97" y="33.909" size="1.778" layer="95" rot="R180"/>
-</instance>
-<instance part="POWER" gate="-2" x="10.16" y="12.7" smashed="yes">
-<attribute name="NAME" x="13.97" y="16.129" size="1.778" layer="95" rot="R180"/>
-<attribute name="VALUE" x="6.35" y="9.017" size="1.778" layer="96"/>
 </instance>
 <instance part="AGND9" gate="VR1" x="45.72" y="10.16" smashed="yes">
 <attribute name="VALUE" x="48.26" y="7.62" size="1.778" layer="96"/>
@@ -18513,8 +18375,8 @@ KEIN Y5V</text>
 <attribute name="NAME" x="33.02" y="213.36" size="1.778" layer="95"/>
 <attribute name="VALUE" x="33.02" y="210.82" size="1.778" layer="96"/>
 </instance>
-<instance part="GND11" gate="1" x="132.08" y="20.32" smashed="yes">
-<attribute name="VALUE" x="134.62" y="21.082" size="1.778" layer="96"/>
+<instance part="GND11" gate="1" x="132.08" y="17.78" smashed="yes">
+<attribute name="VALUE" x="134.62" y="18.542" size="1.778" layer="96"/>
 </instance>
 <instance part="SENSOR_CONNECT" gate="A" x="127" y="20.32" smashed="yes">
 <attribute name="NAME" x="116.84" y="12.7" size="1.778" layer="95"/>
@@ -18729,6 +18591,10 @@ KEIN Y5V</text>
 <attribute name="NAME" x="104.14" y="53.34" size="1.778" layer="95"/>
 <attribute name="VALUE" x="109.22" y="54.61" size="0.8128" layer="96"/>
 </instance>
+<instance part="D7" gate="G$1" x="12.7" y="30.48" smashed="yes">
+<attribute name="NAME" x="7.62" y="27.94" size="1.778" layer="95" rot="R180"/>
+<attribute name="VALUE" x="7.62" y="30.48" size="1.778" layer="96" rot="R180"/>
+</instance>
 </instances>
 <busses>
 <bus name="RGB1:R1,G1,B1,R2,G2,B2">
@@ -18750,13 +18616,10 @@ KEIN Y5V</text>
 <nets>
 <net name="AGND" class="0">
 <segment>
-<pinref part="POWER" gate="-2" pin="KL"/>
 <pinref part="AGND9" gate="VR1" pin="AGND"/>
-<junction x="15.24" y="12.7"/>
 <pinref part="V_REG" gate="G$1" pin="GND"/>
 <wire x1="45.72" y1="12.7" x2="45.72" y2="15.24" width="0.1524" layer="91"/>
 <wire x1="15.24" y1="22.86" x2="15.24" y2="12.7" width="0.1524" layer="91"/>
-<junction x="15.24" y="12.7"/>
 <wire x1="15.24" y1="12.7" x2="22.86" y2="12.7" width="0.1524" layer="91"/>
 <pinref part="C_IN" gate="G$1" pin="2"/>
 <pinref part="C_INX" gate="G$1" pin="2"/>
@@ -18951,14 +18814,13 @@ KEIN Y5V</text>
 <segment>
 <pinref part="GND11" gate="1" pin="GND"/>
 <pinref part="SENSOR_CONNECT" gate="A" pin="2"/>
-<wire x1="132.08" y1="22.86" x2="124.46" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="132.08" y1="20.32" x2="124.46" y2="20.32" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="+24V" class="0">
 <segment>
 <pinref part="V_REG" gate="G$1" pin="VIN"/>
 <pinref part="P+16" gate="1" pin="+24V"/>
-<pinref part="POWER" gate="-1" pin="KL"/>
 <junction x="15.24" y="30.48"/>
 <junction x="15.24" y="30.48"/>
 <wire x1="15.24" y1="30.48" x2="22.86" y2="30.48" width="0.1524" layer="91"/>
@@ -18966,6 +18828,7 @@ KEIN Y5V</text>
 <wire x1="22.86" y1="30.48" x2="25.4" y2="30.48" width="0.1524" layer="91"/>
 <junction x="22.86" y="30.48"/>
 <pinref part="C_IN" gate="G$1" pin="1"/>
+<pinref part="D7" gate="G$1" pin="C"/>
 </segment>
 <segment>
 <pinref part="R_PDH" gate="G$1" pin="1"/>
@@ -19396,9 +19259,8 @@ KEIN Y5V</text>
 <net name="SENSOR_POWER" class="0">
 <segment>
 <pinref part="Q_S" gate="G$1" pin="D"/>
-<wire x1="116.84" y1="22.86" x2="116.84" y2="20.32" width="0.1524" layer="91"/>
 <pinref part="SENSOR_CONNECT" gate="A" pin="1"/>
-<wire x1="116.84" y1="20.32" x2="124.46" y2="22.86" width="0.1524" layer="91"/>
+<wire x1="116.84" y1="22.86" x2="124.46" y2="22.86" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="FREEWHEEL2" class="0">
