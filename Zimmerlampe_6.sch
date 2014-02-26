@@ -18944,14 +18944,14 @@ KEIN Y5V</text>
 <pinref part="U$3" gate="G$1" pin="P$2"/>
 </segment>
 <segment>
-<pinref part="GND11" gate="1" pin="GND"/>
-<pinref part="SENSOR_CONNECT" gate="A" pin="1"/>
-<wire x1="132.08" y1="22.86" x2="124.46" y2="22.86" width="0.1524" layer="91"/>
-</segment>
-<segment>
 <pinref part="GND9" gate="1" pin="GND"/>
 <pinref part="BLUE" gate="A" pin="4"/>
 <wire x1="134.62" y1="248.92" x2="127" y2="248.92" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="GND11" gate="1" pin="GND"/>
+<pinref part="SENSOR_CONNECT" gate="A" pin="2"/>
+<wire x1="132.08" y1="22.86" x2="124.46" y2="20.32" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="+24V" class="0">
@@ -19161,8 +19161,8 @@ KEIN Y5V</text>
 <label x="114.3" y="172.72" size="0.8128" layer="95" xref="yes"/>
 </segment>
 <segment>
-<pinref part="Q4" gate="G$1" pin="G"/>
-<wire x1="101.6" y1="109.22" x2="104.14" y2="106.68" width="0.1524" layer="91"/>
+<pinref part="Q3" gate="G$1" pin="G"/>
+<wire x1="7.62" y1="48.26" x2="10.16" y2="45.72" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="POWER_DETECT_" class="0">
@@ -19181,8 +19181,8 @@ KEIN Y5V</text>
 <label x="114.3" y="149.86" size="0.8128" layer="95" xref="yes"/>
 </segment>
 <segment>
-<pinref part="Q3" gate="G$1" pin="G"/>
-<wire x1="7.62" y1="48.26" x2="10.16" y2="45.72" width="0.1524" layer="91"/>
+<pinref part="Q4" gate="G$1" pin="G"/>
+<wire x1="101.6" y1="109.22" x2="104.14" y2="106.68" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="FREEWHEEL1" class="0">
@@ -19262,9 +19262,9 @@ KEIN Y5V</text>
 <label x="109.22" y="30.48" size="0.8128" layer="95" rot="R180" xref="yes"/>
 </segment>
 <segment>
-<label x="102.362" y="187.96" size="0.8128" layer="95" rot="R180" xref="yes"/>
-<pinref part="AVR" gate="G$1" pin="(ADC10/ACMP1)PC6"/>
-<wire x1="96.52" y1="187.96" x2="93.98" y2="187.96" width="0.1524" layer="91"/>
+<label x="102.362" y="165.1" size="0.8128" layer="95" rot="R180" xref="yes"/>
+<pinref part="AVR" gate="G$1" pin="(ADC3/ACMPM/INT0)PD6"/>
+<wire x1="96.52" y1="165.1" x2="93.98" y2="165.1" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="V+" class="0">
@@ -19317,8 +19317,8 @@ KEIN Y5V</text>
 <label x="114.3" y="210.82" size="0.8128" layer="95" xref="yes"/>
 </segment>
 <segment>
-<pinref part="Q2" gate="G$1" pin="G"/>
-<wire x1="7.62" y1="78.74" x2="10.16" y2="76.2" width="0.1524" layer="91"/>
+<pinref part="Q5" gate="G$1" pin="G"/>
+<wire x1="101.6" y1="78.74" x2="104.14" y2="76.2" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$4" class="0">
@@ -19334,8 +19334,8 @@ KEIN Y5V</text>
 <label x="114.3" y="213.36" size="0.8128" layer="95" xref="yes"/>
 </segment>
 <segment>
-<pinref part="Q1" gate="G$1" pin="G"/>
-<wire x1="7.62" y1="109.22" x2="10.16" y2="106.68" width="0.1524" layer="91"/>
+<pinref part="Q6" gate="G$1" pin="G"/>
+<wire x1="101.6" y1="48.26" x2="104.14" y2="45.72" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="MISOA" class="0">
@@ -19357,8 +19357,8 @@ KEIN Y5V</text>
 <wire x1="114.3" y1="198.12" x2="93.98" y2="198.12" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="Q6" gate="G$1" pin="G"/>
-<wire x1="101.6" y1="48.26" x2="104.14" y2="45.72" width="0.1524" layer="91"/>
+<pinref part="Q1" gate="G$1" pin="G"/>
+<wire x1="7.62" y1="109.22" x2="10.16" y2="106.68" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="G2" class="0">
@@ -19368,8 +19368,8 @@ KEIN Y5V</text>
 <wire x1="114.3" y1="195.58" x2="93.98" y2="195.58" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="Q5" gate="G$1" pin="G"/>
-<wire x1="101.6" y1="78.74" x2="104.14" y2="76.2" width="0.1524" layer="91"/>
+<pinref part="Q2" gate="G$1" pin="G"/>
+<wire x1="7.62" y1="78.74" x2="10.16" y2="76.2" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="VOLTAGE_DETECT_" class="0">
@@ -19397,8 +19397,8 @@ KEIN Y5V</text>
 <segment>
 <pinref part="Q_S" gate="G$1" pin="D"/>
 <wire x1="116.84" y1="22.86" x2="116.84" y2="20.32" width="0.1524" layer="91"/>
-<pinref part="SENSOR_CONNECT" gate="A" pin="2"/>
-<wire x1="116.84" y1="20.32" x2="124.46" y2="20.32" width="0.1524" layer="91"/>
+<pinref part="SENSOR_CONNECT" gate="A" pin="1"/>
+<wire x1="116.84" y1="20.32" x2="124.46" y2="22.86" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="FREEWHEEL2" class="0">
