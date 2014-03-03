@@ -7,7 +7,7 @@
 // Argument: The measured frequency divided by 10 (because the full value would not fit into an unit16_t :) )
 callback_function measurement_complete_action=NULL;
 
-void set_measurement_complete_action(callback_function callback)
+void set_freq_measurement_complete_action(callback_function callback)
 {
 	measurement_complete_action=callback;
 }
@@ -32,7 +32,7 @@ ISR(TIMER0_OVF_vect)
 		TIMSK0 &= ~(1<<TOIE0);
 		sei(); // Any futher processing is nonblocking
 		// Start the callback. If an overflow occured 0x0000 signals the error
-		measurement_complete_action( is_overflowed ? 0x0000 : &freq );	// signal error by sending a zero
+		measurement_complete_action( is_overflowed ? FREQ_METER_INVALID_FRRQUENCY : &freq );	// signal error by sending invalid frequency
 
 		// If another measurement is requested, start it
 		if(measurement_requested)
@@ -45,16 +45,16 @@ ISR(TIMER0_OVF_vect)
 
 
 volatile uint8_t measurement_requested;
-void request_measurement()
+void request_freq_measurement()
 {
 	uint8_t sreg = SREG;
 	cli();
-	if(	SBIT( TIMSK0, TOIE0 ) )	// Timer0 overflow interrupt enable bit is only set during measurement
+	if(	SBIT( TIMSK0, TOIE0 ) )		// Timer0 overflow interrupt enable bit is only set during measurement
 	{
-		measurement_requested = 1; // It does not matter how many requests were made, just do it once
+		measurement_requested = 1;	// It does not matter how many requests were made, just do it once
 		SREG = sreg;
 	}
-	else
+	else							// If no measurement is going on, we can start one directly
 	{
 		SREG = sreg;
 		start_measurement();

@@ -43,11 +43,12 @@
 
 void init_freq_counter();
 
-void start_freq_measurement();
+void request_freq_measurement();
 
+#define FREQ_METER_INVALID_FREQUENCY 0xFFFF
 //sets the function to call when the measurement is done
 typedef void (*callback_function)(uint16_t freq_multiplied_by_gate_open_time);
-void set_measurement_complete_action(callback_function callback);
+void set_freq_measurement_complete_action(callback_function callback);
 
 
 
