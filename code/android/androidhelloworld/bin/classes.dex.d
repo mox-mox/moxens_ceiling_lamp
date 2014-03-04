@@ -4,7 +4,15 @@
 /dev/shm/asd-mox/home/mox/.eagle/projects/Zimmerlampe/code/android/androidhelloworld/bin/classes/mox/lamp/myfirstapp/R$layout.class \
 /dev/shm/asd-mox/home/mox/.eagle/projects/Zimmerlampe/code/android/androidhelloworld/bin/classes/mox/lamp/myfirstapp/R$id.class \
 /dev/shm/asd-mox/home/mox/.eagle/projects/Zimmerlampe/code/android/androidhelloworld/bin/classes/mox/lamp/myfirstapp/R$attr.class \
-/dev/shm/asd-mox/home/mox/.eagle/projects/Zimmerlampe/code/android/androidhelloworld/bin/classes/mox/lamp/myfirstapp/BuildConfig.class \
 /dev/shm/asd-mox/home/mox/.eagle/projects/Zimmerlampe/code/android/androidhelloworld/bin/classes/mox/lamp/myfirstapp/MainActivity.class \
+/dev/shm/asd-mox/home/mox/.eagle/projects/Zimmerlampe/code/android/androidhelloworld/bin/classes/mox/lamp/myfirstapp/R$styleable.class \
+/dev/shm/asd-mox/home/mox/.eagle/projects/Zimmerlampe/code/android/androidhelloworld/bin/classes/mox/lamp/myfirstapp/R$style.class \
+/dev/shm/asd-mox/home/mox/.eagle/projects/Zimmerlampe/code/android/androidhelloworld/bin/classes/mox/lamp/myfirstapp/R$integer.class \
+/dev/shm/asd-mox/home/mox/.eagle/projects/Zimmerlampe/code/android/androidhelloworld/bin/classes/mox/lamp/myfirstapp/R$drawable.class \
+/dev/shm/asd-mox/home/mox/.eagle/projects/Zimmerlampe/code/android/androidhelloworld/bin/classes/mox/lamp/myfirstapp/R$dimen.class \
+/dev/shm/asd-mox/home/mox/.eagle/projects/Zimmerlampe/code/android/androidhelloworld/bin/classes/mox/lamp/myfirstapp/R$color.class \
+/dev/shm/asd-mox/home/mox/.eagle/projects/Zimmerlampe/code/android/androidhelloworld/bin/classes/mox/lamp/myfirstapp/R$bool.class \
+/dev/shm/asd-mox/home/mox/.eagle/projects/Zimmerlampe/code/android/androidhelloworld/bin/classes/mox/lamp/myfirstapp/R$anim.class \
+/dev/shm/asd-mox/home/mox/.eagle/projects/Zimmerlampe/code/android/androidhelloworld/bin/classes/mox/lamp/myfirstapp/BuildConfig.class \
 /dev/shm/asd-mox/home/mox/.eagle/projects/Zimmerlampe/code/android/androidhelloworld/bin/classes/mox/lamp/myfirstapp/DisplayMessageActivity.class \
 /dev/shm/asd-mox/home/mox/.eagle/projects/Zimmerlampe/code/android/androidhelloworld/bin/dexedLibs/android-support-v4-760a5d9eb72bd25bd6d1dfaa4c7aaa9e.jar \
