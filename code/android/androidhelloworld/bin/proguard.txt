@@ -1,7 +1,7 @@
-# view AndroidManifest.xml #generated:14
+# view AndroidManifest.xml #generated:15
 -keep class mox.lamp.myfirstapp.DisplayMessageActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:7
+# view AndroidManifest.xml #generated:8
 -keep class mox.lamp.myfirstapp.MainActivity { <init>(...); }
 
 # onClick res/layout/main.xml #generated:12
