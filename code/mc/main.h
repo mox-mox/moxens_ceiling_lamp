@@ -1,6 +1,3 @@
-// Parts of this Code are taken from Peter Dannegger: http://www.mikrocontroller.net/topic/101472
-
-
 #ifndef MAIN_H
 #define MAIN_H
 
@@ -18,13 +15,15 @@
 
 //			Easier type writing:
 
-typedef uint8_t		u8;
-typedef int8_t		s8;
-typedef uint16_t	u16;
-typedef int16_t		s16;
-typedef uint32_t	u32;
-typedef int32_t		s32;
+//typedef uint8_t		u8;
+//typedef int8_t		s8;
+//typedef uint16_t	u16;
+//typedef int16_t		s16;
+//typedef uint32_t	u32;
+//typedef int32_t		s32;
 
+
+// The following part of this file is taken from Peter Dannegger: http://www.mikrocontroller.net/topic/101472
 
 //{{{
 #pragma GCC diagnostic ignored "-Wpedantic"  /* no diagnostic for this one */
@@ -51,17 +50,14 @@ typedef int32_t		s32;
 //			Optimization improvements
 
 // always inline function x:
-
 #define AIL(x)   static x __attribute__ ((always_inline)); static x
 
 
 // never inline function x:
-
 #define NIL(x)   x __attribute__ ((noinline)); x
 
 
 // volatile access (reject unwanted removing access):
-
 #define vu8(x)  (*(volatile u8*)&(x))
 #define vs8(x)  (*(volatile s8*)&(x))
 #define vu16(x) (*(volatile u16*)&(x))

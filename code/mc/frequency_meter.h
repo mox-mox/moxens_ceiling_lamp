@@ -37,24 +37,24 @@
 	#error "Freq_meter needs to know the CPU frequency, so please define F_CPU somewhere appropriate."
 #endif
 
-// Set up everything. Only needs to be called once (or, when the timer/counter 0/1, PC2 or PC3 were used elsewhere)
-void init_freq_counter();
-
-
 #define FREQ_METER_INVALID_FREQUENCY 0xFFFF
-//sets the function to call when the measurement is done
 typedef void (*freq_measurement_callback_function)(uint16_t freq_multiplied_by_gate_open_time);
-void set_freq_measurement_complete_action(freq_measurement_callback_function callback);
 
-// Convenience function to undo the scaling.
-// Usually you should just use the scaled frequency because the scaling is constant and allows to fit into
-// a 16 bit variable.
-uint32_t get_actual_frequency(uint16_t scaled_frequency)
+// Set up everything. This function only needs to be called once (or, when the timer/counter 0/1,
+// PC2 or PC3 were used elsewhere). It also sets the function to call when the measurement is done.
+void init_freq_counter(freq_measurement_callback_function freq_measurement_complete_callback);
 
-// Tell the module it should measure a frequency.
-// The callback function will be called when the measurement is done, so this is basically a fire and forget solution
+
+// Tell the module it should measure a frequency. The callback function will be called when the
+// measurement is done, so this is basically a fire and forget solution
 void request_freq_measurement();
 
+// Convenience function to undo the scaling.
+// Usually you should just use the scaled frequency because the scaling is constant and allows to
+// fit into a 16 bit variable.
+uint32_t get_actual_frequency(uint16_t scaled_frequency);
+
+uint8_t freq_meter_is_measuring();
 
 
 #endif /* FREQ_METER_H */
