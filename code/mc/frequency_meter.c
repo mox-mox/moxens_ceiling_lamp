@@ -5,9 +5,10 @@
 // This function will be called when the measurement is completed
 // It could for example set a flag or send the results to another device
 // Argument: The measured frequency divided by 10 (because the full value would not fit into an unit16_t :) )
-callback_function measurement_complete_action=NULL;
+freq_measurement_callback_function measurement_complete_action=NULL;
+volatile uint8_t measurement_requested;
 
-void set_freq_measurement_complete_action(callback_function callback)
+void set_freq_measurement_complete_action(freq_measurement_callback_function callback)
 {
 	measurement_complete_action=callback;
 }
@@ -20,21 +21,21 @@ ISR(TIMER0_OVF_vect)
 	// Remaining_gate_timer_cycles is set at the start of measurement. When it reaches 0 the measurement is finished.
 	if(!--remaining_gate_timer_cycles) // Fold decrement and check. When finished, stop the timers and start the callback function.
 	{
-		// stop the frequency counter
+		// Stop the frequency counter.
 		TCCR1B = (0<<ICNC1) | (0<<ICES1) | (0<<WGM13) | (0<<WGM12) | (0<<CS12) | (0<<CS11) | (0<<CS10);
-		// and stop the gate_timer
-		TCCR0B = (0<<FOC0A) | (0<<FOC0B) | (0<<WGM02) | (1<<CS02) | (0<<CS01) | (1<<CS00);
+		// And stop the gate_timer.
+		TCCR0B = (0<<FOC0A) | (0<<FOC0B) | (0<<WGM02) | (0<<CS02) | (0<<CS01) | (0<<CS00);
 
-		// save the results to a variable so other uses of the timer won't corrupt the data
+		// Save the results to a variable so other uses of the timer won't corrupt the data.
 		uint16_t freq = TCNT1;
 		uint8_t is_overflowed = SBIT( TIFR1, TOV1);
-		// Disable overflow interrupt. This also means that a new conversion can be started
-		TIMSK0 &= ~(1<<TOIE0);
-		sei(); // Any futher processing is nonblocking
-		// Start the callback. If an overflow occured 0x0000 signals the error
-		measurement_complete_action( is_overflowed ? FREQ_METER_INVALID_FRRQUENCY : &freq );	// signal error by sending invalid frequency
+		// Disable overflow interrupt. This also means that a new conversion can be started (TIMSK0 &= ~(1<<TOIE0);)
+		SBIT( TIMSK0, TOIE0 ) = 0;
+		sei(); // Any futher processing is nonblocking.
+		// Start the callback. If an overflow occured FREQ_METER_INVALID_FREQUENCY is handed over and signals the error.
+		measurement_complete_action( is_overflowed ? FREQ_METER_INVALID_FRRQUENCY : &freq );
 
-		// If another measurement is requested, start it
+		// If another measurement is requested, start it now.
 		if(measurement_requested)
 		{
 			measurement_requested=0;
@@ -43,8 +44,6 @@ ISR(TIMER0_OVF_vect)
 	}
 }
 
-
-volatile uint8_t measurement_requested;
 void request_freq_measurement()
 {
 	uint8_t sreg = SREG;
@@ -61,34 +60,6 @@ void request_freq_measurement()
 	}
 }
 
-
-
-
-
-
-
-
-
-void init_freq_counter()// counter1
-{
-	// disconnect the OC1A/OC1B and count up normally
-	TCCR1A = (0<<COM1A1) | (0<<COM1A0) | (0<<COM1B1) | (0<<COM1B0) | (0<<WGM11) | (1<<WGM10);
-	// no noise cancelling, clock on rising edge at T1 pin
-	TCCR1B = (0<<ICNC1) | (0<<ICES1) | (0<<WGM13) | (0<<WGM12) | (1<<CS12) | (1<<CS11) | (1<<CS10);
-	// no force output compare
-	TCCR1C = (0<<FOC1A) | (0<<FOC1B);
-
-	//// no interrupts should start now
-	//TIFR1 = 0xff;
-	//// no interrupts allowed
-	//TIMSK1 = (0<<ICIE1) | (0<<OCIE1B) | (0<<OCIE1A) | (0<<TOIE1);
-}
-
-// if counter1 overflows, we know the frequency was to high for the time slot so the result is not valid
-
-
-
-
 // some compile time constants...
 const int clock_divider = 1024;
 const int counter_max_steps = 256;
@@ -99,12 +70,71 @@ const int counter_steps = FREQ_TIMER_WINDOW*F_CPU/(double) divider - 256d*(doubl
 const int runtime_delay_correction = 2
 const int counter_preload = counter_max_steps - (counter_steps + runtime_delay_correction);
 
-void init_gate_timer()							// timer0
+// Do the setup that has to be done everytime and start measuring at positive-going edge of the signal;
+void start_measurement()
 {
+	// Timer0 measures 0.1 s. It will overflow during this period so it has to run multiple times
+	// It will be started in the timer1 overflow interrupt when there is a positive edge on the signal
+	// Preload the timer for the first run, so it will measure exactly 0.1s
+	TCNT0 = counter_preload;
+	// No interrupts pending yet
+	TIFR0 = 0xff;
+	// Only allow overflow interrupt
+	TIMSK0 = (0<<OCIE0B) | (0<<OCIE0A) | (1<<TOIE0);
+
+
+	// Use counter1 to determine when to actually start measuring
+	// Next count shall cause an overflow (to emulate the pin change interrupt)
+	TCNT1 = 0xffff;
+	// No interrupts pending yet
+	TIFR1 = 0xff;
+	// Only allow overflow interrupt
+	TIMSK1 = (0<<ICIE1) | (0<<OCIE1B) | (0<<OCIE1A) | (1<<TOIE1);
+	// Start the counter: no noise cancelling, clock on rising edge at T1 pin
+	TCCR1B = (0<<ICNC1) | (0<<ICES1) | (0<<WGM13) | (0<<WGM12) | (1<<CS12) | (1<<CS11) | (1<<CS10);
+
+	return;
+}
+
+ISR(TIMER1_OVF_vect) // Use Counter1 as edge detector to know when to start the measurement
+{
+	// Start the timer: no force output compare, clock from F_CPU/1024
+	TCCR0B = (0<<FOC0A) | (0<<FOC0B) | (0<<WGM02) | (1<<CS02) | (0<<CS01) | (1<<CS00);
+	// If counter1 overflows, we know the frequency was to high for the time slot so the result is not valid
+
+	// Disable this interrupt because it is not needed any more
+	TIMSK1 = (0<<ICIE1) | (0<<OCIE1B) | (0<<OCIE1A) | (1<<TOIE1);
+}
+
+
+
+
+
+void init_freq_counter()
+{
+	// set T1/PC3 as input
+	SBIT(  DDRC, DDRC3) = 0;
+	SBIT( PORTC,PORTC3) = 0;
+	// set T0/PC2 as input. This is only necessary because they are connected by a wire on my board.
+	SBIT(  DDRC, DDRC2) = 0;
+	SBIT( PORTC,PORTC2) = 0;
+
+
+	// initialise everything that can be initialised but don't start the timer and counter yet
+
+	// counter1 counts the edges of the input signal
+	// disconnect the OC1A/OC1B and count up normally
+	TCCR1A = (0<<COM1A1) | (0<<COM1A0) | (0<<COM1B1) | (0<<COM1B0) | (0<<WGM11) | (1<<WGM10);
+	// no noise cancelling, no clock yet
+	TCCR1B = (0<<ICNC1) | (0<<ICES1) | (0<<WGM13) | (0<<WGM12) | (0<<CS12) | (0<<CS11) | (0<<CS10);
+	// no force output compare
+	TCCR1C = (0<<FOC1A) | (0<<FOC1B);
+
+	// timer0 measures 0.1 s. It will overflow during this period so it has to run multiple times
 	// running in normal mode, the pins are disconnected
 	TCCR0A = (0<<COM0A1)| (0<<COM0A0)| (0<<COM0B1)| (0<<COM0B0)| (0<<WGM01)| (0<<WGM00);
-	// no force output compare, clock from F_CPU/1024
-	TCCR0B = (0<<FOC0A) | (0<<FOC0B) | (0<<WGM02) | (1<<CS02) | (0<<CS01) | (1<<CS00);
+	// no force output compare, no clock yet
+	TCCR0B = (0<<FOC0A) | (0<<FOC0B) | (0<<WGM02) | (1<<CS02) | (0<<CS01) | (0<<CS00);
 	TCNT0 = counter_preload;
 	// no interrupts pending yet
 	TIFR0 = 0xff;
@@ -113,104 +143,7 @@ void init_gate_timer()							// timer0
 }
 
 
-
-
-
-
-
-
-
-
-
-unsigned int x48_cnt_to_four_ints;
-
-unsigned int freq_cntr_freq_divd_by_10;
-
-/*! \brief  AVR peripheral's initialization function
- *
- *  This function sends a command byte to the connected
- *  peripheral and waits for a returned status code.
- *
- *  \note  The peripheral must be initialized in advance.
- *
- */
-void freq_cntr_init(void)
+uint32_t get_actual_frequency(uint16_t scaled_frequency)
 {
-	// Initialize  16 bit FREQ_CNTR counts incoming positive edges on T0 input pin
-	FREQ_CNTR_CTRLA = 0;							// Normal 16 bit mode OVF at 0xffff
-	//Interrupts must be enabled for this code to work properly
-}
-
-
-
-//! GATE_CNTR is used as the time base for the 0.1 second sampling gate
-
-/*! \brief  When interrupts are used, this function is called to start the measurement process.\n
- *	\A Pin Change of state on T0 will cause the 16-bit frequency counter to start.\n
- *
- *  - This function is not used during Busy Wait (polling) \n
- *
- */
-void freq_cntr_start_measurement(void)
-{
-//! To detect a rising edge on PB6 with minimum latentcy, a Pin change interrupt is now enabled
-	PIN_CHG_MASK = (1<<PIN_CHG_INT);							// for megax8;
-	GEN_INT_MASK = (1<<PIN_CHG_INT_ENAB);
-}
-
-
-
-ISR(PIN_CHG_vect)
-{
-	if ((PIN & (1<<PIN_NO)) != 0)
-	{
-		PIN_CHG_MASK    = (0<<PIN_CHG_INT);
-		GEN_INT_MASK &= ~(1<<PIN_CHG_INT_ENAB);
-		GATE_CNTR_INT_FLAG_REG   |= (1<<GATE_CNTR_OVF_FLAG);							// clear GATE_CNTR overflow flag if set
-
-// Enable FREQ_CNTR to count incoming signal on Tiny x61:PB6, Megax8: PD5
-
-		FREQ_CNTR_COUNT_HIGH  = 0x00;							// clear counter upper 8 bits
-		FREQ_CNTR_COUNT_LOW  = 0x00;							// clear counter lower 8
-		FREQ_CNTR_CTRLB = (1<<CLOCK_SEL_2)|(1<<CLOCK_SEL_1);							// select FREQ_CNTR input clock
-
-//The following counter pre-load was determined by the 0.1 second/512 usec period = 195.3 counts
-//				TCNT1 = 255-195;// GATE_CNTR up counter loaded with this value to generate 0.1 sec delay
-		GATE_CNTR_COUNT = 0;
-
-		GATE_CNTR_INT_MASK_REG = (1<<GATE_CNTR_OVF_INT_ENAB);
-
-
-		GATE_CNTR_CTRLB = (1<<CLOCK_SEL_02)|(1<<CLOCK_SEL_00);								// divide by 1024, the largest divisor possible in MEGAx8
-		x48_cnt_to_four_ints = 0;							//Clear the x48 counter that counts 4 interrupts before closing gate
-	}
-	// else detected a negative-going pin change int, so ignore this
-}
-
-
-////////////////////////////////
-
-ISR(GATE_CNTR_OVF_vect)
-{
-	x48_cnt_to_four_ints++;
-	if(x48_cnt_to_four_ints == 3) GATE_CNTR_COUNT = 0xff-13;
-	if(x48_cnt_to_four_ints >= 4)
-	{
-		FREQ_CNTR_CTRLB = 0;							// stop FREQ_CNTR
-		GATE_CNTR_CTRLB = 0;
-
-//	ovf_test_and_return_result(); //places result into freq_cntr_freq_divd_by_10
-// Test TIFR for 16-bit overflow.  If overrange return  0xFFFF
-
-		if ((FREQ_CNTR_INT_FLAG_REG & (1<<FREQ_CNTR_OVF_FLAG)) != 0)
-		{
-			// Test GATE_CNTR_OVF_FLAG for 16-bit overflow =  0xFFFF
-
-			freq_cntr_freq_divd_by_10 = 0xFFFF;								// This is to return a OVF condition
-		}
-		else
-		{
-			freq_cntr_freq_divd_by_10 = FREQ_CNTR_COUNT_LOW+(FREQ_CNTR_COUNT_HIGH<<8);
-		}
-	}
+	return (scaled_frequency/FREQ_METER_GATE_OPEN_TIME);
 }
