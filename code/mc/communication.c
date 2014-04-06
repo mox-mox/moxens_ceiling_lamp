@@ -2,8 +2,11 @@
 #include "main.h"
 #include <avr/io.h>
 #include <avr/interrupt.h>
+#include "humidity.h"
+#include "colours.h"
 
 
+inline void handle_command(instruction command, uint8_t data);
 
 void init_communication(uint32_t baudrate)
 {
@@ -12,7 +15,7 @@ void init_communication(uint32_t baudrate)
 
 	UCSRA = (0<<U2X) | (0<<MPCM);													// no U2X, no MPCM
 	UCSRB = (1<<RXCIE) | (0<<TXCIE), (1<<UDRIE), (1<<RXEN), (1<<TXEN), (0<<UCSZ2);	// Receive Interrupt, Data Empty Interrupt RX and TX set
-	UCSRC = (0<<UMSEL) | (1<<UPM1) | (1<<UPM0) | (1<<USBS) | (1<<UCSZ1) | (1<<UCSZ2) | (0<<UCPOL);	// Async, odd parity, 2 stop bits, 8-bit frames
+	UCSRC = (0<<UMSEL0) | (1<<UPM1) | (1<<UPM0) | (1<<USBS) | (1<<UCSZ1) | (1<<UCSZ2) | (0<<UCPOL);	// Async, odd parity, 2 stop bits, 8-bit frames
 }
 
 
@@ -31,7 +34,7 @@ ISR(USART_RX_vect)
 		return;
 	}
 	received_byte=UDR;
-	switch(rx_state)
+	switch(state)
 	{
 		case 0:													// 1st start bit
 		case 1:													// 2nd start bit
@@ -47,7 +50,7 @@ ISR(USART_RX_vect)
 			state++;
 			break;
 		case 4:													// Checksum
-			rx_state=0;
+			state=0;
 			if(command+data == received_byte)	// valid checksum
 				handle_command(command, data);
 		default:		// WTF happened?
@@ -58,7 +61,7 @@ ISR(USART_RX_vect)
 
 
 #define TX_FIFO_SIZE 16 // Must be a power of 2
-volatile uint8_t commands_to send[TX_FIFO_SIZE][2];
+volatile uint8_t commands_to_send[TX_FIFO_SIZE][2];
 volatile uint8_t tx_write_index;
 volatile uint8_t tx_read_index;
 volatile uint8_t tx_fifo_crash_flag = 0;
@@ -66,7 +69,8 @@ void send_command(instruction command, uint8_t data)
 {
 	uint8_t sreg=SREG;
 	cli();
-	++tx_write_index &= TX_FIFO_SIZE-1;							// increment with overflow
+	tx_write_index++;
+	tx_write_index &= (TX_FIFO_SIZE-1);							// increment with overflow
 	//if(tx_write_index==tx_read_index) tx_fifo_crash_flag=1;	//TODO: Is there an off-by-one-error?
 	commands_to_send[tx_write_index][0]=(uint8_t) command;
 	commands_to_send[tx_write_index][1]=data;
@@ -88,15 +92,15 @@ ISR(USART_UDRE_vect)
 	{
 		case 0:
 			// abuse command to hold a temporary variable to avoid creating a stack frame
-			command = (tx_read_index+1) & TX_FIFO_SIZE-1;
+			command = (tx_read_index+1) & (TX_FIFO_SIZE-1);
 			if(command == tx_write_index)						// If the buffer is empty... // TODO: Is there an off-by-one-error?
 			{
 				SBIT( UCSRB, UDRIE) = 0;						// ...disable this interrupt...
 				return;
 			}
 			tx_read_index = command;						// command contains the incremented address //TODO: Should the adress be incremented after reading?
-			command = command_to_send[tx_read_index][0];	// All hail the
-			data    = command_to_send[tx_read_index][1];	// double buffer!!
+			command = commands_to_send[tx_read_index][0];	// All hail the
+			data    = commands_to_send[tx_read_index][1];	// double buffer!!
 			// note the case fall through...
 		case 1:
 			UDR=STARTBYTE;
@@ -125,7 +129,7 @@ ISR(USART_UDRE_vect)
 
 
 
-inline void handle_commands(instruction command, uint8_t data)
+inline void handle_command(instruction command, uint8_t data)
 {
 	sei();							// Handle commands while allowing interrupts
 	switch(command)
@@ -200,34 +204,35 @@ inline void handle_commands(instruction command, uint8_t data)
 
 		//{{{
 		case update_colour:
-			update_colour1();
+			update_colour1_values();
+			update_colour2_values();
 			break;
 		case update_colour1:
-			update_colour1();
+			update_colour1_values();
 			break;
 		case update_colour2:
-			update_colour2();
+			update_colour2_values();
 			break;
 		//}}}
 
 		//{{{
 		case get_r1:
-			send_command(set_r1, get_r1());
+			send_command(set_r1, get_r1_value());
 			break;
 		case get_g1:
-			send_command(set_g1, get_g1());
+			send_command(set_g1, get_g1_value());
 			break;
 		case get_b1:
-			send_command(set_b1, get_b1());
+			send_command(set_b1, get_b1_value());
 			break;
 		case get_r2:
-			send_command(set_r2, get_r2());
+			send_command(set_r2, get_r2_value());
 			break;
 		case get_g2:
-			send_command(set_g2, get_g2());
+			send_command(set_g2, get_g2_value());
 			break;
 		case get_b2:
-			send_command(set_b2, get_b2());
+			send_command(set_b2, get_b2_value());
 			break;
 		//}}}
 		default:

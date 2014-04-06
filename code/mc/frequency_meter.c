@@ -10,15 +10,36 @@
 frequency_measurement_callback_function measurement_complete_action=NULL;
 volatile uint8_t measurement_requested;
 
+void start_measurement();
 
 
-void init_frequency_meter(frequency_measurement_callback_function frequency_measurement_complete_callback);
+//F_CPU=2000000,
+//FREQ_METER_GATE_OPEN_TIME = 0.1,
+#define clock_divider 1024
+#define counter_max_steps 255
+
+// How many times the timer has to overflow during the measurement.
+///uint8_t required_gate_timer_cycles = ((F_CPU/counter_max_steps/clock_divider*FREQ_METER_GATE_OPEN_TIME) + 1);
+// Running the timer (required_gate_timer_cycles*256 steps) would give a window that is slightly to
+// long, so the timer gets a preload for the first run.
+///uint8_t counter_steps = ((FREQ_METER_GATE_OPEN_TIME*F_CPU/clock_divider - 256.0*required_gate_timer_cycles + counter_max_steps + 0.5));
+///uint8_t counter_preload = ((counter_max_steps - counter_steps));
+
+
+//uint8_t required_gate_timer_cycles;
+//uint8_t counter_steps;
+uint8_t counter_preload;
+
+void init_frequency_meter(frequency_measurement_callback_function frequency_measurement_complete_callback)
 {
+uint8_t required_gate_timer_cycles = ((F_CPU/counter_max_steps/clock_divider*FREQ_METER_GATE_OPEN_TIME) + 1);
+uint8_t counter_steps = ((FREQ_METER_GATE_OPEN_TIME*F_CPU/clock_divider - 256.0*required_gate_timer_cycles + counter_max_steps + 0.5));
+counter_preload = ((counter_max_steps - counter_steps));
 	// set T1/PC3 as input
-	SBIT(  DDRC, DDRC3) = 0;
+	SBIT(  DDRC, DDC3) = 0;
 	SBIT( PORTC,PORTC3) = 0;
 	// set T0/PC2 as input. This is only necessary because they are connected by a wire on my board.
-	SBIT(  DDRC, DDRC2) = 0;
+	SBIT(  DDRC, DDC2) = 0;
 	SBIT( PORTC,PORTC2) = 0;
 
 
@@ -37,14 +58,14 @@ void init_frequency_meter(frequency_measurement_callback_function frequency_meas
 	TCCR0A = (0<<COM0A1)| (0<<COM0A0)| (0<<COM0B1)| (0<<COM0B0)| (0<<WGM01)| (0<<WGM00);
 	// no force output compare, no clock yet
 	TCCR0B = (0<<FOC0A) | (0<<FOC0B) | (0<<WGM02) | (1<<CS02) | (0<<CS01) | (0<<CS00);
-	TCNT0 = counter_preload;
+	TCNT0 = 0;//counter_preload;
 	// no interrupts pending yet
 	TIFR0 = 0xff;
 	// only allow overflow interrupt
 	TIMSK0 = (0<<OCIE0B) | (0<<OCIE0A) | (1<<TOIE0);
 
 
-	measurement_complete_action=callback;
+	measurement_complete_action=frequency_measurement_complete_callback;
 }
 
 
@@ -66,19 +87,29 @@ void request_frequency_measurement()
 }
 
 
+///// Some compile time constants...
+///const int clock_divider = 1024;
+///const int counter_max_steps = 255;
+///// How many times the timer has to overflow during the measurement.
+///const int required_gate_timer_cycles =
+///	F_CPU/(counter_max_steps*clock_divider*(1/FREQ_METER_GATE_OPEN_TIME)) + 1;
+///// Running the timer (required_gate_timer_cycles*256 steps) would give a window that is slightly to
+///// long, so the timer gets a preload for the first run.
+///const int counter_steps = FREQ_METER_GATE_OPEN_TIME*F_CPU/(double) clock_divider -
+///	256d*(double) required_gate_timer_cycles + counter_max_steps + 0.5d;
+///const int counter_preload = counter_max_steps - counter_steps;
 
-// Some compile time constants...
-const int clock_divider = 1024;
-const int counter_max_steps = 255;
-// How many times the timer has to overflow during the measurement.
-const int required_gate_timer_cycles =
-	F_CPU/(counter_max_steps*clock_divider*(1/FREQ_METER_GATE_OPEN_TIME)) + 1;
-// Running the timer (required_gate_timer_cycles*256 steps) would give a window that is slightly to
-// long, so the timer gets a preload for the first run.
-const int counter_steps = FREQ_TIMER_WINDOW*F_CPU/(double) divider -
-	256d*(double) required_gate_timer_cycles + counter_max_steps + 0.5d;
-const int counter_preload = counter_max_steps - counter_steps;
-
+///// Some compile time constants...
+///#define clock_divider  1024ul
+///#define counter_max_steps  255ul
+///// How many times the timer has to overflow during the measurement.
+///#define required_gate_timer_cycles 
+///	((F_CPU/(counter_max_steps*clock_divider*(1/FREQ_METER_GATE_OPEN_TIME)) + 1))
+///// Running the timer (required_gate_timer_cycles*256 steps) would give a window that is slightly to
+///// long, so the timer gets a preload for the first run.
+///#define counter_steps  ((FREQ_METER_GATE_OPEN_TIME*F_CPU/(double) clock_divider -
+///	256.0f*(double) required_gate_timer_cycles + counter_max_steps + 0.5f))
+///#define counter_preload ((counter_max_steps - counter_steps))
 
 
 // Do the setup that has to be done everytime and start measuring at positive-going edge of the signal;
@@ -121,6 +152,7 @@ ISR(TIMER1_OVF_vect) // Use Counter1 as edge detector to know when to start the 
 
 
 
+#define FREQ_METER_INVALID_FREQUENCY 0xFFFF
 volatile uint8_t remaining_gate_timer_cycles;
 ISR(TIMER0_OVF_vect)
 {
@@ -145,7 +177,7 @@ ISR(TIMER0_OVF_vect)
 		// No check for NULL is done to save performance. To reach this code the init function has
 		// to have run so m._complete_action should be set.
 		// If an overflow occured FREQ_METER_INVALID_FREQUENCY is handed over and signals the error.
-		measurement_complete_action( is_overflowed ? FREQ_METER_INVALID_FRRQUENCY : &frequency );
+		measurement_complete_action( is_overflowed ? FREQ_METER_INVALID_FREQUENCY : frequency );
 
 		// If another measurement is requested, start it now.
 		if(measurement_requested)

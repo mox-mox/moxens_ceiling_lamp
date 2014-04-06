@@ -1,6 +1,5 @@
 #include "psc.h"
 #include "main.h"
-#include <avr/io.h>
 #include <avr/interrupt.h>
 
 void init_psc()
@@ -80,14 +79,4 @@ void init_psc()
 	PIFR2 = (1<<POAC2B) | (1<<POAC2A) | (1<<PSEI2) | (1<<PEV2B) | (1<<PEV2A) | (1<<PRN21) | (1<<PRN20) | (1<<PEOP2);
 }
 
-inline void start_psc()
-{
-	// Only need to start PSC0 explicitly, the others are slaved to it //PCTL0 |= (1<<PRUN0);
-	SBIT(PCTL0, PRUN0) = 1;
-}
-inline void stop_psc()
-{
-	// Only need to stop PSC0 explicitly, the others are slaved to it //PCTL0 &= ~(1<<PRUN0);
-	SBIT(PCTL0, PRUN0) = 0;
-}
 

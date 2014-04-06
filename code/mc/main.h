@@ -4,9 +4,9 @@
 
 #include <stdint.h>
 //#include <inttypes.h>
-#include <util/delay.h>
+//#include <util/delay.h>
 
-
+#define NULL ((void *) 0)
 
 
 

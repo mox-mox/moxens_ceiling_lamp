@@ -1,11 +1,13 @@
 #include "humidity.h"
 #include "main.h"
 #include "frequency_meter.h"
-#include "communicate.h"
+#include "communication.h"
 #include <avr/io.h>
 
 void measurement_complete_handler(uint16_t scaled_frequency);
 
+void enable_humidity_sensor();
+void disable_humidity_sensor();
 
 void init_humidity()
 {
@@ -32,7 +34,7 @@ void disable_humidity_sensor()
 //volatile uint16_t last_humidity_measurement; // In case of a broken transmission, the result can be sent again
 void measurement_complete_handler(uint16_t scaled_frequency)
 {
-	if(!freq_meter_is_measuring())
+	if(!frequency_meter_is_measuring())
 		disable_humidity_sensor();
 
 	//last_humidity_measurement=scaled_frequency;
@@ -45,5 +47,5 @@ void measurement_complete_handler(uint16_t scaled_frequency)
 void measure_humidity()
 {
 	enable_humidity_sensor();
-	request_freq_measurement();
+	request_frequency_measurement();
 }

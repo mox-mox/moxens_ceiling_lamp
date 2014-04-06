@@ -1,8 +1,8 @@
 #ifndef COMMUNICATION_H
 #define COMMUNICATION_H
 
+#include "main.h"
 
-#define BAUD		9600
 
 void init_communication(uint32_t baudrate);
 void send_command(uint8_t command, uint8_t data);
@@ -41,9 +41,9 @@ enum instructions_enum
 	set_g2,					// New green value
 	set_b2,					// New blue value
 
-	update_colour;			// NONE: Use the new global hsv values
-	update_rgb1;			// NONE
-	update_rgb2;			// NONE
+	update_colour,			// NONE: Use the new global hsv values
+	update_colour1,			// NONE
+	update_colour2,			// NONE
 
 	get_r1,					// NONE
 	get_g1,					// NONE
@@ -54,10 +54,10 @@ enum instructions_enum
 
 	// much free space for additional commands ;)
 
-	invalid_command=STARTBYTE;	// With this, detecting the startbytes becomes mostly unambigious.
+	invalid_command=STARTBYTE	// With this, detecting the startbytes becomes mostly unambigious.
 								// There is still the possibility, that the checksum becomes STARTBYTE, but this should not be that much of a problem.
 } __attribute__((packed));
-typedef instructions instructions_enum;
+typedef enum instructions_enum instruction;
 //}}}
 
 #endif /* COMMUNICATION_H */

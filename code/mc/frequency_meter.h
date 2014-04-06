@@ -1,8 +1,9 @@
 #ifndef FREQUENCY_METER_H
 #define FREQUENCY_METER_H
+#include <stdint.h>
 /******************************************************************************/
 /*                                                                            */
-/*    Measure a frequency at pin T1 using timer0 and timer1                    */
+/*    Measure a frequency at pin T1 using timer0 and timer1                   */
 /*    Inspired by Atmel Appnote AVR205                                        */
 /*                                                                            */
 /*    Principle:                                                              */
@@ -31,7 +32,7 @@
 
 
 // Set the time intervall during which the measurement is done
-#define FREQ_METER_GATE_OPEN_TIME 0.1d
+#define FREQ_METER_GATE_OPEN_TIME 0.1f
 
 #if !defined F_CPU
 	#error "Frequency_meter needs to know the CPU frequency, so please define F_CPU somewhere appropriate."

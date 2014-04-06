@@ -51,7 +51,7 @@ prog: prog-diamexusb
 # Hardware
 #MCU   = atmega168
 MCU   = at90pwm3b
-F_OSC = 4000000L
+F_OSC = 2000000L
 
 # How to use this Makefile:
 # 'make all' Compiles everything
@@ -86,9 +86,11 @@ CFLAGS += -std=c99
 #CFLAGS += -Wall -Wunused -Wextra -$(OPT) -fsigned-char -Wno-pragmas -Wpedantic
 CFLAGS += -Wall -Wunused -Wextra -Wpedantic -$(OPT) -fsigned-char
 CFLAGS += -MD -MP -MT $@ -MF dep/$(@F).d
-CFLAGS += -DMC_SIDE
+#CFLAGS += -DMC_SIDE
 CFLAGS += -I../
 CFLAGS += -I.
+CFLAGS += -Wfatal-errors
+
 
 ## Assembly specific flags
 ASMFLAGS = $(COMMON)
