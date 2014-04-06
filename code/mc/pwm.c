@@ -24,17 +24,17 @@ void init_pwm()
 	OCR2SB=0;
 	OCR2RB=0;
 
-	// no 50% mode, Autolock, no lock bit, one Ramp mode, active low polarity, slow clock input, don't use the output matrix
+	// no 50% mode, no autolock, no lock bit, one Ramp mode, active low polarity, slow clock input, don't use the output matrix
 
-	//  Bit 6 - PALOCKn: PSC n Autolock
-	//  When this bit is set, the Output Compare Registers RA, SA, SB, the Output Matrix POM2 and
-	//  the PSC Output Configuration PSOCn can be written without disturbing the PSC cycles. The
-	//  update of the PSC internal registers will be done at the end of the PSC cycle if the Output Com-
-	//  pare Register RB has been the last written.
+	////  Bit 6 - PALOCKn: PSC n Autolock
+	////  When this bit is set, the Output Compare Registers RA, SA, SB, the Output Matrix POM2 and
+	////  the PSC Output Configuration PSOCn can be written without disturbing the PSC cycles. The
+	////  update of the PSC internal registers will be done at the end of the PSC cycle if the Output Com-
+	////  pare Register RB has been the last written.
 
-	PCNF0= (0<<PFIFTY0) | (1<<PALOCK0) | (0<<PLOCK0) | (0<<PMODE01) | (0<<PMODE00) | (0<<POP0) | (0<<PCLKSEL0)             ;
-	PCNF1= (0<<PFIFTY2) | (1<<PALOCK1) | (0<<PLOCK1) | (0<<PMODE11) | (0<<PMODE10) | (0<<POP1) | (0<<PCLKSEL1)             ;
-	PCNF2= (0<<PFIFTY2) | (1<<PALOCK2) | (0<<PLOCK2) | (0<<PMODE21) | (0<<PMODE20) | (0<<POP2) | (0<<PCLKSEL2) | (0<<POME2);
+	PCNF0= (0<<PFIFTY0) | (0<<PALOCK0) | (0<<PLOCK0) | (0<<PMODE01) | (0<<PMODE00) | (0<<POP0) | (0<<PCLKSEL0)             ;
+	PCNF1= (0<<PFIFTY2) | (0<<PALOCK1) | (0<<PLOCK1) | (0<<PMODE11) | (0<<PMODE10) | (0<<POP1) | (0<<PCLKSEL1)             ;
+	PCNF2= (0<<PFIFTY2) | (0<<PALOCK2) | (0<<PLOCK2) | (0<<PMODE21) | (0<<PMODE20) | (0<<POP2) | (0<<PCLKSEL2) | (0<<POME2);
 
 	// Don't divide the input clock:
 	// Assume F_CPU = 2MHz = F_PSC => Output Frequency = F_PSC/(2^12-1) = 488.40Hz < 500Hz but still very high, so the ripple is small

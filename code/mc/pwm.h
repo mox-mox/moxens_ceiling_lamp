@@ -1,15 +1,19 @@
 #ifndef PWM_H
 #define PWM_H
 
-#define pR1 PB7
-#define pG1	PC0
-#define pB1 PB0
 
-#define pR2	PB6
-#define pG2	PD0
-#define pB2	PB1
+#define R1 PSCOUT01
+#define G1 PSCOUT11
+#define B1 PSCOUT00
+
+#define R2 PSCOUT10
+#define G2 PSCOUT20
+#define B2 PSCOUT21
 
 
+void init_pwm();
+inline void start_pwm();
+inline void stop_pwm();
 
 
 

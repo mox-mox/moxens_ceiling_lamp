@@ -19401,17 +19401,18 @@ Source: www.epcos.com .. 01430148.pdf</description>
 <sheets>
 <sheet>
 <plain>
-<text x="93.98" y="58.42" size="2.54" layer="94" rot="R90">0.28696 Ohm =
+<text x="76.2" y="116.84" size="0.8128" layer="97">0.28696 Ohm =
 1/(1/0.330 Ohm+1/2.2 Ohm)</text>
 <text x="33.02" y="238.76" size="1.27" layer="94">!! Wird nicht eingelötet, sondern
 nur mit Pogopins verwendet !!</text>
-<text x="93.98" y="106.68" size="1.778" layer="97" rot="R90">CI:
+<text x="76.2" y="121.92" size="0.8128" layer="97">CI:
 X7R, X5R oder besser benutzen!
 KEIN Y5V</text>
 <text x="95.504" y="176.276" size="0.8128" layer="97">So kann man später
 entscheiden welcher
 Pin genutzt werden
 soll.</text>
+<text x="91.44" y="76.2" size="0.8128" layer="97" rot="R90">R1, G1, B1, R2, G2, B2 sind active low!</text>
 </plain>
 <instances>
 <instance part="FRAME1" gate="/1" x="0" y="0"/>
