@@ -1,5 +1,5 @@
-#ifndef PWM_H
-#define PWM_H
+#ifndef PSC_H
+#define PSC_H
 
 
 #define R1 PSCOUT01
@@ -11,9 +11,9 @@
 #define B2 PSCOUT21
 
 
-void init_pwm();
-inline void start_pwm();
-inline void stop_pwm();
+void init_psc();
+inline void start_psc();
+inline void stop_psc();
 
 
 
@@ -22,4 +22,4 @@ inline void stop_pwm();
 
 
 
-#endif /* PWM_H */
+#endif /* PSC_H */

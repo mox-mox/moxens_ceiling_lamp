@@ -6,8 +6,11 @@
 /*                                                                      */
 /************************************************************************/
 #include "main.h"
-#include "communicate.h"
+#include <avr/io.h>
+//#include <avr/interrupt.h>
+#include "colours.h"
 #include "humidity.h"
+#include "communicate.h"
 
 //{{{
 
@@ -87,7 +90,9 @@ void init()
 	PORTD=0x00;
 	PORTE=0x00;
 
-	//init_humidity();
+	init_colours();
 
+	init_humidity();
 
+	init_communication();
 }

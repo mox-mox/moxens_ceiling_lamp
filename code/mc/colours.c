@@ -1,27 +1,30 @@
 #include "colours.h"
-#include "pwm.h"
+#include "main.h"
+#include "psc.h"
+#include <avr/io.h>
+#include <avr/interrupt.h>
 
-colour new_colour1={255, 255, 255};
-colour new_colour2={255, 255, 255};
+colour new_colour1={255, 255, 255};	// Set to full brightness
+colour new_colour2={255, 255, 255};	// as a default.
 
 void init_colours()
 {
-	init_pwm();
+	init_psc();
 	set_colour1(new_colour1);
 	set_colour2(new_colour2);
 }
 
 
 //{{{
-uint16_t convert_r_to_psc_value(colour_value r);
-uint16_t convert_g_to_psc_value(colour_value g);
-uint16_t convert_b_to_psc_value(colour_value b);
+uint16_t convert_r_to_psc_value(colour_value r); // TODO
+uint16_t convert_g_to_psc_value(colour_value g); // TODO
+uint16_t convert_b_to_psc_value(colour_value b); // TODO
 //}}}
 
 //{{{
-colour_value convert_psc_value_to_r(uint16_t foo);
-colour_value convert_psc_value_to_g(uint16_t foo);
-colour_value convert_psc_value_to_b(uint16_t foo);
+colour_value convert_psc_value_to_r(uint16_t foo); // TODO
+colour_value convert_psc_value_to_g(uint16_t foo); // TODO
+colour_value convert_psc_value_to_b(uint16_t foo); // TODO
 //}}}
 
 //{{{

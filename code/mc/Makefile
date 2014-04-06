@@ -7,8 +7,10 @@ PROJECT = lamp
 
 # Sourcefiles
 SOURCE = main.c
-SOURCE += communicate.c uart0.c
-SOURCE += pwm.c
+SOURCE += humidity.c frequency_meter.c
+SOURCE += communication.c
+SOURCE += colours.c psc.c
+SOURCE += sleepy.c
 # Libraries
 LIBS = -lm
 

@@ -1,4 +1,5 @@
 #include "frequency_meter.h"
+#include "main.h"
 #include <avr/io.h>
 #include <avr/interrupt.h>
 
@@ -6,12 +7,12 @@
 // It could for example set a flag or send the results to another device
 // Argument: The measured frequency divided by 10
 // (because the full value might not fit into an unit16_t :) )
-freq_measurement_callback_function measurement_complete_action=NULL;
+frequency_measurement_callback_function measurement_complete_action=NULL;
 volatile uint8_t measurement_requested;
 
 
 
-void init_freq_counter(freq_measurement_callback_function freq_measurement_complete_callback);
+void init_frequency_meter(frequency_measurement_callback_function frequency_measurement_complete_callback);
 {
 	// set T1/PC3 as input
 	SBIT(  DDRC, DDRC3) = 0;
@@ -48,7 +49,7 @@ void init_freq_counter(freq_measurement_callback_function freq_measurement_compl
 
 
 
-void request_freq_measurement()
+void request_frequency_measurement()
 {
 	uint8_t sreg = SREG;
 	cli();
@@ -135,7 +136,7 @@ ISR(TIMER0_OVF_vect)
 		TCCR0B = (0<<FOC0A) | (0<<FOC0B) | (0<<WGM02) | (0<<CS02) | (0<<CS01) | (0<<CS00);
 
 		// Save the results to a variable so other uses of the timer won't corrupt the data.
-		uint16_t freq = TCNT1;
+		uint16_t frequency = TCNT1;
 		uint8_t is_overflowed = SBIT( TIFR1, TOV1);
 		// Disable overflow interrupt. This also means that a new conversion can be started (TIMSK0 &= ~(1<<TOIE0);)
 		SBIT( TIMSK0, TOIE0 ) = 0;
@@ -144,7 +145,7 @@ ISR(TIMER0_OVF_vect)
 		// No check for NULL is done to save performance. To reach this code the init function has
 		// to have run so m._complete_action should be set.
 		// If an overflow occured FREQ_METER_INVALID_FREQUENCY is handed over and signals the error.
-		measurement_complete_action( is_overflowed ? FREQ_METER_INVALID_FRRQUENCY : &freq );
+		measurement_complete_action( is_overflowed ? FREQ_METER_INVALID_FRRQUENCY : &frequency );
 
 		// If another measurement is requested, start it now.
 		if(measurement_requested)
@@ -170,7 +171,7 @@ uint32_t get_actual_frequency(uint16_t scaled_frequency)
 }
 
 
-uint8_t freq_meter_is_measuring()
+uint8_t frequency_meter_is_measuring()
 {
 	return (SBIT( TIMSK0, TOIE0 ) | measurement_requested);
 

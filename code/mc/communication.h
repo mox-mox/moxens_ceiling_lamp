@@ -1,10 +1,11 @@
-#ifndef COMMUNICATE_H
-#define COMMUNICATE_H
+#ifndef COMMUNICATION_H
+#define COMMUNICATION_H
 
 
 #define BAUD		9600
 
-void send_command(uint8_t ticket, uint8_t command, uint8_t data);
+void init_communication(uint32_t baudrate);
+void send_command(uint8_t command, uint8_t data);
 
 
 
@@ -16,17 +17,14 @@ void send_command(uint8_t ticket, uint8_t command, uint8_t data);
 
 //Protocol:
 
-//Startbyte Startbyte Ticket Command Data Checksum
-//0xFF      0xFF      0xXX   0xYY    0xZZ XX+YY+ZZ
+//Startbyte Startbyte Command Data Checksum
+//0xFF      0xFF      0xYY    0xZZ XX+YY+ZZ
 
-#define STARTBYTE 0xFF
+#define STARTBYTE 0xFF		// This is not to be changed, but to allow 
 
 //{{{
-enum instructions			// Arguments
-{
-	ack,					// NONE
-	nak,					// NONE
-
+enum instructions_enum
+{	// Instructions			// Arguments
 	humidity1,				// PC->MC: NONE,             MC->PC: High-Byte of the Measurement
 	humidity2,				// PC->MC: Will not be sent, MC-PC: Low-Byte of the Measurement
 
@@ -56,8 +54,10 @@ enum instructions			// Arguments
 
 	// much free space for additional commands ;)
 
-	invalid_command=255;	// With this, detecting 0xFF 0xFF as startbyte becomes unambigious
+	invalid_command=STARTBYTE;	// With this, detecting the startbytes becomes mostly unambigious.
+								// There is still the possibility, that the checksum becomes STARTBYTE, but this should not be that much of a problem.
 } __attribute__((packed));
+typedef instructions instructions_enum;
 //}}}
 
-#endif /* COMMUNICATE_H */
+#endif /* COMMUNICATION_H */

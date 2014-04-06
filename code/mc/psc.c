@@ -1,7 +1,9 @@
-#include "pwm.h"
+#include "psc.h"
+#include "main.h"
 #include <avr/io.h>
+#include <avr/interrupt.h>
 
-void init_pwm()
+void init_psc()
 {
 	// Don't care for ADC-sync, Enable PSCn1 and PSCn0 outputs, disable PSC22 and PSC23 outputs
 	PSOC0=                           (0<<PSYNC01)  | (0<<PSYNC00)  |               (1<<POEN0B) |               (1<<POEN0A);
@@ -78,12 +80,12 @@ void init_pwm()
 	PIFR2 = (1<<POAC2B) | (1<<POAC2A) | (1<<PSEI2) | (1<<PEV2B) | (1<<PEV2A) | (1<<PRN21) | (1<<PRN20) | (1<<PEOP2);
 }
 
-inline void start_pwm()
+inline void start_psc()
 {
 	// Only need to start PSC0 explicitly, the others are slaved to it //PCTL0 |= (1<<PRUN0);
 	SBIT(PCTL0, PRUN0) = 1;
 }
-inline void stop_pwm()
+inline void stop_psc()
 {
 	// Only need to stop PSC0 explicitly, the others are slaved to it //PCTL0 &= ~(1<<PRUN0);
 	SBIT(PCTL0, PRUN0) = 0;

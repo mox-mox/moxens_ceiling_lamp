@@ -1,8 +1,8 @@
-#ifndef FREQ_METER_H
-#define FREQ_METER_H
+#ifndef FREQUENCY_METER_H
+#define FREQUENCY_METER_H
 /******************************************************************************/
 /*                                                                            */
-/*    Measure a frequenc at pin T1 using timer0 and timer1                    */
+/*    Measure a frequency at pin T1 using timer0 and timer1                    */
 /*    Inspired by Atmel Appnote AVR205                                        */
 /*                                                                            */
 /*    Principle:                                                              */
@@ -19,7 +19,7 @@
 /*       cycles counted, not the actual frequency (because that might         */
 /*       might not fit into 16 bit. Use get_actual_frequency() to get         */
 /*       the actual frequency)                                                */
-/*     - Call request_freq_measurement()                                      */
+/*     - Call request_frequency_measurement()                                 */
 /*     - Done. Any further processing of the result should be done by         */
 /*       the callback function.                                               */
 /*                                                                            */
@@ -34,27 +34,27 @@
 #define FREQ_METER_GATE_OPEN_TIME 0.1d
 
 #if !defined F_CPU
-	#error "Freq_meter needs to know the CPU frequency, so please define F_CPU somewhere appropriate."
+	#error "Frequency_meter needs to know the CPU frequency, so please define F_CPU somewhere appropriate."
 #endif
 
 #define FREQ_METER_INVALID_FREQUENCY 0xFFFF
-typedef void (*freq_measurement_callback_function)(uint16_t freq_multiplied_by_gate_open_time);
+typedef void (*frequency_measurement_callback_function)(uint16_t frequency_multiplied_by_gate_open_time);
 
 // Set up everything. This function only needs to be called once (or, when the timer/counter 0/1,
 // PC2 or PC3 were used elsewhere). It also sets the function to call when the measurement is done.
-void init_freq_counter(freq_measurement_callback_function freq_measurement_complete_callback);
+void init_frequency_meter(frequency_measurement_callback_function frequency_measurement_complete_callback);
 
 
 // Tell the module it should measure a frequency. The callback function will be called when the
 // measurement is done, so this is basically a fire and forget solution
-void request_freq_measurement();
+void request_frequency_measurement();
 
 // Convenience function to undo the scaling.
 // Usually you should just use the scaled frequency because the scaling is constant and allows to
 // fit into a 16 bit variable.
 uint32_t get_actual_frequency(uint16_t scaled_frequency);
 
-uint8_t freq_meter_is_measuring();
+uint8_t frequency_meter_is_measuring();
 
 
-#endif /* FREQ_METER_H */
+#endif /* FREQUENCY_METER_H */

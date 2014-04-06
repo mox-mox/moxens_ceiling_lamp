@@ -2,8 +2,6 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-#include <avr/interrupt.h>
-#include <avr/io.h>
 #include <stdint.h>
 //#include <inttypes.h>
 #include <util/delay.h>
