@@ -4,8 +4,8 @@
 
 #define S_PWR PD5
 
-void get_humidity();
 void init_humidity();
+void measure_humidity();
 
 
 

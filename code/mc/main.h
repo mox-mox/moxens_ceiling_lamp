@@ -1,3 +1,4 @@
+//vim :let g:syntastic_c_checkers = ['avr-gcc']
 #ifndef MAIN_H
 #define MAIN_H
 
