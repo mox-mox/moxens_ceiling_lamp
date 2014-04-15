@@ -1,0 +1,12 @@
+<!-- From: file:/dev/shm/asd-mox/home/mox/.eagle/projects/Zimmerlampe/code/android/src/main/AndroidManifest.xml --><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0.0" package="org.hello">
+
+	<application android:label="@string/app_name">
+		<activity android:label="@string/app_name" android:name="org.hello.HelloActivity">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN"/>
+				<category android:name="android.intent.category.LAUNCHER"/>
+			</intent-filter>
+		</activity>
+	</application>
+
+</manifest>

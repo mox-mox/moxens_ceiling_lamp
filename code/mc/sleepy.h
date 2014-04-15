@@ -12,6 +12,20 @@
 //Ttimer_min =  17.895
 
 
+// Wenn Power zusammenbricht (INT2), clock maximal runterteilen, PSC ausschalten. S_PWR abschalten, falls gesetzt. Timer1 auf 
+
+void init_sleepy();
+
+
+
+
+
+
+
+
+
+
+
 
 
 

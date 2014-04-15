@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<issues format="4" by="lint 22.6.2">
+
+    <issue
+        id="MissingApplicationIcon"
+        severity="Warning"
+        message="Should explicitly set android:icon, there is no default"
+        category="Usability:Icons"
+        priority="5"
+        summary="Checks that the application icon is set"
+        explanation="You should set an icon for the application as whole because there is no default. This attribute must be set as a reference to a drawable resource containing the image (for example `@drawable/icon`)."
+        url="http://developer.android.com/tools/publishing/preparing.html#publishing-configure"
+        urls="http://developer.android.com/tools/publishing/preparing.html#publishing-configure"
+        errorLine1=" &lt;application android:label=&quot;@string/app_name&quot; >"
+        errorLine2=" ^">
+        <location
+            file="/dev/shm/asd-mox/home/mox/.eagle/projects/Zimmerlampe/code/android/src/main/AndroidManifest.xml"
+            line="7"
+            column="2"/>
+    </issue>
+
+</issues>

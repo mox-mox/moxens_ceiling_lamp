@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger>
+
+    <dataSet config="main" >
+        <source path="/dev/shm/asd-mox/home/mox/.eagle/projects/Zimmerlampe/code/android/src/main/res" >
+            <file
+                path="/dev/shm/asd-mox/home/mox/.eagle/projects/Zimmerlampe/code/android/src/main/res/values/strings.xml"
+                qualifiers="" >
+                <string name="app_name" >Android Gradle
+                </string>
+            </file>
+            <file
+                name="hello_layout"
+                path="/dev/shm/asd-mox/home/mox/.eagle/projects/Zimmerlampe/code/android/src/main/res/layout/hello_layout.xml"
+                qualifiers=""
+                type="layout" />
+        </source>
+        <source path="/dev/shm/asd-mox/home/mox/.eagle/projects/Zimmerlampe/code/android/build/res/rs/debug" />
+        <source path="/dev/shm/asd-mox/home/mox/.eagle/projects/Zimmerlampe/code/android/build/res/generated/debug" />
+    </dataSet>
+    <dataSet config="debug" >
+        <source path="/dev/shm/asd-mox/home/mox/.eagle/projects/Zimmerlampe/code/android/src/debug/res" />
+    </dataSet>
+
+</merger>
