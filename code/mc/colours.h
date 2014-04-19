@@ -4,86 +4,49 @@
 #include "psc.h"
 #include <avr/io.h>
 
+//#define R1 OCR0RB //PSCOUT01
+//#define G1 OCR1RB //PSCOUT11
+//#define B1 OCR0RA //PSCOUT00
+//
+//#define R2 OCR1RA //PSCOUT10
+//#define G2 OCR2RA //PSCOUT20
+//#define B2 OCR2RB //PSCOUT21
+
+// Multiplication by 16 is just a left shift by 4 which converts the 8-bit ligtness value into the 12-bit value for the pwm.
+// So to scale down one colour, decrease its scale.
+#define R_SCALE 16
+#define G_SCALE 16
+#define B_SCALE 16
 
 void init_colours();
 
-typedef uint8_t colour_value;
-
-typedef struct colour_struct
+inline void set_rgb1_values(const uint8_t colour[3])
 {
-	colour_value r;
-	colour_value g;
-	colour_value b;
-} colour;
+	B1=colour[2]*B_SCALE;	// The chronological order is important because autolocking ensures
+	R1=colour[0]*R_SCALE;	// the update of the PSC internal registers will only be done at the end
+	G1=colour[1]*G_SCALE;	// of the PSC cycle if the Output Compare Register RB has been the last written
+}
 
-extern colour new_colour1;
-extern colour new_colour2;
-
-void update_colour1_values();
-void update_colour2_values();
-
-
-uint16_t convert_r_to_psc_value(colour_value r); // TODO
-uint16_t convert_g_to_psc_value(colour_value g); // TODO
-uint16_t convert_b_to_psc_value(colour_value b); // TODO
-
-colour_value convert_psc_value_to_r(uint16_t foo); // TODO
-colour_value convert_psc_value_to_g(uint16_t foo); // TODO
-colour_value convert_psc_value_to_b(uint16_t foo); // TODO
-
+inline void set_rgb2_values(const uint8_t colour[3])
+{
+	R2=colour[0]*R_SCALE;	// The chronological order is important because autolocking ensures
+	G2=colour[1]*G_SCALE;	// the update of the PSC internal registers will only be done at the end
+	B2=colour[2]*B_SCALE;	// of the PSC cycle if the Output Compare Register RB has been the last written
+	G1=G1;	// Enable update of R2
+}
 
 //{{{
-inline void set_value_r1(colour_value r)
+inline void get_rgb1_value2(uint8_t colour[3])
 {
-	R1=convert_r_to_psc_value(r);
+	colour[0]=R1/R_SCALE;
+	colour[1]=G1/G_SCALE;
+	colour[2]=B1/B_SCALE;
 }
-inline void set_value_g1(colour_value g)
+inline void get_rgb2_value2(uint8_t colour[3])
 {
-	G1=convert_g_to_psc_value(g);
-}
-inline void set_value_b1(colour_value b)
-{
-	B1=convert_b_to_psc_value(b);
-}
-
-inline void set_value_r2(colour_value r)
-{
-	R2=convert_r_to_psc_value(r);
-}
-inline void set_value_g2(colour_value g)
-{
-	G2=convert_g_to_psc_value(g);
-}
-inline void set_value_b2(colour_value b)
-{
-	B2=convert_b_to_psc_value(b);
-}
-//}}}
-
-//{{{
-inline uint8_t get_r1_value()
-{
-	return convert_psc_value_to_r(R1);
-}
-inline uint8_t get_g1_value()
-{
-	return convert_psc_value_to_g(G1);
-}
-inline uint8_t get_b1_value()
-{
-	return convert_psc_value_to_b(B1);
-}
-inline uint8_t get_r2_value()
-{
-	return convert_psc_value_to_r(R2);
-}
-inline uint8_t get_g2_value()
-{
-	return convert_psc_value_to_g(G2);
-}
-inline uint8_t get_b2_value()
-{
-	return convert_psc_value_to_b(B2);
+	colour[0]=R2/R_SCALE;
+	colour[1]=G2/G_SCALE;
+	colour[2]=B2/B_SCALE;
 }
 //}}}
 

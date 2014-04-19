@@ -37,10 +37,10 @@ void measurement_complete_handler(uint16_t scaled_frequency)
 	if(!frequency_meter_is_measuring())
 		disable_humidity_sensor();
 
-	//last_humidity_measurement=scaled_frequency;
-
-	send_command(humidity1, (uint8_t) scaled_frequency>>8);
-	send_command(humidity2, (uint8_t) scaled_frequency);
+	uint8_t freq_array[3];
+	*freq_array=scaled_frequency;	// Write to freq_array[0] and freq_array[1] at once without breaking up the 16-bit variable.
+	//freq_array[2]=0;				   Not neccesary. This byte will not be read anyways.
+	send_command(humidity, freq_array);
 }
 
 

@@ -13,7 +13,6 @@
 #include "communication.h"
 
 
-#define BAUD		9600UL
 
 
 
@@ -53,5 +52,5 @@ void init()
 
 	init_humidity();
 
-	init_communication(BAUD);
+	init_communication();
 }

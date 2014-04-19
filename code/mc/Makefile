@@ -14,7 +14,7 @@ SOURCE += sleepy.c
 # Libraries
 LIBS = -lm
 
-#INCLUDES = -I"../include"
+INCLUDES = -I".."
 
 # Optimization
 # O0 - no optimization

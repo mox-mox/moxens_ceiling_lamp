@@ -6,26 +6,28 @@
 #include "colours.h"
 
 
-inline void handle_command(instruction command, uint8_t data);
+inline void handle_command(instruction command, uint8_t data[3]);
 
-void init_communication(uint32_t baudrate)
+//{{{
+void init_communication()
 {
-	const uint16_t bauddivider = ((uint16_t) ((F_CPU / baudrate / 16)-0.5));		// Calculate settings for the baud rate...
-	UBRR = bauddivider;																// ...and set the baud rate
+	UBRR = ((uint16_t) ((F_CPU / BAUD / 16)-0.5));		// Calculate settings for the baud rate...
 
 	UCSRA = (0<<U2X) | (0<<MPCM);													// no U2X, no MPCM
 	UCSRB = (1<<RXCIE) | (0<<TXCIE), (1<<UDRIE), (1<<RXEN), (1<<TXEN), (0<<UCSZ2);	// Receive Interrupt, Data Empty Interrupt RX and TX set
 	UCSRC = (0<<UMSEL0) | (1<<UPM1) | (1<<UPM0) | (1<<USBS) | (1<<UCSZ1) | (1<<UCSZ2) | (0<<UCPOL);	// Async, odd parity, 2 stop bits, 8-bit frames
 }
+//}}}
 
 
 ISR(USART_RX_vect)
 {
 	static uint8_t state=0;
 	static uint8_t command;
-	static uint8_t data;
+	static uint8_t data[3];
 	static uint8_t received_byte;
 
+	//{{{
 	// Read Error codes and put the byte into the buffer
 	if(UCSRA & ((1<<FE) | (1<<DOR) | (1<<UPE)))					// If there is a frame- or parity- or overrun- error...
 	{
@@ -46,26 +48,36 @@ ISR(USART_RX_vect)
 			state++;
 			break;
 		case 3:
-			data=received_byte;
+			data[0]=received_byte;
 			state++;
 			break;
-		case 4:													// Checksum
+		case 4:
+			data[1]=received_byte;
+			state++;
+			break;
+		case 5:
+			data[2]=received_byte;
+			state++;
+			break;
+		case 6:													// Checksum
 			state=0;
-			if(command+data == received_byte)	// valid checksum
+			if(command+data[0]+data[1] +data[2]== received_byte)	// valid checksum
 				handle_command(command, data);
 		default:		// WTF happened?
 			state=0;
 			break;
 	}
+	//}}}
 }
 
 
 #define TX_FIFO_SIZE 16 // Must be a power of 2
-volatile uint8_t commands_to_send[TX_FIFO_SIZE][2];
+volatile uint8_t commands_to_send[TX_FIFO_SIZE][4];
 volatile uint8_t tx_write_index;
 volatile uint8_t tx_read_index;
 volatile uint8_t tx_fifo_crash_flag = 0;
-void send_command(instruction command, uint8_t data)
+//{{{
+void send_command(instruction command, const uint8_t data[3])
 {
 	uint8_t sreg=SREG;
 	cli();
@@ -73,9 +85,13 @@ void send_command(instruction command, uint8_t data)
 	tx_write_index &= (TX_FIFO_SIZE-1);							// increment with overflow
 	//if(tx_write_index==tx_read_index) tx_fifo_crash_flag=1;	//TODO: Is there an off-by-one-error?
 	commands_to_send[tx_write_index][0]=(uint8_t) command;
-	commands_to_send[tx_write_index][1]=data;
+	commands_to_send[tx_write_index][1]=data[0];
+	commands_to_send[tx_write_index][2]=data[1];
+	commands_to_send[tx_write_index][3]=data[2];
 	SREG=sreg;
+	SBIT( UCSRB, UDRIE) = 1;									// Enable sending by enabling the UDR_empty interrupt
 }
+//}}}
 
 
 
@@ -86,8 +102,9 @@ ISR(USART_UDRE_vect)
 {
 	static volatile uint8_t state=0;
 	static volatile uint8_t command;
-	static volatile uint8_t data;
+	static volatile uint8_t data[3];
 
+	//{{{
 	switch(state)
 	{
 		case 0:
@@ -99,8 +116,10 @@ ISR(USART_UDRE_vect)
 				return;
 			}
 			tx_read_index = command;						// command contains the incremented address //TODO: Should the adress be incremented after reading?
-			command = commands_to_send[tx_read_index][0];	// All hail the
-			data    = commands_to_send[tx_read_index][1];	// double buffer!!
+			command = commands_to_send[tx_read_index][0];	// All
+			data[0] = commands_to_send[tx_read_index][1];	// hail the
+			data[1] = commands_to_send[tx_read_index][2];	// double
+			data[2] = commands_to_send[tx_read_index][3];	// buffer!!
 			// note the case fall through...
 		case 1:
 			UDR=STARTBYTE;
@@ -111,17 +130,26 @@ ISR(USART_UDRE_vect)
 			state++;
 			break;
 		case 3:
-			UDR=data;
+			UDR=data[0];
 			state++;
 			break;
 		case 4:
-			UDR=command+data;
+			UDR=data[1];
+			state++;
+			break;
+		case 5:
+			UDR=data[2];
+			state++;
+			break;
+		case 6:
+			UDR=command+data[0]+data[1]+data[2];
 			state=0;
 			break;
 		default:		// WTF happened?
 			state=0;
 			break;
 	}
+	//}}}
 }
 
 
@@ -129,31 +157,28 @@ ISR(USART_UDRE_vect)
 
 
 
-inline void handle_command(instruction command, uint8_t data)
+inline void handle_command(instruction command, uint8_t data[3])
 {
 	sei();							// Handle commands while allowing interrupts
-	switch(command)
+	//{{{
+	switch(command)	// TODO: Update this section
 	{
 		//{{{
-		case humidity1:
+		case humidity:
 			measure_humidity();
-			break;
-		case humidity2:
-			//send_command(humidity1, (uint8_t) last_humidity_measurement>>8);
-			//send_command(humidity2, (uint8_t) last_humidity_measurement);
 			break;
 		//}}}
 
 		//{{{
 		case on_off:
-			if(!data)				// Data == 0 means "Lights off NOW!"
+			if(!data[0])				// Data == 0 means "Lights off NOW!"
 			{
 				stop_psc();			// Turn the light off completely
 			}
 			else					// Data > 0 asks for the lights to be turned back on
 			{
 				start_psc();		// Turn the lights on
-				if(data>1)			// Data > 1 requests full brightness
+				if(data[0]>1)			// Data > 1 requests full brightness
 				{
 					R1=0x0FFF;		// Set
 					G1=0x0FFF;		// all
@@ -167,75 +192,33 @@ inline void handle_command(instruction command, uint8_t data)
 		//}}}
 
 		//{{{
-		case set_r:
-			new_colour1.r=data;
-			new_colour2.r=data;
-			break;
-		case set_g:
-			new_colour1.g=data;
-			new_colour2.g=data;
-			break;
-		case set_b:
-			new_colour1.b=data;
-			new_colour2.b=data;
+		case set_rgb:
+			set_rgb1_values(data);
+			set_rgb2_values(data);
 			break;
 		//}}}
 
 		//{{{
-		case set_r1:
-			new_colour1.r=data;
+		case set_rgb1:
+			set_rgb1_values(data);
 			break;
-		case set_g1:
-			new_colour1.g=data;
-			break;
-		case set_b1:
-			new_colour1.b=data;
-			break;
-		case set_r2:
-			new_colour2.r=data;
-			break;
-		case set_g2:
-			new_colour2.g=data;
-			break;
-		case set_b2:
-			new_colour2.b=data;
+		case set_rgb2:
+			set_rgb2_values(data);
 			break;
 		//}}}
 
 		//{{{
-		case update_colour:
-			update_colour1_values();
-			update_colour2_values();
+		case get_rgb1:
+			get_rgb1_value2(data);
+			send_command(set_rgb1, data);
 			break;
-		case update_colour1:
-			update_colour1_values();
-			break;
-		case update_colour2:
-			update_colour2_values();
-			break;
-		//}}}
-
-		//{{{
-		case get_r1:
-			send_command(set_r1, get_r1_value());
-			break;
-		case get_g1:
-			send_command(set_g1, get_g1_value());
-			break;
-		case get_b1:
-			send_command(set_b1, get_b1_value());
-			break;
-		case get_r2:
-			send_command(set_r2, get_r2_value());
-			break;
-		case get_g2:
-			send_command(set_g2, get_g2_value());
-			break;
-		case get_b2:
-			send_command(set_b2, get_b2_value());
+		case get_rgb2:
+			get_rgb1_value2(data);
+			send_command(set_rgb1, data);
 			break;
 		//}}}
 		default:
 			break;
 	}
+	//}}}
 }
