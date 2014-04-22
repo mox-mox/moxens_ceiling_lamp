@@ -4,6 +4,10 @@
 // The Baudrate to use for communication
 //#define BAUD		9600UL
 #define BAUD		4800UL
+#define enumBAUD	BAUD_4800
+
+// Further settings for the serial connection:
+// Asyncronous communication, odd parity, 2 stop bits, 8-bit frames
 
 //Protocol:
 
@@ -15,6 +19,8 @@
 //{{{
 enum instructions_enum
 {	// Instructions			// Arguments
+	ack,
+	nak,
 	humidity,				// PC->MC: NONE,             MC->PC: Result of the Measurement
 
 	on_off,					// 0: Turn the Lights off completely, 1: Turn the lights on immediately, 2: Turn the lights on and to full brightness immediately

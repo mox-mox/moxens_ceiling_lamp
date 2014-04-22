@@ -5,17 +5,20 @@
 #include "humidity.h"
 #include "colours.h"
 
-
 inline void handle_command(instruction command, uint8_t data[3]);
 
 //{{{
 void init_communication()
 {
-	UBRR = ((uint16_t) ((F_CPU / BAUD / 16)-0.5));		// Calculate settings for the baud rate...
+	EUCSRB=0;	// Disable the extended USART
 
-	UCSRA = (0<<U2X) | (0<<MPCM);													// no U2X, no MPCM
-	UCSRB = (1<<RXCIE) | (0<<TXCIE), (1<<UDRIE), (1<<RXEN), (1<<TXEN), (0<<UCSZ2);	// Receive Interrupt, Data Empty Interrupt RX and TX set
-	UCSRC = (0<<UMSEL0) | (1<<UPM1) | (1<<UPM0) | (1<<USBS) | (1<<UCSZ1) | (1<<UCSZ2) | (0<<UCPOL);	// Async, odd parity, 2 stop bits, 8-bit frames
+	UBRRH=0;	// This SHOULD be 9600 baud at F_CPU=2MHz, but for some wicked reason it is 4800 baud...
+	UBRRL=12;	// This SHOULD be 9600 baud at F_CPU=2MHz, but for some wicked reason it is 4800 baud...
+
+	UCSRA = (1<<TXC) | (0<<U2X)    | (0<<MPCM);													// no U2X, no MPCM
+	UCSRB = (1<<RXCIE)  | (0<<TXCIE) | (1<<UDRIE) | (1<<RXEN) | (1<<TXEN)  | (0<<UCSZ2);	// Receive Interrupt, Data Empty Interrupt RX and TX set
+	//UCSRC = (0<<UMSEL0) | (1<<UPM1)  | (1<<UPM0)  | (1<<USBS) | (1<<UCSZ1) | (1<<UCSZ0) | (0<<UCPOL);	// Async, odd parity, 2 stop bits, 8-bit frames
+	UCSRC = (0<<UMSEL0) | (0<<UPM1)  | (0<<UPM0)  | (0<<USBS) | (1<<UCSZ1) | (1<<UCSZ0) | (0<<UCPOL);	// Async, no parity, 1 stop bits, 8-bit frames
 }
 //}}}
 
@@ -28,14 +31,17 @@ ISR(USART_RX_vect)
 	static uint8_t received_byte;
 
 	//{{{
-	// Read Error codes and put the byte into the buffer
+	//Read Error codes and put the byte into the buffer
 	if(UCSRA & ((1<<FE) | (1<<DOR) | (1<<UPE)))					// If there is a frame- or parity- or overrun- error...
 	{
 		state=0;												// ...drop this packet
 		received_byte=UDR;										// read this to avoid a data overrun error from the next byte
+		UDR=UCSRA;	// remove
 		return;
 	}
 	received_byte=UDR;
+	UDR=received_byte;	// remove
+	//UDR=(255-received_byte);	// remove
 	switch(state)
 	{
 		case 0:													// 1st start bit
@@ -61,8 +67,15 @@ ISR(USART_RX_vect)
 			break;
 		case 6:													// Checksum
 			state=0;
-			if(command+data[0]+data[1] +data[2]== received_byte)	// valid checksum
+			if(command+data[0]+data[1] +data[2] == received_byte)	// valid checksum
+			{
 				handle_command(command, data);
+				send_command(ack, data);						// remove
+			}
+			else												// remove
+			{													// remove
+				send_command(nak, data);						// remove
+			}													// remove
 		default:		// WTF happened?
 			state=0;
 			break;
@@ -71,7 +84,7 @@ ISR(USART_RX_vect)
 }
 
 
-#define TX_FIFO_SIZE 16 // Must be a power of 2
+#define TX_FIFO_SIZE 16	// Must be a power of 2
 volatile uint8_t commands_to_send[TX_FIFO_SIZE][4];
 volatile uint8_t tx_write_index;
 volatile uint8_t tx_read_index;
@@ -89,7 +102,7 @@ void send_command(instruction command, const uint8_t data[3])
 	commands_to_send[tx_write_index][2]=data[1];
 	commands_to_send[tx_write_index][3]=data[2];
 	SREG=sreg;
-	SBIT( UCSRB, UDRIE) = 1;									// Enable sending by enabling the UDR_empty interrupt
+	SBIT(UCSRB, UDRIE) = 1;										// Enable sending by enabling the UDR_empty interrupt
 }
 //}}}
 
@@ -112,7 +125,7 @@ ISR(USART_UDRE_vect)
 			command = (tx_read_index+1) & (TX_FIFO_SIZE-1);
 			if(command == tx_write_index)						// If the buffer is empty... // TODO: Is there an off-by-one-error?
 			{
-				SBIT( UCSRB, UDRIE) = 0;						// ...disable this interrupt...
+				SBIT(UCSRB, UDRIE) = 0;							// ...disable this interrupt...
 				return;
 			}
 			tx_read_index = command;						// command contains the incremented address //TODO: Should the adress be incremented after reading?
@@ -120,7 +133,7 @@ ISR(USART_UDRE_vect)
 			data[0] = commands_to_send[tx_read_index][1];	// hail the
 			data[1] = commands_to_send[tx_read_index][2];	// double
 			data[2] = commands_to_send[tx_read_index][3];	// buffer!!
-			// note the case fall through...
+		// note the case fall through...
 		case 1:
 			UDR=STARTBYTE;
 			state++;
@@ -178,7 +191,7 @@ inline void handle_command(instruction command, uint8_t data[3])
 			else					// Data > 0 asks for the lights to be turned back on
 			{
 				start_psc();		// Turn the lights on
-				if(data[0]>1)			// Data > 1 requests full brightness
+				if(data[0] > 1)				// Data > 1 requests full brightness
 				{
 					R1=0x0FFF;		// Set
 					G1=0x0FFF;		// all

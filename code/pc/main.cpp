@@ -1,123 +1,99 @@
-#include <iostream>
 #include <SerialStream.h>
-#include <math.h>
+#include <iostream>
+#include <unistd.h>
+#include <cstdlib>
 
-
-
-void print_help(std::string progname)
+int main(int argc, char** argv)
 {
-	std::cout<<"Usage: "<<progname<<" /dev/yourtty <command> <data...>"<<std::endl;
-}
-
-
-
-
-
-int main(int argc, char** argv) //args: /dev/tty* command 
-{
-	if(argc<1)
+	if ( argc < 2 )
 	{
-		std::cerr<<"Error: No serial port was specified"<<std::endl;
-		print_help(argv[0]);
+		std::cerr << "Usage: " << argv[0] << " <your_tty>" << std::endl;
+		std::cerr << "Example: " <<argv[0] << "ttyUSB0" << std::endl;
+		return 1;
 	}
-
-
-	LibSerial::SerialStream my_serial_port(argv[1]);
-// Open the serial port for communication.
-	my_serial_port.Open(const BaudRate      baudRate    = BAUD_DEFAULT,
-		     const CharacterSize charSize    = CHAR_SIZE_DEFAULT,
-		     const Parity        parityType  = PARITY_DEFAULT,
-		     const StopBits      stopBits    = STOP_BITS_DEFAULT,
-		     const FlowControl   flowControl = FLOW_CONTROL_DEFAULT)
-		throw(AlreadyOpen,
-		      OpenFailed,
-		      UnsupportedBaudRate,
-		      std::invalid_argument);
-
-
-
-
-
-
-
-// Use 8 bit wide characters.
-	my_serial_port.SetCharSize(LibSerial::SerialStreamBuf::CHAR_SIZE_8);
-
-//5.4. Setting the Number of Stop Bits
-
-
-// Use one stop bit.
-	my_serial_port.SetNumOfStopBits(1);
-
-//5.5. Setting the Parity Type
-
-
-// Use odd parity during serial communication.
-	my_serial_port.SetParity(LibSerial::SerialStreamBuf::PARITY_ODD);
-
-//5.6. Setting the Flow-Control Type
-
-
-// Use hardware flow-control.
-	my_serial_port.SetFlowControl(LibSerial::SerialStreamBuf::FLOW_CONTROL_HARD);
-
-//5.7. Reading Characters
-
-	//Characters can be read from the serial port using standard iostream ">>" operator.For example :
-
-
-// Read one character from the serial port.
-	char next_char;
-	my_serial_port >> next_char;
-// You can also read other types of values from the serial port in a similar fashion.
-	int data_size;
-	my_serial_port >> data_size;
-
-	//All other methods of standard C++ iostream objects are available too.For example, one can read characters from the serial port using the get() method :
-
-
-// Read one byte from the serial port.
-	char next_byte;
-	my_serial_port.get(next_byte);
-
-//5.8. Writing Characters
-
-
-// Write a single character to the serial port.
-	my_serial_port << 'U';
-// You can write a whole string.
-	my_serial_port << "Hello, Serial Port." << std::endl;
-// In fact, you can pretty much write any type of object that
-// is supported by a "<<" operator.
-	//double radius = 2.0;
-	double area = M_PI * 2.0 * 2.0;
-	my_serial_port << area << std::endl;
-
-//5.9. Reading Blocks of Data
-
-
-// Read a whole array of data from the serial port.
-	const int BUFFER_SIZE = 256;
-	char input_buffer[BUFFER_SIZE];
-//
-	my_serial_port.read(input_buffer,
-	                      BUFFER_SIZE);
-
-//5.10. Writing Blocks of Data
-
-
-// Write an array of data from the serial port.
-	//const int BUFFER_SIZE = 256;
-	char output_buffer[BUFFER_SIZE];
-	for(int i=0; i < BUFFER_SIZE; ++i)
+	//
+	// Open the serial port.
+	//
+	using namespace LibSerial;
+	SerialStream serial_port;
+	std::string portname(argv[1]);
+	serial_port.Open("/dev/"+portname);
+	if ( !serial_port.good())
 	{
-		output_buffer[i] = i;
+		std::cerr << "[" << __FILE__ << ":" << __LINE__ << "] "
+		          << "Error: Could not open serial port."
+		          << std::endl;
+		exit(1);
 	}
-	my_serial_port.write(output_buffer,
-	                       BUFFER_SIZE);
-
-//5.11. Closing the Serial Port
-
-
-	my_serial_port.Close();
+	//
+	// Set the baud rate of the serial port.
+	//
+	serial_port.SetBaudRate(SerialStreamBuf::BAUD_115200);
+	if ( !serial_port.good())
+	{
+		std::cerr << "Error: Could not set the baud rate." << std::endl;
+		exit(1);
+	}
+	//
+	// Set the number of data bits.
+	//
+	serial_port.SetCharSize(SerialStreamBuf::CHAR_SIZE_8);
+	if ( !serial_port.good())
+	{
+		std::cerr << "Error: Could not set the character size." << std::endl;
+		exit(1);
+	}
+	//
+	// Disable parity.
+	//
+	serial_port.SetParity(SerialStreamBuf::PARITY_NONE);
+	if ( !serial_port.good())
+	{
+		std::cerr << "Error: Could not disable the parity." << std::endl;
+		exit(1);
+	}
+	//
+	// Set the number of stop bits.
+	//
+	serial_port.SetNumOfStopBits(1);
+	if ( !serial_port.good())
+	{
+		std::cerr << "Error: Could not set the number of stop bits."
+		          << std::endl;
+		exit(1);
+	}
+	//
+	// Turn off hardware flow control.
+	//
+	serial_port.SetFlowControl(SerialStreamBuf::FLOW_CONTROL_NONE);
+	if ( !serial_port.good())
+	{
+		std::cerr << "Error: Could not use hardware flow control."
+		          << std::endl;
+		exit(1);
+	}
+	//
+	// Do not skip whitespace characters while reading from the
+	// serial port.
+	//
+	// serial_port.unsetf( std::ios_base::skipws ) ;
+	//
+	// Wait for some data to be available at the serial port.
+	//
+	while( serial_port.rdbuf()->in_avail() == 0 )
+	{
+		usleep(100);
+	}
+	//
+	// Keep reading data from serial port and print it to the screen.
+	//
+	while( serial_port.rdbuf()->in_avail() > 0  )
+	{
+		char next_byte;
+		serial_port.get(next_byte);
+		std::cerr << std::hex << static_cast<int>(next_byte) << " ";
+		usleep(100);
+	}
+	std::cerr << std::endl;
+	return EXIT_SUCCESS;
 }

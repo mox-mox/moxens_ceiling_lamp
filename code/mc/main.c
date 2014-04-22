@@ -7,10 +7,10 @@
 /************************************************************************/
 #include "main.h"
 #include <avr/io.h>
-//#include <avr/interrupt.h>
-#include "colours.h"
-#include "humidity.h"
+#include <avr/interrupt.h>
 #include "communication.h"
+//#include "colours.h"
+//#include "humidity.h"
 
 
 
@@ -23,11 +23,11 @@ int main(void)
 {
 	init();															//Initialisierung ausfuehren
 
-	volatile int i=0;
-
+	SBIT(DDRD, DDD2)=1;	// remove
 	for( ; ; )
 	{
-		i++;
+		//PORTD=255;
+		//PORTD=0;
 	}
 }
 
@@ -37,20 +37,12 @@ int main(void)
 
 void init()
 {
-	// set all Pins as High-Z inputs
-	DDRB=0x00;
-	DDRC=0x00;
-	DDRD=0x00;
-	DDRE=0x00;
+	cli();
 
-	PORTB=0x00;
-	PORTC=0x00;
-	PORTD=0x00;
-	PORTE=0x00;
+//	init_colours();
 
-	init_colours();
-
-	init_humidity();
+//	init_humidity();
 
 	init_communication();
+	sei();
 }
