@@ -12,7 +12,7 @@
 //Protocol:
 
 //Startbyte Startbyte Command Data[0] Data[1] Data[2] Checksum
-//0xFF      0xFF      0xAA    0xBB    0xCC    0xDD    AA+BB+CC+DD
+//0xFF      0xFF      0xAA    0xBB    0xCC    0xDD    AA+BB+CC+DD-1
 
 #define STARTBYTE 0xFF		// This is not to be changed.
 
@@ -41,3 +41,25 @@ typedef enum instructions_enum instruction;
 //}}}
 
 #endif /*COMDEFS_H*/
+
+
+
+
+// Geschwindigkeitsabschätzung des Protokolls
+//
+// Keine Parität, 1 Stopbit
+//*octave:5> bitrate=4800, total_byte_length=8+2, command_length=7, byterate=bitrate/total_byte_length, commandrate=byterate/command_length
+//bitrate =  4800
+//total_byte_length =  10
+//command_length =  7
+//byterate =  480
+//commandrate =  68.571
+//
+//
+// Mit Parität, 2 Stopbits
+//*octave:6> bitrate=4800, total_byte_length=8+4, command_length=7, byterate=bitrate/total_byte_length, commandrate=byterate/command_length
+//bitrate =  4800
+//total_byte_length =  12
+//command_length =  7
+//byterate =  400
+//commandrate =  57.143

@@ -26,9 +26,9 @@ void init_communication()
 ISR(USART_RX_vect)
 {
 	static uint8_t state=0;
-	static uint8_t command;
-	static uint8_t data[3];
-	static uint8_t received_byte;
+	static uint8_t command=0;
+	static uint8_t data[3]={0,0,0};
+	static uint8_t received_byte=0;
 
 	//{{{
 	//Read Error codes and put the byte into the buffer
@@ -36,12 +36,10 @@ ISR(USART_RX_vect)
 	{
 		state=0;												// ...drop this packet
 		received_byte=UDR;										// read this to avoid a data overrun error from the next byte
-		UDR=UCSRA;	// remove
 		return;
 	}
 	received_byte=UDR;
-	UDR=received_byte;	// remove
-	//UDR=(255-received_byte);	// remove
+	//UDR=received_byte;	// remove! This is here to test the pc terminal program
 	switch(state)
 	{
 		case 0:													// 1st start bit
@@ -65,12 +63,12 @@ ISR(USART_RX_vect)
 			data[2]=received_byte;
 			state++;
 			break;
-		case 6:													// Checksum
+		case 6:														// Checksum
 			state=0;
-			if(command+data[0]+data[1] +data[2] == received_byte)	// valid checksum
+			if((command+data[0]+data[1]+data[2]) == received_byte)// valid checksum
 			{
-				handle_command(command, data);
 				send_command(ack, data);						// remove
+				handle_command(command, data);
 			}
 			else												// remove
 			{													// remove
@@ -84,9 +82,17 @@ ISR(USART_RX_vect)
 }
 
 
-#define TX_FIFO_SIZE 16	// Must be a power of 2
-volatile uint8_t commands_to_send[TX_FIFO_SIZE][4];
-volatile uint8_t tx_write_index;
+#define TX_FIFO_SIZE 8	// Must be a power of 2
+volatile uint8_t commands_to_send[TX_FIFO_SIZE][4]=
+{{ 1,1,1,1},
+ { 2,2,2,2},
+ { 3,3,3,3},
+ { 4,4,4,4},
+ { 5,5,5,5},
+ { 6,6,6,6},
+ { 7,7,7,7},
+ { 8,8,8,8}};
+volatile uint8_t tx_write_index=0;
 volatile uint8_t tx_read_index;
 volatile uint8_t tx_fifo_crash_flag = 0;
 //{{{
@@ -94,13 +100,16 @@ void send_command(instruction command, const uint8_t data[3])
 {
 	uint8_t sreg=SREG;
 	cli();
-	tx_write_index++;
-	tx_write_index &= (TX_FIFO_SIZE-1);							// increment with overflow
+	//tx_write_index++;
+	//tx_write_index &= (TX_FIFO_SIZE-1);							// increment with overflow
 	//if(tx_write_index==tx_read_index) tx_fifo_crash_flag=1;	//TODO: Is there an off-by-one-error?
 	commands_to_send[tx_write_index][0]=(uint8_t) command;
 	commands_to_send[tx_write_index][1]=data[0];
 	commands_to_send[tx_write_index][2]=data[1];
 	commands_to_send[tx_write_index][3]=data[2];
+	tx_write_index++;
+	tx_write_index &= (TX_FIFO_SIZE-1);							// increment with overflow
+	if(tx_write_index==tx_read_index) tx_fifo_crash_flag=1;	//TODO: Is there an off-by-one-error?
 	SREG=sreg;
 	SBIT(UCSRB, UDRIE) = 1;										// Enable sending by enabling the UDR_empty interrupt
 }
@@ -125,6 +134,7 @@ ISR(USART_UDRE_vect)
 			command = (tx_read_index+1) & (TX_FIFO_SIZE-1);
 			if(command == tx_write_index)						// If the buffer is empty... // TODO: Is there an off-by-one-error?
 			{
+				//UDR=127; debug stuff
 				SBIT(UCSRB, UDRIE) = 0;							// ...disable this interrupt...
 				return;
 			}
@@ -133,6 +143,9 @@ ISR(USART_UDRE_vect)
 			data[0] = commands_to_send[tx_read_index][1];	// hail the
 			data[1] = commands_to_send[tx_read_index][2];	// double
 			data[2] = commands_to_send[tx_read_index][3];	// buffer!!
+			//UDR=tx_read_index;	debug stuff
+			//state++;
+			//break;
 		// note the case fall through...
 		case 1:
 			UDR=STARTBYTE;
@@ -155,7 +168,7 @@ ISR(USART_UDRE_vect)
 			state++;
 			break;
 		case 6:
-			UDR=command+data[0]+data[1]+data[2];
+			UDR=command+data[0]+data[1]+data[2];				// send the checksum
 			state=0;
 			break;
 		default:		// WTF happened?
@@ -176,6 +189,9 @@ inline void handle_command(instruction command, uint8_t data[3])
 	//{{{
 	switch(command)	// TODO: Update this section
 	{
+		case nak:
+		case ack:
+			break;
 		//{{{
 		case humidity:
 			measure_humidity();

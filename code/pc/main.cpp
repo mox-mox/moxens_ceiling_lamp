@@ -28,7 +28,7 @@ int main(int argc, char** argv)
 	//
 	// Set the baud rate of the serial port.
 	//
-	serial_port.SetBaudRate(SerialStreamBuf::BAUD_115200);
+	serial_port.SetBaudRate(SerialStreamBuf::BAUD_4800);
 	if ( !serial_port.good())
 	{
 		std::cerr << "Error: Could not set the baud rate." << std::endl;
@@ -76,13 +76,18 @@ int main(int argc, char** argv)
 	// Do not skip whitespace characters while reading from the
 	// serial port.
 	//
-	// serial_port.unsetf( std::ios_base::skipws ) ;
+	serial_port.unsetf(std::ios_base::skipws);
 	//
 	// Wait for some data to be available at the serial port.
 	//
 	while( serial_port.rdbuf()->in_avail() == 0 )
 	{
 		usleep(100);
+		serial_port<<1<<std::endl;
+		serial_port<<1<<std::endl;
+		serial_port<<1<<std::endl;
+		serial_port<<1<<std::endl;
+		serial_port<<1<<std::endl;
 	}
 	//
 	// Keep reading data from serial port and print it to the screen.
